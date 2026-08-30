@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MLC CAMP 2027 — семь дней ML и моря в Турции</title>
+<meta name="description" content="Неделя для DS и ML-специалистов на побережье Турции: воркшопы, общий проект, море, гулет, параплан и двадцать человек, с которыми есть о чём поговорить. Фетхие, первая половина июня 2027.">
+<meta name="theme-color" content="#FFC300">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MLC CAMP 2027 — семь дней ML и моря">
+<meta property="og:description" content="Воркшопы, общий проект, Средиземное море и двадцать своих людей. Фетхие, Турция, первая половина июня 2027.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1686465602845-868cebea024a?w=1200&q=80&auto=format&fit=crop">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Rubik:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111'/><text y='.9em' x='8' font-size='78' font-family='monospace' font-weight='bold' fill='%23FFC300'>M</text></svg>">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#111111;
+  --paper:#FFF8E7;
+  --sun:#FFC300;
+  --sea:#0E7C86;
+  --coral:#FF4D2E;
+  --deep:#073B4C;
+  --line:3px solid var(--ink);
+  --sh:6px 6px 0 var(--ink);
+  --sh-sm:4px 4px 0 var(--ink);
+  --sh-lg:10px 10px 0 var(--ink);
+  --r:0px;
+  --pad:clamp(18px,5vw,64px);
+  --maxw:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Rubik',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:17px;line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Unbounded','Rubik',sans-serif;font-weight:900;line-height:0.98;letter-spacing:-0.02em;margin:0;text-wrap:balance;overflow-wrap:anywhere}
+h1{font-size:clamp(2.3rem,8.2vw,6.2rem)}
+h2{font-size:clamp(1.85rem,5.6vw,4rem)}
+h3{font-size:clamp(1.05rem,2.4vw,1.5rem);font-weight:700;letter-spacing:-0.01em}
+p{margin:0 0 1em}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;letter-spacing:0.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+section{position:relative}
+section[id]{scroll-margin-top:78px}
+.sec{padding:clamp(56px,9vw,120px) 0}
+
+/* ============ PRIMITIVES ============ */
+.tag{
+  display:inline-flex;align-items:center;gap:.45em;
+  font-family:'JetBrains Mono',monospace;font-weight:700;
+  font-size:clamp(10px,2.4vw,12px);text-transform:uppercase;letter-spacing:.1em;
+  border:var(--line);background:var(--paper);color:var(--ink);
+  padding:.42em .7em;box-shadow:var(--sh-sm);
+}
+.tag--sun{background:var(--sun)} .tag--sea{background:var(--sea);color:#fff}
+.tag--coral{background:var(--coral);color:#fff} .tag--ink{background:var(--ink);color:var(--sun)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(11px,2.6vw,13px);
+  text-transform:uppercase;letter-spacing:.14em;display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.eyebrow::after{content:"";flex:1;height:3px;background:var(--ink)}
+.card{border:var(--line);background:var(--paper);box-shadow:var(--sh);padding:clamp(18px,3vw,28px)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:clamp(14px,3.4vw,17px);letter-spacing:-0.01em;
+  padding:clamp(14px,3.4vw,19px) clamp(20px,5vw,34px);
+  border:var(--line);background:var(--sun);color:var(--ink);
+  box-shadow:var(--sh);cursor:pointer;text-decoration:none;
+  transition:transform .09s ease,box-shadow .09s ease;
+  -webkit-tap-highlight-color:transparent;text-align:center;
+}
+.btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.btn:active{transform:translate(6px,6px);box-shadow:0 0 0 var(--ink)}
+.btn--coral{background:var(--coral);color:#fff}
+.btn--ink{background:var(--ink);color:var(--sun)}
+.btn--ghost{background:transparent}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:4px solid var(--sea);outline-offset:3px}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .55s cubic-bezier(.2,.7,.3,1),transform .55s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none}}
+
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(15px,3.6vw,20px);letter-spacing:-0.03em;text-decoration:none;white-space:nowrap}
+.logo .dot{width:16px;height:16px;background:var(--coral);border:2px solid var(--ink);border-radius:50%;flex:none;
+  animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.28)}}
+@media (prefers-reduced-motion:reduce){.logo .dot{animation:none}}
+.hd nav{display:none;gap:22px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12.5px;
+  text-transform:uppercase;letter-spacing:.06em}
+.hd nav a{text-decoration:none;padding:4px 0;border-bottom:3px solid transparent}
+.hd nav a:hover{border-bottom-color:var(--coral)}
+.hd .btn{padding:11px 20px;font-size:14px;box-shadow:var(--sh-sm)}
+@media(min-width:1000px){.hd nav{display:flex}}
+@media(max-width:479px){.hd .btn{padding:10px 14px;font-size:12.5px}}
+
+/* ============ HERO ============ */
+.hero{border-bottom:var(--line);background:
+  radial-gradient(circle at 12% 8%, rgba(255,195,0,.55) 0 22%, transparent 22.5%),
+  radial-gradient(circle at 88% 78%, rgba(14,124,134,.22) 0 18%, transparent 18.5%),
+  var(--paper);
+  overflow:hidden}
+.hero-in{padding-top:clamp(36px,7vw,72px);padding-bottom:clamp(30px,6vw,60px);
+  display:grid;gap:clamp(26px,4vw,48px);grid-template-columns:1fr;align-items:center}
+@media(min-width:940px){.hero-in{grid-template-columns:1.08fr .92fr}}
+.hero-meta{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+h1 .hl{background:var(--sun);box-shadow:0 0 0 6px var(--sun);border-radius:2px}
+h1 .out{color:transparent;-webkit-text-stroke:2.5px var(--ink);paint-order:stroke fill}
+.hero-sub{font-size:clamp(15.5px,3.6vw,20px);max-width:34ch;margin-top:26px;font-weight:400}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;align-items:center}
+.hero-note{font-size:13px;opacity:.72;margin-top:14px}
+.hero-art{position:relative}
+.hero-art .ph{border:var(--line);box-shadow:var(--sh-lg);aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--sea)}
+.hero-art .ph2{position:absolute;right:-6px;bottom:-26px;width:44%;aspect-ratio:1/1;object-fit:cover;
+  border:var(--line);box-shadow:var(--sh);background:var(--sun)}
+@media(max-width:939px){.hero-art{max-width:520px;margin:0 auto;width:100%}.hero-art .ph{aspect-ratio:5/4}}
+.float{animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none}}
+.stamp{position:absolute;left:-14px;top:-18px;z-index:3;background:var(--coral);color:#fff;border:var(--line);
+  box-shadow:var(--sh-sm);font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(11px,2.6vw,14px);padding:10px 14px;transform:rotate(-7deg);line-height:1.1;text-align:center}
+
+/* ============ MARQUEE ============ */
+.mq{border-bottom:var(--line);background:var(--ink);color:var(--sun);overflow:hidden;padding:13px 0}
+.mq-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
+.mq-track span{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(12px,2.9vw,15px);
+  text-transform:uppercase;letter-spacing:.09em;padding:0 22px;white-space:nowrap;display:flex;align-items:center;gap:22px}
+.mq-track span::after{content:"◆";color:var(--coral);font-size:.75em}
+
+/* ============ NUMBERS ============ */
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:var(--line);box-shadow:var(--sh);background:var(--paper)}
+@media(min-width:820px){.nums{grid-template-columns:repeat(4,1fr)}}
+.num{padding:clamp(20px,3.4vw,34px);border-right:var(--line);border-bottom:var(--line)}
+.num:nth-child(2n){border-right:0}
+@media(min-width:820px){.num{border-bottom:0}.num:nth-child(2n){border-right:var(--line)}.num:last-child{border-right:0}}
+@media(max-width:819px){.num:nth-last-child(-n+2){border-bottom:0}}
+.num b{display:block;font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(2.1rem,7vw,3.6rem);line-height:.92}
+.num span{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11.5px;
+  text-transform:uppercase;letter-spacing:.09em;margin-top:9px;opacity:.75}
+.num:nth-child(1) b{color:var(--coral)} .num:nth-child(2) b{color:var(--sea)}
+.num:nth-child(3) b{color:var(--ink)} .num:nth-child(4) b{color:var(--sea)}
+
+/* ============ GENERIC GRIDS ============ */
+.g2{display:grid;gap:clamp(16px,2.6vw,26px);grid-template-columns:1fr}
+@media(min-width:800px){.g2{grid-template-columns:1fr 1fr}}
+.g3{display:grid;gap:clamp(16px,2.6vw,24px);grid-template-columns:1fr}
+@media(min-width:700px){.g3{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.g3{grid-template-columns:repeat(3,1fr)}}
+
+/* ============ FOR WHOM ============ */
+.who{background:var(--sea);color:#fff;border-top:var(--line);border-bottom:var(--line)}
+.who .eyebrow::after{background:#fff}
+.who h2{color:#fff}
+.who-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.who-list li{display:flex;gap:13px;align-items:flex-start;font-size:clamp(15px,3.3vw,17.5px);line-height:1.45}
+.who-list li b{font-weight:700}
+.mark{flex:none;width:26px;height:26px;border:2.5px solid #fff;display:grid;place-items:center;
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;margin-top:2px}
+.mark--y{background:var(--sun);color:var(--ink);border-color:var(--ink)}
+.mark--n{background:transparent;color:#fff}
+.who .card{background:var(--deep);color:#fff;border-color:#fff;box-shadow:6px 6px 0 rgba(0,0,0,.35)}
+
+/* ============ DAY TABS ============ */
+.daywrap{position:relative}
+.daywrap::after{content:"";position:absolute;right:0;top:0;bottom:14px;width:46px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,248,231,0),var(--paper) 78%)}
+@media(min-width:760px){.daywrap::after{display:none}}
+.daybar{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;margin-bottom:26px;padding-right:34px;
+  scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+.daybar::-webkit-scrollbar{display:none}
+.daytab{flex:none;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12.5px;text-transform:uppercase;
+  letter-spacing:.05em;border:var(--line);background:var(--paper);padding:11px 15px;cursor:pointer;
+  box-shadow:var(--sh-sm);transition:transform .09s,box-shadow .09s,background .12s;white-space:nowrap}
+.daytab:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.daytab[aria-selected="true"]{background:var(--ink);color:var(--sun)}
+.dayp[hidden]{display:none}
+.tl{position:relative;padding-left:26px;display:grid;gap:0}
+.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:3px;background:var(--ink)}
+.tl-row{position:relative;display:grid;grid-template-columns:76px 1fr;gap:14px;padding:13px 0;border-bottom:2px dashed rgba(17,17,17,.22)}
+.tl-row:last-child{border-bottom:0}
+.tl-row::before{content:"";position:absolute;left:-26px;top:20px;width:15px;height:15px;background:var(--sun);border:3px solid var(--ink);border-radius:50%}
+.tl-row.acc::before{background:var(--coral)}
+.tl-time{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;padding-top:2px;opacity:.8}
+.tl-txt strong{display:block;font-weight:700;font-size:clamp(15px,3.3vw,17px);margin-bottom:2px}
+.tl-txt span{font-size:14.5px;opacity:.75;line-height:1.4}
+@media(max-width:539px){.tl-row{grid-template-columns:1fr;gap:3px}.tl-time{padding-top:0}}
+
+/* ============ PILLAR CARDS ============ */
+.pillar{overflow:hidden;padding:0;display:flex;flex-direction:column}
+.pillar img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:var(--line);background:var(--sea)}
+.pillar .pin{padding:clamp(18px,3vw,26px);flex:1;display:flex;flex-direction:column}
+.pillar h3{margin:10px 0 10px}
+.pillar ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15.3px}
+.pillar li{display:flex;gap:9px}
+.pillar li::before{content:"→";font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--coral);flex:none}
+
+/* ============ PLACE ============ */
+.place{background:var(--ink);color:var(--paper);border-top:var(--line)}
+.place h2,.place h3{color:var(--paper)}
+.place .eyebrow{color:var(--sun)}.place .eyebrow::after{background:var(--sun)}
+.place .card{background:var(--deep);border-color:var(--paper);color:var(--paper);box-shadow:6px 6px 0 var(--sun)}
+.photostrip{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media(min-width:760px){.photostrip{grid-template-columns:repeat(4,1fr)}}
+.photostrip figure{margin:0;border:3px solid var(--paper);overflow:hidden;position:relative;box-shadow:5px 5px 0 var(--sun)}
+.photostrip img{aspect-ratio:1/1;object-fit:cover;width:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);background:var(--sea)}
+.photostrip figure:hover img{transform:scale(1.08)}
+.photostrip figcaption{position:absolute;left:0;bottom:0;background:var(--sun);color:var(--ink);
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.06em;padding:5px 8px;border-top:2px solid var(--ink);border-right:2px solid var(--ink)}
+.hotel{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;
+  padding:15px 0;border-bottom:2px dashed rgba(255,248,231,.28)}
+.hotel:last-child{border-bottom:0}
+.hotel b{font-weight:700;font-size:15.5px;display:block}
+.hotel small{font-size:13px;opacity:.72;display:block;margin-top:3px}
+.hotel a{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--sun);white-space:nowrap;text-decoration:none;border-bottom:2px solid var(--sun);flex:none}
+
+/* ============ PRICE ============ */
+.price{background:var(--sun);border-top:var(--line);border-bottom:var(--line)}
+.tiers{display:grid;gap:clamp(16px,2.6vw,22px);grid-template-columns:1fr}
+@media(min-width:860px){.tiers{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.tier{display:flex;flex-direction:column;position:relative}
+.tier .amt{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(1.6rem,5.2vw,2.35rem);
+  line-height:1;margin:12px 0 4px;letter-spacing:-0.03em}
+.tier .amt em{font-style:normal;font-size:.46em;font-weight:700;opacity:.6}
+.tier ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;font-size:14.8px;flex:1}
+.tier li{display:flex;gap:9px}
+.tier li::before{content:"✓";font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--sea);flex:none}
+.tier--hot{background:var(--ink);color:var(--paper);box-shadow:var(--sh-lg)}
+.tier--hot li::before{color:var(--sun)}
+.tier--hot .amt em{opacity:.85;color:var(--sun)}
+.tier--hot .tag{background:var(--sun)}
+.incl{display:grid;gap:clamp(16px,2.6vw,26px);grid-template-columns:1fr;margin-top:clamp(26px,4vw,40px)}
+@media(min-width:800px){.incl{grid-template-columns:1fr 1fr}}
+.incl ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:7px;font-size:15px}
+.incl li{display:flex;gap:9px}
+.incl .yes li::before{content:"+";font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--sea)}
+.incl .no li::before{content:"−";font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--coral)}
+.contrib{margin-top:clamp(24px,4vw,36px);background:var(--coral);color:#fff;border:var(--line);box-shadow:var(--sh);
+  padding:clamp(20px,3.4vw,30px);display:grid;gap:16px;align-items:center}
+@media(min-width:820px){.contrib{grid-template-columns:1fr auto}}
+.contrib h3{color:#fff;margin-bottom:8px}
+.contrib p{margin:0;font-size:15.4px;max-width:62ch}
+
+
+.plusone{margin-top:clamp(24px,4vw,36px);background:var(--sea);color:#fff;border:var(--line);box-shadow:var(--sh);
+  padding:clamp(20px,3.4vw,30px);display:grid;gap:16px;align-items:center}
+@media(min-width:820px){.plusone{grid-template-columns:1fr auto}}
+.plusone h3{color:#fff;margin-bottom:8px}
+.plusone p{margin:0;font-size:15.4px;max-width:64ch}
+
+/* ============ ORGS ============ */
+.orgcard{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.orgcard{grid-template-columns:auto 1fr;align-items:start}}
+.avatar{width:84px;height:84px;border:var(--line);background:var(--sun);display:grid;place-items:center;
+  font-family:'Unbounded',sans-serif;font-weight:900;font-size:30px;box-shadow:var(--sh-sm)}
+.avatar.b{background:var(--sea);color:#fff}
+
+/* ============ FORM ============ */
+.form-sec{background:var(--deep);color:var(--paper);border-top:var(--line)}
+.form-sec h2{color:var(--paper)}
+.form-sec .eyebrow{color:var(--sun)}.form-sec .eyebrow::after{background:var(--sun)}
+.fbox{background:var(--paper);color:var(--ink);border:var(--line);box-shadow:8px 8px 0 var(--sun);
+  padding:clamp(20px,4vw,42px);max-width:760px;margin:0 auto}
+label{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:9px}
+input[type=text],input[type=email],textarea{
+  width:100%;font-family:'Rubik',sans-serif;font-size:16px;padding:15px 16px;
+  border:var(--line);background:#fff;color:var(--ink);box-shadow:var(--sh-sm);border-radius:0}
+textarea{min-height:92px;resize:vertical}
+.fieldrow{margin-bottom:22px}
+.hint{font-size:13.2px;opacity:.7;margin:9px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{position:relative;display:inline-block;margin:0;cursor:pointer;font-size:0;letter-spacing:normal;text-transform:none}
+.chip input{position:absolute;opacity:0;width:100%;height:100%;left:0;top:0;margin:0;cursor:pointer}
+.chip span{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12.5px;
+  border:2.5px solid var(--ink);background:#fff;padding:10px 13px;box-shadow:3px 3px 0 var(--ink);
+  transition:transform .08s,box-shadow .08s,background .12s;user-select:none}
+.chip input:checked+span{background:var(--ink);color:var(--sun)}
+.chip input:focus-visible+span{outline:4px solid var(--sea);outline-offset:3px}
+.chip:hover span{transform:translate(1.5px,1.5px);box-shadow:1.5px 1.5px 0 var(--ink)}
+.step2{border-top:var(--line);margin-top:8px;padding-top:26px}
+.okbox{text-align:center;padding:clamp(24px,5vw,44px) 0}
+.okbox .big{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(1.5rem,5vw,2.4rem);margin-bottom:12px}
+.prog{display:flex;gap:8px;margin-bottom:26px;align-items:center;font-family:'JetBrains Mono',monospace;
+  font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em}
+.prog i{flex:1;height:9px;background:#fff;border:2.5px solid var(--ink);font-style:normal}
+.prog i.on{background:var(--coral)}
+.err{background:var(--coral);color:#fff;border:var(--line);padding:12px 15px;font-size:14.5px;margin-bottom:18px}
+
+/* ============ FAQ ============ */
+details{border:var(--line);background:var(--paper);box-shadow:var(--sh-sm);margin-bottom:13px}
+details[open]{box-shadow:var(--sh)}
+summary{cursor:pointer;list-style:none;padding:17px clamp(16px,3vw,24px);font-weight:700;
+  font-size:clamp(15px,3.4vw,17.5px);display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'JetBrains Mono',monospace;font-weight:700;font-size:24px;flex:none;
+  transition:transform .2s;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+details .ans{padding:0 clamp(16px,3vw,24px) 20px;font-size:15.6px;line-height:1.6;max-width:75ch}
+details .ans p:last-child{margin-bottom:0}
+
+
+/* ============ NOTE BOX ============ */
+.note{border:var(--line);background:var(--sun);box-shadow:var(--sh-sm);padding:clamp(14px,2.6vw,20px);
+  display:flex;gap:14px;align-items:flex-start;font-size:15.2px;line-height:1.5;margin-bottom:clamp(22px,3.4vw,32px)}
+.note .ic{flex:none;width:30px;height:30px;border:2.5px solid var(--ink);background:var(--paper);display:grid;
+  place-items:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px}
+.note b{font-weight:700}
+
+/* ============ ACTIVITIES ============ */
+.acts{display:grid;gap:clamp(14px,2.4vw,20px);grid-template-columns:1fr}
+@media(min-width:640px){.acts{grid-template-columns:1fr 1fr}}
+@media(min-width:1060px){.acts{grid-template-columns:repeat(3,1fr)}}
+.act{border:var(--line);box-shadow:var(--sh);background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+.act img{width:100%;aspect-ratio:3/2;object-fit:cover;border-bottom:var(--line);background:var(--sea);
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.act:hover img{transform:scale(1.05)}
+.act .ain{padding:clamp(15px,2.6vw,21px);flex:1;display:flex;flex-direction:column}
+.act h3{font-size:clamp(1.02rem,2.2vw,1.24rem);margin:0 0 9px}
+.act p{font-size:14.8px;line-height:1.52;margin:0;opacity:.88}
+.act .meta{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;opacity:.62;margin-top:14px;padding-top:11px;border-top:2px dashed rgba(17,17,17,.22)}
+.act--wide{grid-column:1/-1}
+@media(min-width:640px){.act--wide{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .act--wide img{aspect-ratio:auto;height:100%;border-bottom:0;border-right:var(--line)}
+  .act--wide .ain{padding:clamp(20px,3.4vw,34px);justify-content:center}}
+
+
+/* ============ HOTEL CARDS ============ */
+.hotels{display:grid;gap:clamp(14px,2.4vw,20px);grid-template-columns:1fr}
+@media(min-width:720px){.hotels{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:3px solid var(--paper)}
+.th{padding:0;border:0;border-right:3px solid var(--paper);background:none;cursor:pointer;position:relative;
+  display:block;line-height:0;opacity:.55;transition:opacity .18s}
+.th:last-child{border-right:0}
+.th:hover,.th[aria-current="true"]{opacity:1}
+.th[aria-current="true"]::after{content:"";position:absolute;inset:0;box-shadow:inset 0 -5px 0 var(--sun)}
+.th img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--sea)}
+.hcard{border:3px solid var(--paper);background:var(--deep);color:var(--paper);box-shadow:6px 6px 0 var(--sun);
+  overflow:hidden;display:flex;flex-direction:column}
+.hcard .pic{position:relative}
+.hcard img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:3px solid var(--paper);background:var(--sea)}
+.hcard .stub{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--sun);
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:10px;text-transform:uppercase;
+  letter-spacing:.06em;padding:5px 8px;border-top:2px solid var(--paper);border-right:2px solid var(--paper)}
+.hcard .hin{padding:clamp(16px,2.6vw,22px);flex:1;display:flex;flex-direction:column}
+.hcard h3{color:var(--paper);font-size:clamp(1rem,2.1vw,1.18rem);margin:0 0 4px}
+.hcard .lvl{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.07em;
+  color:var(--sun);text-transform:uppercase;margin-bottom:11px}
+.hcard p{font-size:14.6px;line-height:1.5;opacity:.9;margin:0 0 16px;flex:1}
+.hcard a.more{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--sun);text-decoration:none;border-bottom:2px solid var(--sun);align-self:flex-start}
+
+/* ============ FOOTER + STICKY ============ */
+footer{background:var(--ink);color:var(--paper);border-top:var(--line);padding:clamp(36px,6vw,60px) 0 130px}
+footer a{color:var(--sun)}
+.fgrid{display:grid;gap:26px;grid-template-columns:1fr}
+@media(min-width:760px){.fgrid{grid-template-columns:1.4fr 1fr}}
+.cookie{font-size:12.6px;opacity:.62;line-height:1.5;margin-top:22px;max-width:70ch}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--sun);border-top:var(--line);
+  padding:11px var(--pad);padding-bottom:calc(11px + env(safe-area-inset-bottom));
+  display:flex;gap:13px;align-items:center;justify-content:space-between;
+  transform:translateY(115%);transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.sticky.show{transform:none}
+.sticky .txt{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11.5px;text-transform:uppercase;
+  letter-spacing:.05em;line-height:1.35}
+.sticky .btn{padding:12px 18px;font-size:13.5px;box-shadow:var(--sh-sm);flex:none}
+@media(max-width:400px){.sticky .txt{display:none}.sticky .btn{width:100%}}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:100;background:var(--sun);border:var(--line);padding:11px 16px}
+</style>
+</head>
+<body>
+<a href="#lead" class="skip">Перейти к форме</a>
+
+<header>
+  <div class="wrap hd">
+    <a href="#top" class="logo"><span class="dot"></span>MLC&nbsp;CAMP&nbsp;’27</a>
+    <nav>
+      <a href="#program">Как проходит</a>
+      <a href="#acts">Что вокруг</a>
+      <a href="#place">Место</a>
+      <a href="#price">Цена</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="#lead" class="btn btn--coral" data-cta="header">Оставить контакт</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <div class="hero-meta">
+        <span class="tag tag--ink">Первая половина июня 2027</span>
+        <span class="tag tag--sea">Фетхие · Турция</span>
+        <span class="tag tag--coral">Первый поток</span>
+      </div>
+      <h1>СЕМЬ ДНЕЙ<br><span class="hl">ML</span> И <span class="out">МОРЯ</span></h1>
+      <p class="hero-sub">Неделя на турецком побережье для тех, кто работает с машинным обучением и данными. С утра — воркшопы и общий проект, днём — море, вечером — ужин и разговоры, которые не помещаются в рабочий день.</p>
+      <div class="hero-cta">
+        <a href="#lead" class="btn" data-cta="hero">Оставить контакт →</a>
+        <a href="#program" class="btn btn--ghost">Как это устроено</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="stamp float">20<br>МЕСТ</div>
+      <img class="ph" loading="eager" fetchpriority="high"
+           src="https://images.unsplash.com/photo-1686465602845-868cebea024a?w=1400&q=80&auto=format&fit=crop"
+           alt="Голубая лагуна Олюдениза в обрамлении сосен и гор">
+      <img class="ph2" loading="lazy"
+           src="https://images.pexels.com/photos/22121835/pexels-photo-22121835.jpeg?auto=compress&cs=tinysrgb&w=800"
+           alt="Полёт на параплане над Олюденизом">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>Гулет по бухтам</span><span>Воркшопы до обеда</span><span>Параплан с Бабадага</span><span>Общий проект на неделю</span><span>Каякинг над затопленным городом</span><span>Море двадцать четыре градуса</span><span>Каньон по колено в ледяной воде</span><span>Волейбол на закате</span><span>Турецкий чай в стаканчиках</span><span>Ликийская тропа на рассвете</span><span>Ужины на террасе</span><span>Разговоры за полночь</span>
+    <span>Гулет по бухтам</span><span>Воркшопы до обеда</span><span>Параплан с Бабадага</span><span>Общий проект на неделю</span><span>Каякинг над затопленным городом</span><span>Море двадцать четыре градуса</span><span>Каньон по колено в ледяной воде</span><span>Волейбол на закате</span><span>Турецкий чай в стаканчиках</span><span>Ликийская тропа на рассвете</span><span>Ужины на террасе</span><span>Разговоры за полночь</span>
+  </div>
+</div>
+
+<!-- ===================== NUMBERS ===================== -->
+<section class="sec" style="padding-top:clamp(40px,6vw,72px)">
+  <div class="wrap">
+    <div class="nums rv">
+      <div class="num"><b>20</b><span>человек в потоке</span></div>
+      <div class="num"><b>7</b><span>ночей у моря</span></div>
+      <div class="num"><b>+24°</b><span>вода в июне</span></div>
+      <div class="num"><b>1&nbsp;ч</b><span>от аэропорта Даламан</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHO ===================== -->
+<section class="who sec">
+  <div class="wrap">
+    <div class="eyebrow rv">01 / Для кого</div>
+    <div class="g2">
+      <div class="rv">
+        <h2>КТО СЮДА<br>ЕДЕТ</h2>
+        <ul class="who-list" style="margin-top:28px">
+          <li><span class="mark mark--y">✓</span><span><b>DS и ML-специалисты.</b> Дата-сайентисты, ML-инженеры, дата-инженеры, аналитики, исследователи, лиды.</span></li>
+          <li><span class="mark mark--y">✓</span><span><b>Неважно, где именно.</b> В большой компании, в своём проекте или стартапе, в науке, в образовательных продуктах. Когда такие люди неделю сидят за одним столом, получается интереснее, чем в компании из одной индустрии.</span></li>
+          <li><span class="mark mark--y">✓</span><span><b>Домен тоже любой.</b> Рекомендации, поиск и ранжирование, прайсинг, прогноз спроса, компьютерное зрение, речь, NLP и LLM, классика на табличных данных, MLOps.</span></li>
+          <li><span class="mark mark--y">✓</span><span>Хочется неделю, после которой не жалко отпуска.</span></li>
+          <li><span class="mark mark--y">✓</span><span>Живёте в России или уехали — в Турцию не нужна виза и в том, и в другом случае.</span></li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="tag tag--coral" style="margin-bottom:16px">А кому, наверное, не сюда</div>
+        <ul class="who-list">
+          <li><span class="mark mark--n">✕</span><span>Если ML пока только в виде курсов. Берёмся сразу за реальные задачи, без вводного курса — будет тяжело.</span></li>
+          <li><span class="mark mark--n">✕</span><span>Если нужен диплом или сертификат. Их не будет.</span></li>
+          <li><span class="mark mark--n">✕</span><span>Если хочется просто неделю пролежать на пляже. Работать придётся полдня каждый рабочий день.</span></li>
+          <li><span class="mark mark--n">✕</span><span>Если раздражает, когда незнакомые люди зовут играть в волейбол. Хотя отказаться всегда можно.</span></li>
+        </ul>
+        <p style="margin:22px 0 0;font-size:14.8px;opacity:.92">Единственное правило: <b>участвуете ровно настолько, насколько хотите</b>. Пропустить занятие и уйти купаться — нормально, никто не следит.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM ===================== -->
+<section class="sec" id="program">
+  <div class="wrap">
+    <div class="eyebrow rv">02 / Как проходит день</div>
+    <div class="g2" style="align-items:end;margin-bottom:30px">
+      <h2 class="rv">ПРИМЕРНО<br>ТАК</h2>
+      <p class="rv" style="font-size:clamp(15px,3.3vw,17.5px);margin:0">Утром работаем, днём сидим в воде, вечером собираемся все вместе. Внутри этой рамки всё гибко: если группе захочется два дня подряд работать и один целиком провести в море, так и сделаем.</p>
+    </div>
+
+    <div class="note rv">
+      <span class="ic">!</span>
+      <span><b>Это набросок, а не расписание.</b> Точную программу соберём вместе с участниками: кто что хочет послушать и кто что готов рассказать. Поэтому в анкете и спрашиваем.</span>
+    </div>
+
+    <div class="rv">
+      <div class="daywrap"><div class="daybar" role="tablist" aria-label="Дни кэмпа">
+        <button class="daytab" role="tab" aria-selected="true"  aria-controls="d3" id="t3">Приезд и отъезд</button>
+        <button class="daytab" role="tab" aria-selected="false" aria-controls="d1" id="t1">Обычный день</button>
+        <button class="daytab" role="tab" aria-selected="false" aria-controls="d2" id="t2">День в море</button>
+      </div></div>
+
+      <div class="card dayp" id="d3" role="tabpanel" aria-labelledby="t3">
+        <div class="tl">
+          <div class="tl-row"><div class="tl-time">Суббота</div><div class="tl-txt"><strong>Заезд и знакомство</strong><span>Вечером каждый рассказывает о себе три вещи: над чем работает, что хочет унести с собой, чем может помочь другим. Дальше уже сами.</span></div></div>
+          <div class="tl-row acc"><div class="tl-time">Пятница</div><div class="tl-txt"><strong>Показываем, что вышло</strong><span>Каждая команда показывает результат недели. Не презентация, а рабочий код и честный разбор того, что не получилось.</span></div></div>
+          <div class="tl-row"><div class="tl-time">Суббота</div><div class="tl-txt"><strong>Разъезд</strong><span>Чат участников остаётся — двадцать человек, которые за неделю успели друг друга узнать.</span></div></div>
+        </div>
+      </div>
+<div class="card dayp" id="d1" role="tabpanel" aria-labelledby="t1" hidden>
+        <div class="tl">
+          <div class="tl-row"><div class="tl-time">Утро</div><div class="tl-txt"><strong>Завтрак, заплыв, пробежка</strong><span>Кто как хочет. Никто никого не будит.</span></div></div>
+          <div class="tl-row acc"><div class="tl-time">До обеда</div><div class="tl-txt"><strong>Воркшоп и работа над проектом</strong><span>Пара часов на тему и ещё пара — на общий проект, по командам.</span></div></div>
+          <div class="tl-row"><div class="tl-time">Днём</div><div class="tl-txt"><strong>Пекло — значит море</strong><span>С часу до пяти работать не будем. Море, бассейн, тень, сон.</span></div></div>
+          <div class="tl-row"><div class="tl-time">Ближе к вечеру</div><div class="tl-txt"><strong>Ещё пара часов, когда спадёт жара</strong><span>Или спорт, если команда решила, что на сегодня хватит.</span></div></div>
+          <div class="tl-row acc"><div class="tl-time">Вечер</div><div class="tl-txt"><strong>Вечер</strong><span>Общий ужин, дальше без программы. Разговоры получаются и по делу, и обо всём остальном, и обычно затягиваются далеко за полночь.</span></div></div>
+        </div>
+      </div>
+
+      <div class="card dayp" id="d2" role="tabpanel" aria-labelledby="t2" hidden>
+        <div class="tl">
+          <div class="tl-row acc"><div class="tl-time">С утра</div><div class="tl-txt"><strong>Уходим на гулете</strong><span>Гулет — это деревянная турецкая яхта. Целый день на воде: бухты, куда не подъехать с берега, купание с борта, обед на палубе. Ноутбуки остаются в отеле.</span></div></div>
+          <div class="tl-row"><div class="tl-time">Параллельно</div><div class="tl-txt"><strong>Кому лодки не заходят</strong><span>В тот же день можно полетать на параплане, съездить в каньон или пройти кусок Ликийской тропы. Разделяемся и вечером собираемся вместе.</span></div></div>
+          <div class="tl-row"><div class="tl-time">Вечером</div><div class="tl-txt"><strong>Ужин в городе, за свой счёт</strong><span>Мезе — это десяток маленьких закусок на всю компанию, к ним рыба и чай. Возвращаемся, когда возвращаемся.</span></div></div>
+        </div>
+      </div>
+
+          </div>
+  </div>
+</section>
+
+<!-- ===================== PILLARS ===================== -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv">03 / Из чего собрано</div>
+    <div class="g3">
+      <article class="card pillar rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/1666470/pexels-photo-1666470.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Трое работают за ноутбуками на террасе под пальмами">
+        <div class="pin">
+          <span class="tag tag--sun">Работа</span>
+          <h3>Делаем руками</h3>
+          <ul>
+            <li>Воркшопы по паре часов на тему</li>
+            <li>Общий проект на всю неделю, команды перемешиваем по уровню</li>
+            <li>Разбор вашей задачи людьми, которые делают то же самое</li>
+            <li>Темы собираем из того, чем занимаются сами участники</li>
+          </ul>
+        </div>
+      </article>
+      <article class="card pillar rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/38081343/pexels-photo-38081343.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Компания прыгает в бирюзовое море">
+        <div class="pin">
+          <span class="tag tag--sea">Море</span>
+          <h3>Купаться получится каждый день</h3>
+          <ul>
+            <li>В июне вода около двадцати четырёх градусов</li>
+            <li>Целый день на гулете по бухтам</li>
+            <li>Параплан, каякинг, дайвинг, каньон, тропа</li>
+            <li>Волейбол, заплывы, утренние пробежки — по желанию</li>
+          </ul>
+        </div>
+      </article>
+      <article class="card pillar rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/9124757/pexels-photo-9124757.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Компания разговаривает вечером под гирляндами">
+        <div class="pin">
+          <span class="tag tag--coral">Люди</span>
+          <h3>Люди, с которыми потом не расстаёшься</h3>
+          <ul>
+            <li>За неделю успеваете поговорить со всеми, а не с двумя соседями</li>
+            <li>Кто из корпорации, кто из своего проекта, кто из науки</li>
+            <li>Общие ужины, вечерние рассказы, долгие разговоры на берегу</li>
+            <li>Чат, в котором после кэмпа продолжают спрашивать и отвечать</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACTIVITIES ===================== -->
+<section class="sec" id="acts" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv">04 / Что вокруг</div>
+    <div class="g2" style="align-items:end;margin-bottom:30px">
+      <h2 class="rv">ЧЕМ ТУТ<br>ЗАНИМАЮТСЯ</h2>
+      <p class="rv" style="font-size:clamp(15px,3.3vw,17.5px);margin:0">Всё это в пределах часа от отеля. Что именно возьмём в неделю — решим на месте, вместе с группой, по погоде и по настроению.</p>
+    </div>
+
+    <div class="acts">
+      <article class="act act--wide rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/17233512/pexels-photo-17233512.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Деревянный гулет в бухте Олюдениза">
+        <div class="ain">
+          <h3>Гулет</h3>
+          <p>Турецкая деревянная яхта: широкая, медленная, с огромной палубой, на которой всем хватает места лечь. Выходим утром и весь день идём вдоль побережья, останавливаясь купаться в бухтах, куда с берега просто нет дороги. Обед готовят на борту, прыгать в воду можно прямо с палубы.</p>
+          <div class="meta">Целый день</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/12969276/pexels-photo-12969276.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Разноцветные парапланы над морем">
+        <div class="ain">
+          <h3>Параплан с Бабадага</h3>
+          <p>Гора прямо над Олюденизом. Вас поднимают на машине почти на два километра, дальше вы разбегаетесь в паре с инструктором и минут двадцать-тридцать летите над лагуной, приземляясь на пляж. Готовиться не нужно, опыта тоже.</p>
+          <div class="meta">Полдня</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/7840842/pexels-photo-7840842.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Каякеры на бирюзовой воде">
+        <div class="ain">
+          <h3>Каякинг над Кековой</h3>
+          <p>Кекова — остров, у берега которого под водой лежит античный город: землетрясение опустило его под воду, и сквозь прозрачную воду видно ступени, стены и фундаменты домов. Идёте на каяке прямо над ними. Единственный минус — до Кековы далеко, это выезд на весь день.</p>
+          <div class="meta">Целый день</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/27468176/pexels-photo-27468176.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Человек ныряет с маской в прозрачной воде">
+        <div class="ain">
+          <h3>Дайвинг и снорклинг</h3>
+          <p>Вода здесь прозрачная, дно каменистое, рыбы много. Есть погружения с инструктором для тех, кто ни разу не нырял, — сертификат для этого не нужен. Маску и трубку можно просто взять с собой на гулет.</p>
+          <div class="meta">Полдня</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/36579181/pexels-photo-36579181.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Тропа над морем в окрестностях Фетхие">
+        <div class="ain">
+          <h3>Ликийская тропа</h3>
+          <p>Пеший маршрут длиной больше пятисот километров вдоль всего побережья — мы берём от него кусок на несколько часов. Тропа идёт по скалам высоко над водой, внизу открываются бухты, куда попадают только с моря. Выходим рано утром, пока не жарко.</p>
+          <div class="meta">Полдня</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1713888205934-9bbf989e141c?w=900&q=80&auto=format&fit=crop" alt="Каньон Сакликент: человек идёт по реке между отвесными стенами">
+        <div class="ain">
+          <h3>Каньон Сакликент и спорт попроще</h3>
+          <p>Сакликент — ущелье в получасе езды: отвесные стены в несколько сотен метров, а по дну течёт ледяная горная река, и идти приходится прямо по ней, по колено в воде. В июньскую жару это лучший способ остыть. Волейбол, заплывы наперегонки и утренние пробежки — каждый день и без всякой организации.</p>
+          <div class="meta">Каньон — день, остальное когда захочется</div>
+        </div>
+      </article>
+
+      <article class="act rv">
+        <img loading="lazy" src="https://images.pexels.com/photos/13420881/pexels-photo-13420881.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Компания сидит на берегу ночью под звёздами">
+        <div class="ain">
+          <h3>Вечера</h3>
+          <p>После ужина никто не расходится по номерам: кто-то остаётся за столом, кто-то уходит на берег. Разговоры идут и про работу, и про всё остальное — специально их никто не организует.</p>
+          <div class="meta">Каждый вечер</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLACE ===================== -->
+<section class="place sec" id="place">
+  <div class="wrap">
+    <div class="eyebrow rv">05 / Место</div>
+    <div class="g2" style="align-items:start">
+      <div class="rv">
+        <h2>ФЕТХИЕ,<br>ЮГО-ЗАПАД<br>ТУРЦИИ</h2>
+        <div class="hero-meta" style="margin-top:24px">
+          <span class="tag tag--sun">Вода +24° в июне</span>
+          <span class="tag tag--coral">Без визы до 60 дней</span>
+          <span class="tag tag--sea">Час от Даламана</span>
+        </div>
+      </div>
+      <div class="rv">
+        <p><b>Сначала о географии.</b> Фетхие — город на побережье. Олюдениз — посёлок в двадцати минутах от него, и Голубая лагуна находится именно там. Чалыш — пляж рядом с городом. Жить будем в одном из этих трёх мест, они рядом и связаны маршрутками.</p>
+        <p>Мы перебрали всё побережье — Каш, Кемер, Сиде, Аланью, Бодрум, Датчу — и остановились на Фетхие. Вот почему.</p>
+        <p><b>Вода уже тёплая.</b> В начале июня здесь около двадцати четырёх градусов, воздух двадцать семь — двадцать восемь, дождя почти не бывает — июнь здесь уже сухой. Для сравнения, в Бодруме на градус-полтора холоднее, и это заметно.</p>
+        <p><b>Ещё не сезон.</b> Турецкие школьные каникулы начинаются во второй половине июня, так что первая половина месяца — это тёплое море без толпы и по ценам, которые ещё не сезонные.</p>
+        <p><b>Долетать просто.</b> Прямой рейс из Москвы в Даламан — около пяти часов, оттуда до Фетхие около часа по серпантину вдоль моря. Без пересадок и ночёвок в транзите.</p>
+        <p style="margin-bottom:0"><b>Всё рядом.</b> В пределах часа: Голубая лагуна, гора Бабадаг, каньон Сакликент, Ликийская тропа, бухты для гулета. Для одной точки на побережье набор редкий.</p>
+      </div>
+    </div>
+
+    <div class="photostrip rv">
+      <figure><img loading="lazy" src="https://images.unsplash.com/photo-1641630649458-13135455aaf7?w=700&q=80&auto=format&fit=crop" alt="Пляж Олюдениза с высоты"><figcaption>Море рядом</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.pexels.com/photos/9756290/pexels-photo-9756290.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Танцы на палубе яхты"><figcaption>Движение</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.pexels.com/photos/33630775/pexels-photo-33630775.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Два стакана турецкого чая на столике у моря"><figcaption>Локальная эстетика</figcaption></figure>
+      <figure><img loading="lazy" src="https://images.pexels.com/photos/13688750/pexels-photo-13688750.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Вечернее кафе с кальянами и столиками"><figcaption>Комфортное пространство</figcaption></figure>
+    </div>
+
+    <h3 class="rv" style="margin:clamp(34px,5vw,52px) 0 8px">Где будем жить</h3>
+    <p class="rv" style="font-size:15.4px;opacity:.88;max-width:74ch;margin-bottom:24px">Финальный отель выберем, когда станет понятно число участников: под точную группу выгоднее берётся блок номеров или частичный выкуп. Пока это шорт-лист, по которому мы запрашиваем цены, чтобы вы понимали уровень. Почти у всех бассейн, море рядом и зал; где-то рабочее место для группы пришлось бы согласовывать отдельно.</p>
+    <div class="hotels rv">
+
+      <article class="hcard" data-gallery>
+        <div class="pic">
+          <img class="hmain" loading="lazy" src="img/hotels/ramada-1.jpg" data-fallback="https://images.pexels.com/photos/32516575/pexels-photo-32516575.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Ramada by Wyndham Fethiye Ölüdeniz">
+          <span class="stub" hidden>фото для ориентира</span>
+        </div>
+        <div class="thumbs">
+          <button type="button" class="th" aria-current="true" title="бассейн и корпуса"><img loading="lazy" src="img/hotels/ramada-1.jpg" data-fallback="https://images.pexels.com/photos/32516575/pexels-photo-32516575.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="бассейн и корпуса"></button>
+          <button type="button" class="th" title="двухместный номер"><img loading="lazy" src="img/hotels/ramada-2.jpg" data-fallback="https://images.pexels.com/photos/29702285/pexels-photo-29702285.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="двухместный номер"></button>
+          <button type="button" class="th" title="зал для занятий"><img loading="lazy" src="img/hotels/ramada-3.jpg" data-fallback="https://images.pexels.com/photos/8761313/pexels-photo-8761313.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="зал для занятий"></button>
+        </div>
+        <div class="hin">
+          <h3>Ramada by Wyndham Fethiye Ölüdeniz</h3>
+          <div class="lvl">4★ · без детей, от 16 лет</div>
+          <p>Сетевой отель в нескольких минутах от пляжа Олюдениз, у подножия Бабадага: крытый бассейн, спа, спортзал. Главное для нас — конференц-зал, куда наша группа помещается целиком, и отсутствие детей: для рабочей недели это заметная разница.</p>
+          <a class="more" href="https://www.wyndhamhotels.com/ramada/mugla-turkiye/ramada-fethiye-oludeniz/overview" target="_blank" rel="noopener">Смотреть отель ↗</a>
+        </div>
+      </article>
+
+      <article class="hcard" data-gallery>
+        <div class="pic">
+          <img class="hmain" loading="lazy" src="img/hotels/turquoise-1.jpg" data-fallback="https://images.pexels.com/photos/14690470/pexels-photo-14690470.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Ölüdeniz Turquoise Hotel">
+          <span class="stub" hidden>фото для ориентира</span>
+        </div>
+        <div class="thumbs">
+          <button type="button" class="th" aria-current="true" title="открытый бассейн"><img loading="lazy" src="img/hotels/turquoise-1.jpg" data-fallback="https://images.pexels.com/photos/14690470/pexels-photo-14690470.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="открытый бассейн"></button>
+          <button type="button" class="th" title="номер"><img loading="lazy" src="img/hotels/turquoise-2.jpg" data-fallback="https://images.pexels.com/photos/20666872/pexels-photo-20666872.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="номер"></button>
+          <button type="button" class="th" title="ресторан"><img loading="lazy" src="img/hotels/turquoise-3.jpg" data-fallback="https://images.pexels.com/photos/11508780/pexels-photo-11508780.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="ресторан"></button>
+        </div>
+        <div class="hin">
+          <h3>Ölüdeniz Turquoise Hotel</h3>
+          <div class="lvl">4★ · всё включено</div>
+          <p>Большой отель на сто восемьдесят номеров в самом центре Олюдениза: два открытых бассейна, спа, теннис, два ресторана, пешком до пляжа Олюдениз. Самый беспроблемный вариант для группы — много одинаковых номеров и переговорная. Работает с конца апреля по октябрь.</p>
+          <a class="more" href="https://www.expedia.com/Fethiye-Hotels-OLUDENIZ-TURQUOISE-HOTEL.h39568010.Hotel-Information" target="_blank" rel="noopener">Смотреть отель ↗</a>
+        </div>
+      </article>
+
+      <article class="hcard" data-gallery>
+        <div class="pic">
+          <img class="hmain" loading="lazy" src="img/hotels/yacht-1.jpg" data-fallback="https://images.pexels.com/photos/34839118/pexels-photo-34839118.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Yacht Classic Hotel">
+          <span class="stub" hidden>фото для ориентира</span>
+        </div>
+        <div class="thumbs">
+          <button type="button" class="th" aria-current="true" title="набережная Фетхие"><img loading="lazy" src="img/hotels/yacht-1.jpg" data-fallback="https://images.pexels.com/photos/34839118/pexels-photo-34839118.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="набережная Фетхие"></button>
+          <button type="button" class="th" title="номер"><img loading="lazy" src="img/hotels/yacht-2.jpg" data-fallback="https://images.pexels.com/photos/13722872/pexels-photo-13722872.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="номер"></button>
+          <button type="button" class="th" title="терраса на крыше"><img loading="lazy" src="img/hotels/yacht-3.jpg" data-fallback="https://images.pexels.com/photos/31767815/pexels-photo-31767815.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="терраса на крыше"></button>
+        </div>
+        <div class="hin">
+          <h3>Yacht Classic Hotel</h3>
+          <div class="lvl">Бутик · первая линия</div>
+          <p>Небольшой отель на набережной Фетхие: два бассейна, один только для взрослых, хаммам, бар на крыше с видом на бухту. До Олюдениза минут двадцать на машине. Конференц-зала нет — рабочее место для группы пришлось бы согласовывать отдельно.</p>
+          <a class="more" href="https://www.booking.com/hotel/tr/yacht-classic.html" target="_blank" rel="noopener">Смотреть отель ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICE ===================== -->
+<section class="price sec" id="price">
+  <div class="wrap">
+    <div class="eyebrow rv">06 / Цена</div>
+    <div class="g2" style="align-items:end;margin-bottom:34px">
+      <h2 class="rv">165–200 ТЫС ₽<br>ЗА НЕДЕЛЮ</h2>
+      <p class="rv" style="margin:0;font-size:clamp(15px,3.3vw,17.5px)"><b>Почему вилка.</b> Отель под группу берётся блоком, и цена места зависит от того, сколько нас в итоге будет — пятнадцать или двадцать. Называть красивое число, чтобы потом его поднять, не хочется. Верхняя граница при этом зафиксирована: <b>выше 200 000 ₽ цена не уйдёт</b>. Кто оставит контакт сейчас, получит цену первого потока — она будет ниже, чем у следующих.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="card tier rv">
+        <span class="tag tag--sea">База</span>
+        <h3 style="margin-top:14px">Вдвоём в номере</h3>
+        <div class="amt">165–180<em> тыс. ₽</em></div>
+        <p class="mono" style="font-size:12px;opacity:.7;margin:0">Соседа подбираем по анкете</p>
+        <ul>
+          <li>Семь ночей в отеле уровня 4★</li>
+          <li>Питание все дни</li>
+          <li>Вся программа: воркшопы, проект, разборы</li>
+          <li>Активности: гулет, вылазки, спорт</li>
+        </ul>
+      </div>
+      <div class="card tier tier--hot rv">
+        <span class="tag">Если нужен свой номер</span>
+        <h3 style="margin-top:14px">Один в номере</h3>
+        <div class="amt">185–200<em> тыс. ₽</em></div>
+        <p class="mono" style="font-size:12px;opacity:.7;margin:0">Свой номер всю неделю</p>
+        <ul>
+          <li>Всё то же самое, что в базовом тарифе</li>
+          <li>Свой номер и своя ванная на всю неделю</li>
+        </ul>
+      </div>
+      <div class="card tier rv">
+        <span class="tag tag--coral">Для юрлиц</span>
+        <h3 style="margin-top:14px">Платит компания</h3>
+        <div class="amt">175–200<em> тыс. ₽</em></div>
+        <p class="mono" style="font-size:12px;opacity:.7;margin:0">Оплата от юрлица</p>
+        <ul>
+          <li>Счёт, договор, акт</li>
+          <li>Размещение на выбор</li>
+          <li>Пришлём готовое письмо для руководителя — останется переслать</li>
+          <li>От трёх человек из одной компании — скидка</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plusone rv">
+      <div>
+        <span class="tag tag--ink">135–150 тыс. ₽</span>
+        <h3 style="margin-top:14px">Можно приехать не одному</h3>
+        <p>В отпуск часто едут вдвоём, и это не повод выбирать между кэмпом и человеком рядом. Партнёр, друг, кто угодно — берите с собой, даже если к ML он отношения не имеет. Живёте в одном номере, ходите на гулет, вылазки, ужины и вечера наравне со всеми, купаетесь и играете в волейбол. Не идёт только рабочая часть: воркшопы и общий проект. За это цена ниже.</p>
+      </div>
+      <a href="#lead" class="btn" data-cta="plusone">Поеду вдвоём →</a>
+    </div>
+
+    <div class="contrib rv">
+      <div>
+        <span class="tag tag--ink">Скидка до 50 %</span>
+        <h3 style="margin-top:14px">Если вам есть что рассказать</h3>
+        <p>Провести воркшоп или доклад, разобрать чужой код, вести утренние тренировки, снять кэмп на камеру — всё это снижает стоимость вашего участия, вплоть до половины. Размер скидки смотрим индивидуально: он зависит от того, сколько времени вы возьмёте на себя. Слотов немного, отбираем по темам — из ваших заявок во многом и соберётся программа первого потока. Опишите в анкете, что можете дать. Хватит одной строки.</p>
+      </div>
+      <a href="#lead" class="btn btn--ink" data-cta="contrib">Мне есть что →</a>
+    </div>
+
+    <div class="incl">
+      <div class="card rv yes">
+        <span class="tag tag--sea">Входит в цену</span>
+        <ul>
+          <li>Семь ночей в отеле с бассейном</li>
+          <li>Питание все дни</li>
+          <li>Место для работы группой — зал или большая терраса, проектор, вайфай</li>
+          <li>Воркшопы, общий проект, разборы, материалы и записи</li>
+          <li>Активности: день на гулете, вылазки по программе, спорт</li>
+          <li>Общие ужины и вечера на берегу</li>
+          <li>Чат участников, который никуда не девается</li>
+        </ul>
+      </div>
+      <div class="card rv no">
+        <span class="tag tag--coral">Не входит</span>
+        <ul>
+          <li>Перелёт: Москва — Даламан ориентировочно 40–60 тыс. ₽ туда и обратно</li>
+          <li>Дорога из аэропорта до отеля — сами</li>
+          <li>Страховка и личные расходы</li>
+        </ul>
+        <p style="margin:18px 0 0;font-size:14.4px;opacity:.9"><b>Про дорогу.</b> Такси и автобусы из Даламана ходят постоянно, ехать час. Мы подскажем удобные рейсы и, скорее всего, договоримся с проверенным местным перевозчиком о фиксированной цене для участников — но это будет отдельная компания и отдельный платёж, не через нас.</p>
+        <p style="margin:14px 0 0;font-size:14.4px;opacity:.9"><b>Оплата.</b> Рубли и евро. Депозит — 30 %, возвращается полностью, если отказаться не позже чем за 60 дней до заезда. Точные условия придут вместе с датами и финальной ценой.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ORGS ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow rv">07 / Кто делает</div>
+    <div class="card rv" style="box-shadow:var(--sh-lg)">
+      <div class="orgcard">
+        <div style="display:flex;gap:12px">
+          <div class="avatar">ML</div><div class="avatar b">DS</div>
+        </div>
+        <div>
+          <h3>Кто это «мы»</h3>
+          <p style="margin-top:12px">Кэмп делают DS и ML-специалисты: продовые модели, исследования, команды в России и за её пределами. Не ивент-агентство и не образовательная платформа — организацией занимаемся сами, потому что подходящего формата не нашли и решили собрать свой.</p>
+          <p style="margin-bottom:0">Программу ведём сами и зовём знакомых, которым есть что рассказать. Первый поток маленький намеренно: двадцать человек — тот размер, за который можно отвечать лично.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORM ===================== -->
+<section class="form-sec sec" id="lead">
+  <div class="wrap">
+    <div class="eyebrow rv">08 / Список</div>
+    <div style="text-align:center;margin-bottom:34px" class="rv">
+      <h2>ОСТАВИТЬ<br>КОНТАКТ</h2>
+      <p style="max-width:58ch;margin:20px auto 0;font-size:clamp(15px,3.3vw,17.5px)">Платить сейчас ничего не нужно, и это не бронь. Оставьте телеграм — будем писать, как продвигается: даты, отель, финальная цена, программа.</p>
+    </div>
+
+    <div class="fbox rv">
+      <form id="leadForm" novalidate>
+        <div class="prog"><i class="on" id="p1"></i><i id="p2"></i><span id="pl">Шаг 1 из 2</span></div>
+        <div id="errBox" class="err" style="display:none"></div>
+
+        <div id="step1">
+          <div class="fieldrow">
+            <label for="contact">Телеграм или почта</label>
+            <input type="text" id="contact" name="contact" inputmode="email" autocomplete="username"
+                   placeholder="@username или mail@example.com" required>
+          </div>
+          <button type="button" class="btn btn--coral" id="btn1" style="width:100%">Записаться →</button>
+          <p class="hint" style="text-align:center;margin-top:14px">Нажимая «Записаться», вы соглашаетесь, что мы свяжемся с вами по поводу кэмпа. Больше ни для чего контакт не используем.</p>
+        </div>
+
+        <div id="step2" class="step2" hidden>
+          <p style="font-weight:700;font-size:17px;margin-bottom:4px">Записали. Спасибо!</p>
+          <p class="hint" style="margin-bottom:26px">Если есть минута — ответьте ещё на несколько вопросов. От них зависят и программа, и даты, и размер скидки, если вы захотите что-то вести.</p>
+
+          <div class="fieldrow">
+            <label>Чем занимаетесь</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="role" value="DS"><span>Data Scientist</span></label>
+              <label class="chip"><input type="radio" name="role" value="MLE"><span>ML-инженер</span></label>
+              <label class="chip"><input type="radio" name="role" value="DE"><span>Дата-инженер</span></label>
+              <label class="chip"><input type="radio" name="role" value="Аналитик"><span>Аналитик</span></label>
+              <label class="chip"><input type="radio" name="role" value="Research"><span>Исследователь</span></label>
+              <label class="chip"><input type="radio" name="role" value="Lead"><span>Лид или руководитель</span></label>
+              <label class="chip"><input type="radio" name="role" value="Другое"><span>Другое</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Где именно</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="place" value="корпорация"><span>в компании</span></label>
+              <label class="chip"><input type="radio" name="place" value="стартап"><span>свой проект или стартап</span></label>
+              <label class="chip"><input type="radio" name="place" value="наука"><span>наука</span></label>
+              <label class="chip"><input type="radio" name="place" value="образование"><span>образование</span></label>
+              <label class="chip"><input type="radio" name="place" value="фриланс"><span>фриланс</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Область, в которой работаете</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="domain" value="рекомендации"><span>рекомендации</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="поиск"><span>поиск и ранжирование</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="NLP/LLM"><span>NLP и LLM</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="CV"><span>компьютерное зрение</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="таблички"><span>табличные данные</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="прайсинг/спрос"><span>прайсинг и спрос</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="MLOps"><span>MLOps</span></label>
+              <label class="chip"><input type="checkbox" name="domain" value="другое"><span>другое</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Сколько лет в ML</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="grade" value="<2"><span>меньше 2</span></label>
+              <label class="chip"><input type="radio" name="grade" value="2-5"><span>2–5</span></label>
+              <label class="chip"><input type="radio" name="grade" value="6-8"><span>6–8</span></label>
+              <label class="chip"><input type="radio" name="grade" value="8+"><span>больше 8</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Откуда поедете</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="geo" value="РФ"><span>Россия</span></label>
+              <label class="chip"><input type="radio" name="geo" value="СНГ"><span>Армения, Грузия, Казахстан</span></label>
+              <label class="chip"><input type="radio" name="geo" value="ЕС"><span>Европа</span></label>
+              <label class="chip"><input type="radio" name="geo" value="Другое"><span>откуда-то ещё</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Поедете один или с кем-то</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="company" value="один"><span>один</span></label>
+              <label class="chip"><input type="radio" name="company" value="с парой"><span>с парой</span></label>
+              <label class="chip"><input type="radio" name="company" value="с другом или коллегой"><span>с другом или коллегой</span></label>
+              <label class="chip"><input type="radio" name="company" value="не знаю"><span>ещё не думал</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Какая цена за неделю кажется нормальной, в тысячах ₽</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="budget" value="<140"><span>до 140</span></label>
+              <label class="chip"><input type="radio" name="budget" value="140-165"><span>140–165</span></label>
+              <label class="chip"><input type="radio" name="budget" value="165-200"><span>165–200</span></label>
+              <label class="chip"><input type="radio" name="budget" value="200+"><span>больше 200</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Кто платит</label>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="payer" value="сам"><span>сам</span></label>
+              <label class="chip"><input type="radio" name="payer" value="компания"><span>компания, нужен счёт</span></label>
+              <label class="chip"><input type="radio" name="payer" value="пополам"><span>пополам</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Когда удобно (можно несколько)</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="dates" value="май27"><span>май 2027</span></label>
+              <label class="chip"><input type="checkbox" name="dates" value="июнь27"><span>июнь 2027</span></label>
+              <label class="chip"><input type="checkbox" name="dates" value="сент27"><span>сентябрь 2027</span></label>
+              <label class="chip"><input type="checkbox" name="dates" value="любые"><span>подстроюсь</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow">
+            <label>Что для вас важнее всего (до трёх)</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="value" value="воркшопы"><span>воркшопы</span></label>
+              <label class="chip"><input type="checkbox" name="value" value="общий проект"><span>общий проект</span></label>
+              <label class="chip"><input type="checkbox" name="value" value="люди"><span>люди и знакомства</span></label>
+              <label class="chip"><input type="checkbox" name="value" value="море и спорт"><span>море и спорт</span></label>
+              <label class="chip"><input type="checkbox" name="value" value="отдых"><span>просто выдохнуть</span></label>
+              <label class="chip"><input type="checkbox" name="value" value="карьера"><span>карьера</span></label>
+            </div>
+          </div>
+
+          <div class="fieldrow" style="border:var(--line);background:var(--sun);padding:18px;box-shadow:var(--sh-sm)">
+            <label>Готовы что-нибудь вести? Это скидка до 50 %</label>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="contrib" value="воркшоп"><span>воркшоп</span></label>
+              <label class="chip"><input type="checkbox" name="contrib" value="доклад"><span>доклад</span></label>
+              <label class="chip"><input type="checkbox" name="contrib" value="разбор кода"><span>разбор кода</span></label>
+              <label class="chip"><input type="checkbox" name="contrib" value="тренировка"><span>утренние тренировки</span></label>
+              <label class="chip"><input type="checkbox" name="contrib" value="фото/видео"><span>фото и видео</span></label>
+              <label class="chip"><input type="checkbox" name="contrib" value="нет"><span>пока нет</span></label>
+            </div>
+            <div style="margin-top:16px">
+              <label for="topic">О чём? И что хотелось бы услышать от других</label>
+              <textarea id="topic" name="topic" placeholder="Например: могу рассказать, как мы удешевили инференс в четыре раза. Хочу послушать про рекомендации на холодном старте"></textarea>
+            </div>
+          </div>
+
+          <button type="button" class="btn" id="btn2" style="width:100%">Отправить</button>
+          <p class="hint" style="text-align:center;margin-top:12px"><button type="button" id="skip2" style="background:none;border:0;text-decoration:underline;cursor:pointer;font:inherit;color:inherit;opacity:.75">пропустить, я уже в списке</button></p>
+        </div>
+
+        <div id="done" class="okbox" hidden>
+          <div class="big">ДО ВСТРЕЧИ<br>НА БЕРЕГУ</div>
+          <p style="max-width:46ch;margin:0 auto 24px">Будем держать в курсе. Если хочется что-то спросить прямо сейчас — пишите.</p>
+          <a class="btn btn--coral" id="tgLink" href="https://t.me/" target="_blank" rel="noopener">Написать организаторам →</a>
+        </div>
+
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="utm_term" id="utm_term">
+        <input type="hidden" name="referrer" id="referrer">
+        <input type="hidden" name="cta" id="ctaField">
+        <input type="hidden" name="landing" id="landingField">
+        <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="eyebrow rv">09 / Вопросы</div>
+    <div class="g2" style="align-items:start;gap:clamp(16px,2.6vw,26px)">
+      <div class="rv">
+        <details open><summary>Когда точно? Пока написано просто «начало июня»</summary><div class="ans"><p>Так и есть: целимся в первую половину июня 2027 — семь ночей, с субботы по субботу. Даты выбраны не наугад — вода уже тёплая, турецкие школьные каникулы ещё не начались, крупных праздников в это время нет. Конкретные числа назовём, когда закрепим отель, и первыми узнают те, кто уже в списке. В анкете есть вопрос про удобные месяцы — если большинству подойдёт другое время, подвинемся.</p></div></details>
+        <details><summary>Я поеду один. Не будет ли неловко?</summary><div class="ans"><p>На похожих выездах большинство едет по одному, и это нормально. Первый вечер устроен так, чтобы к утру все знали друг друга по имени, а команды для общего проекта мы перемешиваем специально. При этом участвовать во всём никто не обязан: уйти купаться вместо вечернего занятия — совершенно нормально.</p></div></details>
+        <details><summary>Это будет полезно по работе или просто отдых с коллегами?</summary><div class="ans"><p>Четыре-пять часов работы в рабочие дни, воркшопы с открытым ноутбуком вместо слайдов и общий проект, который идёт всю неделю и заканчивается разбором. Материалы и записи остаются у вас. Мы считаем неделю удавшейся, если после неё вы можете назвать пару вещей, которые применили у себя.</p></div></details>
+        <details><summary>Будет только про LLM?</summary><div class="ans"><p>Нет, и это принципиально. Программу собираем из того, чем занимаются сами участники: рекомендации, поиск и ранжирование, прайсинг и прогноз спроса, компьютерное зрение, речь, классика на табличных данных, MLOps, исследования. LLM — одна тема из многих, а не рамка всего кэмпа.</p></div></details>
+        <details><summary>Мне за тридцать пять и я лид. Или наоборот, я джун. Подойдёт?</summary><div class="ans"><p>Возрастных рамок нет. Единственное, что важно, — вы работаете с ML на практике, а не изучаете его по курсам. Лиды и руководители едут в тот же поток: половина ценности вечерних разговоров как раз в том, что за столом люди с разным опытом и из разных мест.</p></div></details>
+      </div>
+      <div class="rv">
+        <details><summary>Можно взять с собой того, кто не в ML?</summary><div class="ans"><p>Да, и мы этому рады. Партнёр, друг, кто угодно — живёте вместе, участвуете во всех вылазках, гулете, ужинах и вечерах. Не идёт только рабочая часть: воркшопы и общий проект. Для такого участника отдельная цена, 135–150 тыс. ₽ в зависимости от размещения. Отметьте это в анкете, чтобы мы правильно посчитали номера.</p></div></details>
+        <details><summary>А на кораблике укачивает?</summary><div class="ans"><p>Обычно нет. Залив Фетхие — закрытая акватория с бухтами и островами, большую часть дня гулет идёт по защищённой воде, а не по открытому морю. В июне послеобеденный ветер с Бабадага заметно слабее, чем в июле и августе, а утром вода вообще как стекло. Жалоб именно на укачивание на этих маршрутах почти не встречается. Но если вас укачивает в автобусе или на аттракционах — возьмите таблетки и выпейте за полчаса до выхода, это дешевле испорченного дня.</p></div></details>
+        <details><summary>Как добираться и нужна ли виза?</summary><div class="ans"><p>Гражданам России виза в Турцию не нужна при поездке до шестидесяти дней, загранпаспорт должен действовать ещё минимум шестьдесят дней после окончания поездки. Прямые рейсы Москва — Даламан идут около пяти часов. Дорогу из аэропорта до отеля каждый организует сам: такси и автобусы ходят постоянно, ехать примерно час. Мы подскажем удобные рейсы и, скорее всего, договоримся с местным перевозчиком о фиксированной цене — но это будет отдельная компания и отдельный платёж.</p></div></details>
+        <details><summary>Почему цена вилкой?</summary><div class="ans"><p>Потому что честнее. Отель под группу берётся блоком, и стоимость места ощутимо зависит от того, сколько человек соберётся. Мы не хотим объявлять 165 000 ₽, чтобы потом поднять до 195 000. Верхняя граница зафиксирована: выше 200 000 ₽ не будет. Те, кто в списке сейчас, получат цену первого потока. Дальше она вырастет.</p></div></details>
+        <details><summary>Как считается скидка за воркшоп?</summary><div class="ans"><p>Индивидуально, до половины стоимости. Смотрим на то, сколько времени вы берёте на себя и насколько тема нужна остальным: часовой доклад и полноценный воркшоп на два дня — разные вещи. Напишите в анкете, что готовы вести, и мы вернёмся с конкретной цифрой. Слотов немного, поэтому отбираем по темам.</p></div></details>
+        <details><summary>А если я запишусь и передумаю?</summary><div class="ans"><p>Список ничего не стоит и ни к чему не обязывает — это не бронь и не предоплата. Когда объявим даты, вы решите заново. Депозит потом составит 30 % и вернётся полностью, если отказаться не позже чем за шестьдесят дней до заезда.</p></div></details>
+        <details><summary>Можно оплатить от компании?</summary><div class="ans"><p>Да: договор, счёт, акт. Отметьте это в анкете, и мы пришлём комплект документов вместе с готовым письмом для руководителя — его останется просто переслать. Если из одной компании едут трое и больше, даём скидку.</p></div></details>
+        <details><summary>Насколько там жарко? И что с медузами?</summary><div class="ans"><p>Первая половина июня — самое приятное время: днём двадцать семь — двадцать восемь, ночью шестнадцать — семнадцать, дождя почти не бывает. Настоящая жара и толпы начинаются позже. Медузы — история восточного Средиземноморья, района Мерсина и Искендеруна, и в основном конца лета; в Фетхие в июне вероятность низкая.</p></div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="color:var(--paper);margin-bottom:16px"><span class="dot"></span>MLC&nbsp;CAMP&nbsp;’27</div>
+        <p style="max-width:48ch;font-size:15.4px;opacity:.85">Неделя для DS и ML-специалистов на побережье Турции. Фетхие, первая половина июня 2027, двадцать человек, первый поток.</p>
+        <a href="#lead" class="btn" style="margin-top:20px" data-cta="footer">Оставить контакт →</a>
+      </div>
+      <div>
+        <p class="mono" style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;opacity:.6">Связь</p>
+        <p style="font-size:15.4px"><a href="https://t.me/" id="tgLink2" target="_blank" rel="noopener">Телеграм организаторов</a><br><a href="mailto:hi@example.com" id="mailLink">hi@example.com</a></p>
+        <p class="cookie">Сайт использует cookies и хранилище браузера для аналитики и работы формы. Оставляя контакт, вы соглашаетесь на его обработку для связи по поводу кэмпа; третьим лицам мы его не передаём и удалим по первой просьбе. Фотографии на странице — Unsplash и Pexels, они показывают места и формат, но не конкретный отель.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div class="txt">Первая половина июня 2027 · Фетхие<br>20 мест · 165–200 тыс. ₽</div>
+  <a href="#lead" class="btn btn--coral" data-cta="sticky">Оставить контакт →</a>
+</div>
+
+<script>
+/* =======================================================================
+   MLC CAMP — конфиг. Всё, что меняется руками, живёт здесь.
+   ======================================================================= */
+var CONFIG = {
+  API: '/api/lead',                 // эндпоинт Cloudflare Function
+  TELEGRAM: 'https://t.me/your_username',   // ← ваш TG для кнопки "написать"
+  EMAIL: 'hi@mlccamp.ru',                   // ← ваша почта
+  CAMPAIGN_FALLBACK: 'direct'
+};
+(function(){
+  var a=document.getElementById('tgLink'), b=document.getElementById('tgLink2'), m=document.getElementById('mailLink');
+  if(a) a.href=CONFIG.TELEGRAM; if(b) b.href=CONFIG.TELEGRAM;
+  if(m){ m.href='mailto:'+CONFIG.EMAIL; m.textContent=CONFIG.EMAIL; }
+})();
+
+/* ---------- 1. UTM: ловим при входе, храним на всю сессию ---------- */
+var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+(function(){
+  var q=new URLSearchParams(location.search), store={};
+  try{ store=JSON.parse(sessionStorage.getItem('mlc_utm')||'{}'); }catch(e){ store={}; }
+  var got=false;
+  UTM_KEYS.forEach(function(k){ var v=q.get(k); if(v){ store[k]=v.slice(0,120); got=true; } });
+  // короткие алиасы для удобных ссылок в постах: /?s=siolo&c=test1
+  if(q.get('s')){ store.utm_source=q.get('s').slice(0,120); got=true; }
+  if(q.get('c')){ store.utm_campaign=q.get('c').slice(0,120); got=true; }
+  if(got){ try{ sessionStorage.setItem('mlc_utm',JSON.stringify(store)); }catch(e){} }
+  if(!store.referrer){
+    try{ store.referrer=document.referrer||''; sessionStorage.setItem('mlc_utm',JSON.stringify(store)); }catch(e){}
+  }
+  UTM_KEYS.forEach(function(k){ var el=document.getElementById(k); if(el) el.value=store[k]||''; });
+  var r=document.getElementById('referrer'); if(r) r.value=(store.referrer||document.referrer||'').slice(0,300);
+  var l=document.getElementById('landingField'); if(l) l.value=location.pathname+location.search;
+  window.__utm=store;
+})();
+
+/* ---------- 2. Откуда нажали CTA ---------- */
+document.querySelectorAll('[data-cta]').forEach(function(el){
+  el.addEventListener('click',function(){
+    var f=document.getElementById('ctaField'); if(f) f.value=el.getAttribute('data-cta');
+  });
+});
+
+/* ---------- 3. Появление блоков при скролле ---------- */
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en,i){
+      if(en.isIntersecting){
+        var d=Math.min(i*70,260);
+        setTimeout(function(){ en.target.classList.add('in'); }, d);
+        io.unobserve(en.target);
+      }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.06});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* ---------- 4. Табы расписания ---------- */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.daytab'));
+  function show(i){
+    tabs.forEach(function(t,j){
+      t.setAttribute('aria-selected', j===i?'true':'false');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = j!==i;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){ show(i); });
+    t.addEventListener('keydown',function(e){
+      var n = e.key==='ArrowRight'?i+1 : e.key==='ArrowLeft'?i-1 : null;
+      if(n===null) return;
+      e.preventDefault(); n=(n+tabs.length)%tabs.length; tabs[n].focus(); show(n);
+    });
+  });
+})();
+
+/* ---------- 5. Липкая нижняя панель ---------- */
+(function(){
+  var bar=document.getElementById('sticky'), form=document.getElementById('lead');
+  if(!bar) return;
+  var pastFold=false, atForm=false;
+  function paint(){ bar.classList.toggle('show', pastFold && !atForm); }
+
+  if('IntersectionObserver' in window){
+    // прячем панель, когда форма и так на экране — чтобы не перекрывала кнопку
+    if(form) new IntersectionObserver(function(e){ atForm=e[0].isIntersecting; paint(); },
+      {rootMargin:'0px 0px -10% 0px'}).observe(form);
+    // показываем, когда первый экран уехал
+    var sentinel=document.createElement('div');
+    sentinel.style.cssText='position:absolute;top:85vh;height:1px;width:1px;pointer-events:none';
+    document.body.appendChild(sentinel);
+    new IntersectionObserver(function(e){ pastFold=!e[0].isIntersecting && window.scrollY>0; paint(); })
+      .observe(sentinel);
+  }
+  addEventListener('scroll',function(){
+    pastFold = window.scrollY > window.innerHeight*0.85;
+    if(form){ var r=form.getBoundingClientRect(); atForm = r.top < innerHeight*0.9 && r.bottom > 0; }
+    paint();
+  },{passive:true});
+})();
+
+/* ---------- 6. Картинки: локальный файл → сток → полосатая заглушка ---------- */
+document.querySelectorAll('img').forEach(function(img){
+  img.addEventListener('error',function(){
+    var fb=img.getAttribute('data-fallback');
+    if(fb){                                  // подставляем сток и честно это подписываем
+      img.removeAttribute('data-fallback');
+      img.src=fb;
+      var stub=img.parentNode.querySelector('.stub');
+      if(stub) stub.hidden=false;
+      return;
+    }
+    img.style.background='repeating-linear-gradient(45deg,#0E7C86,#0E7C86 12px,#0b656d 12px,#0b656d 24px)';
+    img.style.color='transparent'; img.style.fontSize='0';
+    img.setAttribute('alt','');            // иначе Chrome рисует значок «битая картинка»
+    img.removeAttribute('src');
+  });
+});
+
+/* ---------- 7. Галереи отелей ---------- */
+document.querySelectorAll('[data-gallery]').forEach(function(card){
+  var main=card.querySelector('.hmain');
+  var stub=card.querySelector('.stub');
+  var ths=[].slice.call(card.querySelectorAll('.th'));
+  function pick(i){
+    var im=ths[i].querySelector('img');
+    var src=im.currentSrc||im.getAttribute('src');
+    if(src) main.src=src;
+    // подпись «фото для ориентира» показываем, только если это сток, а не файл из img/hotels
+    if(stub) stub.hidden = !!(src && src.indexOf('img/hotels/')>-1);
+    ths.forEach(function(t,j){ if(j===i) t.setAttribute('aria-current','true'); else t.removeAttribute('aria-current'); });
+  }
+  ths.forEach(function(t,i){
+    t.addEventListener('click',function(){ pick(i); });
+    var im=t.querySelector('img');
+    im.addEventListener('load',function(){ if(t.getAttribute('aria-current')==='true') pick(i); });
+  });
+});
+
+/* ---------- 8. Форма: два шага ---------- */
+(function(){
+  var form=document.getElementById('leadForm');
+  var s1=document.getElementById('step1'), s2=document.getElementById('step2'), dn=document.getElementById('done');
+  var b1=document.getElementById('btn1'), b2=document.getElementById('btn2'), sk=document.getElementById('skip2');
+  var err=document.getElementById('errBox'), p2=document.getElementById('p2'), pl=document.getElementById('pl');
+  var contact=document.getElementById('contact');
+  var leadId=null;
+
+  function fail(msg){ err.textContent=msg; err.style.display='block'; }
+  function clearErr(){ err.style.display='none'; }
+
+  function validContact(v){
+    v=v.trim();
+    if(v.length<3) return false;
+    if(/^@?[A-Za-z0-9_]{4,32}$/.test(v)) return true;                  // telegram
+    if(/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v)) return true;         // email
+    if(/t\.me\/[A-Za-z0-9_]{4,32}/.test(v)) return true;               // ссылка на tg
+    return false;
+  }
+  function collect(){
+    var d={};
+    new FormData(form).forEach(function(v,k){
+      if(d[k]===undefined) d[k]=v;
+      else if(Array.isArray(d[k])) d[k].push(v);
+      else d[k]=[d[k],v];
+    });
+    ['dates','value','contrib','domain'].forEach(function(k){ if(d[k]&&!Array.isArray(d[k])) d[k]=[d[k]]; });
+    d.screen=innerWidth+'x'+innerHeight;
+    d.tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+    d.ua_tg = /Telegram/i.test(navigator.userAgent) ? '1':'';
+    if(leadId) d.lead_id=leadId;
+    return d;
+  }
+  // при открытии файла с диска или с localhost бэкенда нет — просто пропускаем шаг вперёд,
+  // чтобы можно было посмотреть анкету
+  var DEMO = location.protocol==='file:' || /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname);
+
+  function post(step,cb){
+    var body=collect(); body.step=step;
+    if(DEMO){
+      console.info('[demo] бэкенд не подключён, данные не отправлены:', body);
+      leadId=leadId||'demo1234';
+      setTimeout(function(){ cb(true,{ok:true,lead_id:leadId,demo:true}); },350);
+      return;
+    }
+    fetch(CONFIG.API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){
+        // страница выложена без бэкенда (превью для показа) — не упираемся, просто идём дальше
+        if(r.status===404||r.status===405){
+          console.info('[preview] эндпоинт /api/lead не найден, заявка не сохранена');
+          return {ok:true, lead_id:leadId||'preview', preview:true};
+        }
+        return r.json().catch(function(){ return {ok:r.ok}; });
+      })
+      .then(function(j){ if(j&&j.lead_id) leadId=j.lead_id; cb(!(j&&j.ok===false), j); })
+      .catch(function(){ cb(false); });
+  }
+
+  b1.addEventListener('click',function(){
+    clearErr();
+    if(!validContact(contact.value)){
+      fail('Проверьте контакт: @username в Telegram или обычный e-mail.');
+      contact.focus(); return;
+    }
+    if(document.getElementById('hp').value){ return; }   // ловушка для ботов
+    b1.disabled=true; b1.textContent='Отправляем…';
+    post(1,function(ok){
+      b1.disabled=false; b1.textContent='Записаться в лист ожидания →';
+      if(!ok){ fail('Не удалось отправить — похоже, пропала связь. Попробуйте ещё раз или просто напишите нам в телеграм, ссылка внизу страницы.'); return; }
+      s1.hidden=true; s2.hidden=false; p2.classList.add('on'); pl.textContent='Шаг 2 из 2 · по желанию';
+      s2.scrollIntoView({behavior:'smooth',block:'start'});
+      try{ if(window.ym) ym(window.__ymid,'reachGoal','lead_step1'); }catch(e){}
+    });
+  });
+
+  function finish(){
+    s2.hidden=true; dn.hidden=false; pl.textContent='Готово';
+    dn.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  b2.addEventListener('click',function(){
+    b2.disabled=true; b2.textContent='Отправляем…';
+    post(2,function(){ finish(); try{ if(window.ym) ym(window.__ymid,'reachGoal','lead_step2'); }catch(e){} });
+  });
+  sk.addEventListener('click',finish);
+  form.addEventListener('submit',function(e){ e.preventDefault(); });
+  form.addEventListener('keydown',function(e){
+    if(e.key==='Enter' && e.target.tagName!=='TEXTAREA'){ e.preventDefault(); if(!s1.hidden) b1.click(); }
+  });
+})();
+</script>
+</body>
+</html>
