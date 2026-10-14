@@ -16,8 +16,596 @@
 <link rel="preconnect" href="https://images.pexels.com">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500&family=Fira+Sans:wght@400;500;600&family=Old+Standard+TT:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F0E1A6'/%3E%3Cpath d='M0 0h13c-2 6 3 9 1 15s-6 9-4 17H0z' fill='%23FAFBF9' stroke='%2318232E'/%3E%3Cpath d='M24 7c5 6 3 15-5 18' fill='none' stroke='%23A8166A' stroke-width='2.4' stroke-dasharray='3 2.4'/%3E%3C/svg%3E">
-<style> :root{--water:#FAFBF9;--land:#F0E1A6;--shoal:#C4E0EC;--shoal-t:#DCEDF4;--ink:#18232E;--ink-2:#52606D;--mag:#A8166A;--mag-d:#8A1056;--rule:rgba(24,35,46,.2);--rule-2:rgba(24,35,46,.1);--serif:'Old Standard TT','Times New Roman',serif;--sans:'Fira Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--cond:'Fira Sans Condensed','Fira Sans',system-ui,sans-serif;--g:clamp(16px,4vw,48px);--maxw:1240px}*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}body{margin:0;background:var(--water);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}img{display:block;max-width:100%}a{color:inherit}b,strong{font-weight:600}p{margin:0 0 1em;text-wrap:pretty;hyphens:auto}h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;hyphens:manual;letter-spacing:-.005em}h2{font-size:clamp(2.15rem,4.3vw,3.85rem);line-height:1.04}h3{font-size:clamp(1.5rem,2.2vw,1.95rem);line-height:1.12}.w{font-style:italic}.nw{white-space:nowrap}::selection{background:var(--shoal);color:var(--ink)}:focus-visible{outline:2px solid var(--mag);outline-offset:3px}[hidden]{display:none!important}.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--g);padding-right:var(--g)}.sec{padding:clamp(64px,8vw,112px) 0}.tnum{font-variant-numeric:tabular-nums lining-nums}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.skip{position:absolute;left:-9999px;top:0;display:inline-block;padding:12px 16px;min-height:44px}.skip:focus{left:12px;top:12px;z-index:100;background:var(--water);border:1px solid var(--ink)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;background:var(--mag);color:#fff;border:0;border-radius:3px;font:500 17px/1.15 var(--sans);text-decoration:none;cursor:pointer;transition:background-color .15s ease;-webkit-tap-highlight-color:transparent}.btn:hover{background:var(--mag-d)}.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}.btn[disabled]{opacity:.7;cursor:progress}.btn-o{background:transparent;color:var(--mag);box-shadow:inset 0 0 0 1.5px var(--mag)}.btn-o:hover{background:var(--mag);color:#fff}.lnk{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:var(--mag);transition:color .15s}.lnk:hover{color:var(--mag)}.top{position:sticky;top:0;z-index:60;background:var(--water);border-bottom:1px solid var(--rule)}.top-in{display:flex;align-items:center;gap:28px;height:64px}.mark{font:400 21px/1 var(--serif);letter-spacing:.06em;text-decoration:none;white-space:nowrap;margin-right:auto;padding:12px 0}.top nav{display:none;gap:26px;font-size:15px}.top nav a{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent;transition:border-color .15s}.top nav a:hover{border-bottom-color:var(--mag)}.top .btn{min-height:44px;padding:10px 18px;font-size:15px;transition:background-color .15s,opacity .2s}body.bar-on .top .btn{opacity:0;pointer-events:none}@media (min-width:1100px){.top nav{display:flex}}@media (max-width:899px){.top{position:relative}.top-in{height:58px;gap:12px}.mark{font-size:18px}.top .btn{font-size:15px;padding:10px 14px}}.chart-svg{display:block;width:100%;height:100%}.chart-svg text{font-family:var(--serif)}.sea{fill:var(--water)}.land{fill:var(--land);stroke:var(--ink);stroke-width:.9px;stroke-linejoin:round}.land-x{fill:var(--land)}.grat line{stroke:var(--ink);stroke-opacity:.13;stroke-width:1px;vector-effect:non-scaling-stroke}.grad .b{fill:var(--ink)}.grad .wht{fill:var(--water);stroke:var(--ink);stroke-width:.6px;vector-effect:non-scaling-stroke}.grad text{font-family:var(--cond);fill:var(--ink-2);font-variant-numeric:tabular-nums}.ln{fill:var(--ink)}.ln.wn{font-style:italic}.chart-svg text:not(.grad text){paint-order:stroke;stroke:var(--water);stroke-width:2.6px;stroke-linejoin:round}.grad text{paint-order:stroke;stroke:var(--water);stroke-width:3px;stroke-linejoin:round}.dot{fill:var(--ink)}.ring{fill:var(--water);stroke:var(--ink);stroke-width:1.4px;vector-effect:non-scaling-stroke}.peak{fill:var(--ink)}.hgt{font-family:var(--cond)!important;fill:var(--ink-2)}.pg{fill:none;stroke:var(--ink);stroke-width:1.3px;stroke-dasharray:1.5 4;stroke-linecap:round;vector-effect:non-scaling-stroke}.pgl{font-family:var(--cond)!important;fill:var(--ink-2)}.course{fill:none;stroke:var(--mag);stroke-linecap:round;stroke-linejoin:round}.cl{fill:var(--mag);font-style:italic}.leader{stroke:var(--ink);stroke-width:.8px;vector-effect:non-scaling-stroke}.cm-draw{stroke-dasharray:1;stroke-dashoffset:0}.trail{fill:none;stroke:#C8352B;stroke-width:5px;stroke-dasharray:10 8;vector-effect:non-scaling-stroke}.trail-w{fill:none;stroke:#fff;stroke-width:5px;vector-effect:non-scaling-stroke}.hn circle{fill:var(--water);stroke:var(--ink);stroke-width:1.3px;vector-effect:non-scaling-stroke}.hn text{font-family:var(--cond)!important;font-weight:500;fill:var(--ink);stroke:none!important}.hero{position:relative;background:var(--water);border-bottom:1px solid var(--ink)}.hero-l{display:none}.view{position:absolute;margin:0}.view img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--ink);background:var(--shoal)}.view figcaption{font:400 14px/1.35 var(--cond);color:var(--ink-2);margin-top:6px;padding-right:6px}.view figcaption i{font:italic 400 16px/1.3 var(--serif);color:var(--ink)}.cartouche h1{font-size:clamp(2.75rem,min(5.2vw,8.6vh),5.2rem);line-height:.96;letter-spacing:-.018em;margin:0 0 .26em}.lede{font-size:clamp(17px,1.25vw,18.5px);line-height:1.52;margin:0 0 18px}.facts{margin:0 0 24px;display:grid;grid-template-columns:auto 1fr;gap:0 18px;font:400 17px/1.4 var(--cond)}.facts>div{display:contents}.facts dt,.facts dd{padding:8px 0;border-top:1px solid var(--rule);margin:0}.facts dt{color:var(--ink-2)}.facts dd{font-weight:500}.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px}.cta-row .lnk{display:inline-block;padding:12px 0}.free{font:400 15.5px/1.45 var(--cond);color:var(--ink-2);margin:12px 0 0}.legend{font:400 15px/1.45 var(--cond);color:var(--ink)}.legend p{margin:0}.legend .k{display:inline-block;width:38px;vertical-align:middle;margin-right:10px}.legend .k.it,.legend .k.up{width:auto;margin-right:.55em}.legend .note{color:var(--ink-2);margin-top:6px}.it{font:italic 400 17px/1 var(--serif)}.up{font:400 17px/1 var(--serif)}.hero-s,.mini{display:none}@media (min-width:1100px){.hero{min-height:clamp(660px,calc(100svh - 64px),960px);overflow:hidden;display:flex;justify-content:flex-end}.hero-l{display:block;position:absolute;inset:0}.hero-r{position:relative;width:clamp(480px,41vw,620px);margin-right:var(--g);padding:clamp(20px,3.4vh,60px) 0 clamp(34px,4.6vh,56px);display:flex;flex-direction:column;gap:12px}.cartouche{background:var(--water);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:clamp(22px,3vh,40px) clamp(28px,2.6vw,40px) clamp(20px,2.6vh,36px)}.facts{margin-bottom:20px}.facts dt,.facts dd{padding:6px 0}.hero .legend{background:var(--water);border:1px solid var(--ink);padding:12px clamp(28px,2.6vw,40px) 13px;display:grid;grid-template-columns:1fr 1fr;gap:4px 22px}.hero .legend .note{grid-column:1/-1}}@media (max-width:1099px){.hero{display:flex;flex-direction:column}.hero-r,.cartouche{display:contents}.cartouche h1{order:1;padding:20px var(--g) 0;font-size:clamp(2.6rem,10.4vw,4.4rem);margin:0 0 12px}.facts{order:2;margin:0 var(--g) 18px;grid-template-columns:1fr 1fr;gap:0 16px}.facts>div{display:block;border-top:1px solid var(--rule);padding:7px 0 8px}.facts dt,.facts dd{border:0;padding:0}.facts dt{font-size:14.5px}.facts dd{font-size:16.5px;line-height:1.28}.hero-s{order:5;display:block;position:relative;width:100%;min-height:0;aspect-ratio:4/5;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden}.hero-s>svg{position:absolute;inset:0}.mini{order:6;display:block;font:400 14.5px/1.5 var(--cond);color:var(--ink);padding:10px var(--g) 0;margin:0}.mini .k{display:inline-block;width:30px;vertical-align:middle;margin-right:6px}.lede{order:7;margin:18px var(--g) 30px}.cta-row{order:3;padding:0 var(--g)}.cta-row .btn{flex:1 1 100%}.cta-row .lnk{display:none}.free{order:4;padding:0 var(--g);margin:10px 0 22px}.hero .legend{display:none}.view-s{left:3.1%;top:55%;width:39%}}@media (min-width:700px) and (max-width:1099px){.hero-s{aspect-ratio:16/10}.lede,.facts,.cartouche h1{max-width:760px}}.head{display:grid;gap:18px 48px;margin-bottom:clamp(30px,4vw,52px)}.head .dek{font-size:clamp(17px,1.4vw,19px);max-width:36em;margin:0}@media (min-width:900px){.head.head-1{grid-template-columns:1fr}.head-1 h2{font-size:clamp(2.4rem,4.8vw,4.4rem)}}@media (min-width:900px){.head{grid-template-columns:6fr 6fr;align-items:end}}.notice{display:grid;gap:6px 32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0 15px;margin:0 0 clamp(28px,4vw,44px);max-width:62rem}.notice .nh{font:500 15px/1.5 var(--cond);margin:0}.notice p{margin:0;font-size:16px}@media (min-width:760px){.notice{grid-template-columns:13.5rem 1fr}}.who-grid{display:grid;gap:clamp(36px,5vw,72px)}@media (min-width:960px){.who-grid{grid-template-columns:7fr 5fr;align-items:start}}.yes h2{margin-bottom:30px}.yes p{max-width:38em;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--rule-2)}.yes p:last-child{border-bottom:0}.caution{border:1.5px solid var(--mag);padding:clamp(20px,3vw,32px)}.caution .ch{font:500 15px/1 var(--cond);color:var(--mag);margin:0 0 12px}.caution h3{margin-bottom:16px}.caution ul{list-style:none;margin:0;padding:0}.caution li{padding:12px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}.rule-line{grid-column:1/-1;font:400 clamp(1.55rem,2.6vw,2.3rem)/1.25 var(--serif);max-width:28em;margin:0;text-wrap:balance}.rule-line span{display:block;font:400 17px/1.55 var(--sans);margin-top:12px;color:var(--ink-2);max-width:36em}.now{font:400 16px/1.45 var(--cond);margin:0 0 40px;min-height:1.45em}.now b{font-weight:500;color:var(--mag)}.fig-h{font:400 clamp(1.5rem,2.2vw,1.95rem)/1.15 var(--serif);margin:0 0 14px}.sunfig,.week{margin:0}.week.subfig{margin-top:clamp(56px,7vw,96px)}.plot{position:relative;height:clamp(170px,22vw,280px)}.plot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.plot .curve{fill:none;stroke:var(--ink);stroke-width:1.6px;vector-effect:non-scaling-stroke}.plot .base{stroke:var(--ink);stroke-width:1px;vector-effect:non-scaling-stroke}.plot .tk{stroke:var(--ink);stroke-width:1px;vector-effect:non-scaling-stroke}.plot .nl{stroke:var(--mag);stroke-width:1.6px;vector-effect:non-scaling-stroke}.plot .clip{position:absolute;left:42.105%;width:21.053%;top:0;height:100%;object-fit:cover;clip-path:polygon(0.00% 10.17%,4.17% 10.28%,8.33% 10.79%,12.50% 11.65%,16.67% 12.81%,20.83% 14.24%,25.00% 15.85%,29.17% 17.64%,33.33% 19.55%,37.50% 21.55%,41.67% 23.64%,45.83% 25.79%,50.00% 28.00%,54.17% 30.24%,58.33% 32.50%,62.50% 34.81%,66.67% 37.12%,70.83% 39.45%,75.00% 41.80%,79.17% 44.15%,83.33% 46.51%,87.50% 48.88%,91.67% 51.25%,95.83% 53.61%,100.00% 55.99%,100% 100%,0% 100%);background:var(--shoal)}.plot .night{position:absolute;left:80.702%;width:19.298%;top:0;height:100%;object-fit:cover;background:#0f1822}.sl{position:absolute;font:400 14px/1.2 var(--cond);color:var(--ink-2);white-space:nowrap;transform:translateX(-50%)}.sl.hr{bottom:-24px}.sl.l{transform:none}.sl.r{transform:translateX(-100%)}.sl.top{color:var(--ink)}.sl.inv{color:#fff;text-shadow:0 1px 2px rgba(15,24,34,.6)}.sl .sh{display:none}@media (max-width:599px){.sl .lg{display:none}.sl .sh{display:inline}}.sl.nowl{color:var(--mag);font-weight:500;background:var(--water);padding:2px 6px;border:1px solid var(--mag)}.cols{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:.767fr 3.233fr 4fr 4fr 3.333fr 3.667fr;border-top:1px solid var(--ink)}.cols li{border-left:1px solid var(--rule);padding:14px 14px 0;font-size:15px;line-height:1.5}.cols .lnk{white-space:nowrap;display:inline-block;padding:10px 0;margin:-10px 0}.cols li:first-child{border:0;padding:0}.cols .t{display:block;font:500 15px/1.3 var(--cond);color:var(--ink-2);margin-bottom:4px}.cols .h{display:block;font:400 20px/1.2 var(--serif);margin-bottom:6px;color:var(--ink)}.cols .sea .h{font-style:italic}.cols .x{margin:0}.cols img{width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 10px;background:var(--shoal-t)}.cols li.is-now{box-shadow:inset 0 3px 0 var(--mag)}.cols li.is-now .t{color:var(--mag)}.suncap{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin:20px 0 0;max-width:52em}@media (max-width:899px){.cols{display:block;border-top:2px solid var(--ink);margin-top:34px}.cols li{border:0;border-bottom:1px solid var(--rule);padding:14px 0}.cols li:first-child{display:none}.cols li.sea{background:var(--shoal-t);padding-left:12px;padding-right:12px}.cols li.is-now{box-shadow:inset 3px 0 0 var(--mag);padding-left:12px}.cols img{display:none}.sl.hr.odd{display:none}.sl.edge{top:22%!important}.sl.top{font-size:14px}}.subfig{margin-top:clamp(56px,7vw,96px)}.seaday{display:grid;gap:24px clamp(24px,3vw,48px)}@media (min-width:900px){.seaday{grid-template-columns:7fr 5fr;align-items:start}}.log{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}.log li{display:grid;gap:4px 24px;padding:15px 14px 16px;border-bottom:1px solid var(--rule)}.log .t{font:500 15px/1.4 var(--cond);color:var(--ink-2)}.log .h{font:400 21px/1.2 var(--serif);margin:0}.log .x{font-size:15.5px;line-height:1.55;margin:0}.log li.sea{background:var(--shoal-t)}.log li.sea .h{font-style:italic}@media (min-width:760px){.log li{grid-template-columns:7.5rem 13rem 1fr;align-items:baseline}}.plates2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}@media (max-width:599px){.plates2 .plate img{aspect-ratio:1/1}.subfig{margin-top:48px}}.plate{margin:0}.plate img{width:100%;height:auto;object-fit:cover;background:var(--shoal-t)}.plate figcaption{font:400 14.5px/1.4 var(--cond);color:var(--ink-2);margin-top:8px;max-width:40em}.plate figcaption i{font:italic 400 16px/1.3 var(--serif);color:var(--ink)}.r34 img{aspect-ratio:3/4}.week .marey{display:block;width:100%;height:auto}.week .marey-v{display:none}@media (max-width:759px){.week .marey-h{display:none}.week .marey-v{display:block}.capH{display:none}}@media (min-width:760px){.capV{display:none}}.marey text{font-family:var(--cond)}.marey .mb{fill:var(--shoal-t)}.marey .ms{fill:var(--shoal);fill-opacity:.42}.marey .mg{stroke:var(--ink);stroke-opacity:.2;stroke-width:1;stroke-dasharray:1 3}.marey .md{stroke:var(--ink);stroke-opacity:.3;stroke-width:1}.marey .ml{font:400 14.5px var(--serif);fill:var(--ink)}.marey .ml.w{font-style:italic}.marey .mday{font:500 14px var(--cond);fill:var(--ink)}.marey .mp{fill:none;stroke:var(--ink);stroke-opacity:.42;stroke-width:.9;stroke-linejoin:round}.marey .mgul{fill:none;stroke:var(--mag);stroke-width:1.2}.marey .ma{font:400 14px var(--cond);fill:var(--ink-2);paint-order:stroke;stroke:var(--water);stroke-width:3px;stroke-linejoin:round}.marey .ma.strong{fill:var(--ink);font-weight:500}.marey .ma.soft{fill:var(--ink-2)}.marey .ma.w{font:italic 400 15px var(--serif);fill:var(--mag)}.weekcap{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin:12px 0 0;max-width:56em}.ends{list-style:none;margin:clamp(28px,3vw,40px) 0 0;padding:0;display:grid;gap:22px clamp(20px,2.4vw,32px)}@media (min-width:900px){.ends{grid-template-columns:repeat(3,1fr)}}.ends li{border-top:1px solid var(--ink);padding-top:12px;font-size:15.5px}.ends .t{display:block;font:500 15px/1.3 var(--cond);color:var(--ink-2)}.ends .h{display:block;font:400 21px/1.2 var(--serif);margin:2px 0 6px}.ends img{width:100%;aspect-ratio:16/9;object-fit:cover;margin:4px 0 10px;background:var(--shoal-t)}.spread{margin:0;position:relative}.spread img{width:100%;height:clamp(300px,62vh,680px);object-fit:cover;background:var(--shoal)}@media (max-width:599px){.spread img{height:300px}.alabel{margin-top:-56px;padding:18px 20px}.feat{margin-top:40px}.arows{margin-top:44px}}.alabel{position:relative;z-index:2;margin:-120px 0 0;background:var(--water);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:26px 32px 24px;max-width:600px}.alabel h2{font-style:italic;letter-spacing:.14em;font-size:clamp(2rem,3.6vw,3.2rem);margin-bottom:12px}.alabel p{margin:0;font-size:17px}.spreadcap{font:400 14.5px/1.4 var(--cond);color:var(--ink-2);margin:10px 0 0}.feat{display:grid;gap:20px clamp(24px,3vw,48px);margin-top:clamp(48px,6vw,80px);align-items:center}.feat h3{font-size:clamp(2rem,3.4vw,3rem);margin-bottom:12px}.feat p{max-width:34em;font-size:16.5px}.dur{font:500 15px/1.35 var(--cond);color:var(--ink-2);margin:0}.dur .lnk{display:inline-block;padding:12px 0;margin:-12px 0}@media (min-width:900px){.feat-g{grid-template-columns:5fr 7fr}.feat-p{grid-template-columns:5fr 7fr}.feat-p .plate{margin-right:calc(var(--g) * -1 - max(0px,(100vw - var(--maxw)) / 2))}}.feat-p .plate img{aspect-ratio:16/10;width:100%}.arows{list-style:none;margin:clamp(40px,5vw,64px) 0 0;padding:0;border-top:2px solid var(--ink)}.duo{display:grid;gap:40px clamp(24px,3vw,48px);margin-top:clamp(56px,7vw,96px)}@media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}.mid .plate img{aspect-ratio:3/2;width:100%}.mid h3{margin:16px 0 10px}.mid p{font-size:16px;max-width:36em}.nightband{position:relative;background:#0f1822;color:var(--water);margin-top:clamp(56px,7vw,96px)}.nightband>img{width:100%;height:clamp(440px,70vh,700px);object-fit:cover;opacity:.82;background:#0f1822}.nightband .wrap{position:absolute;left:0;right:0;bottom:clamp(28px,4vw,56px)}.ntxt{max-width:520px;background:rgba(15,24,34,.88);border:1px solid rgba(250,251,249,.7);outline:1px solid rgba(250,251,249,.7);outline-offset:-6px;padding:24px 30px 22px}.ntxt h3{font-size:clamp(2rem,3.4vw,3rem);margin:0 0 10px;color:var(--water)}.ntxt p{color:rgba(250,251,249,.92);font-size:16.5px;margin:0 0 10px}.ntxt .dur{color:rgba(250,251,249,.75);margin:0}@media (max-width:759px){.nightband>img{height:auto;aspect-ratio:4/5}.nightband .wrap{position:static;padding-top:0;padding-bottom:36px}.ntxt{margin-top:-80px;position:relative}}.arow{display:grid;grid-template-columns:200px 1fr;gap:6px 28px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:start}.arow img{grid-row:1/4;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--shoal-t)}.arow h3{font-size:clamp(1.4rem,1.9vw,1.75rem);display:flex;align-items:center;gap:12px}.arow p{margin:0;max-width:44em;font-size:16px}.waymark{display:inline-block;width:18px;height:22px;flex:none;border:1px solid var(--ink);background:#fff;position:relative}.waymark::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:#C8352B}@media (min-width:1000px){.arow{grid-template-columns:220px 14rem 1fr 11rem}.arow img{grid-row:auto}.arow .dur{text-align:right}}@media (max-width:599px){.arow{grid-template-columns:96px 1fr;gap:4px 14px}.arow img{grid-row:1/3}.arow p{grid-column:1/-1;margin-top:6px}}.place-grid{display:grid;gap:clamp(32px,4vw,64px)}@media (min-width:1000px){.place-grid{grid-template-columns:5fr 7fr;align-items:start}}.why{margin:0}.why dt{font:400 23px/1.25 var(--serif);margin:22px 0 6px}.why dd{margin:0;font-size:16.5px;max-width:36em}.areamap{margin:0;position:sticky;top:90px}.areamap .frame{border:1px solid var(--ink);background:var(--water);aspect-ratio:1100/860}.areamap svg{display:block;width:100%;height:100%}#chartP .pn{font-size:31px}#chartP .ps{font-size:25px}#chartP .pw{font-size:34px}#chartP .hn text{font-size:25px}#chartP text:not(.hn text){stroke-width:7px}@media (max-width:700px){#chartP .pn{font-size:44px}#chartP .ps{font-size:40px}#chartP .pw{font-size:44px;letter-spacing:2px}#chartP .hn text{font-size:36px}}.areamap figcaption{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin-top:8px}@media (max-width:999px){.areamap{position:static}}.strip{display:grid;grid-template-columns:2fr 1fr;gap:clamp(14px,2vw,26px);margin-top:clamp(44px,6vw,80px)}.strip img{height:clamp(220px,28vw,400px);aspect-ratio:auto!important}.landband{background:var(--land);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}.landband .notice{border-color:var(--ink)}.hn-b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1.3px solid var(--ink);background:var(--water);font:500 17px/1 var(--cond);flex:none}.cmp{display:grid;gap:0 clamp(16px,2vw,28px);background:var(--water);border:1px solid var(--ink);padding:clamp(18px,2.4vw,32px)}.cmp .rl{display:none}.hcard{display:grid;gap:0}.hcard .hd{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px}.hcard h3{font-size:clamp(1.35rem,1.8vw,1.65rem);margin:2px 0 4px}.hcard .lvl{font:500 15px/1.4 var(--cond);color:var(--ink-2);margin:0}.hcard .pic{position:relative}.hcard .hmain{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--shoal-t)}.stub{position:absolute;left:0;top:0;background:var(--water);color:var(--ink);font:400 14px/1 var(--cond);padding:7px 9px}.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}.th{appearance:none;padding:0;border:0;background:none;cursor:pointer;position:relative;line-height:0;opacity:.62;transition:opacity .15s}.th img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--shoal-t)}.th:hover,.th[aria-current="true"]{opacity:1}.th[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--ink)}.hcard dl{margin:14px 0 0;display:grid;grid-template-columns:6.6rem 1fr;font-size:15.5px;line-height:1.5}.hcard dt,.hcard dd{margin:0;padding:8px 0;border-top:1px solid var(--rule)}.hcard dt{font:400 15px/1.5 var(--cond);color:var(--ink-2)}.hcard .more{display:inline-block;padding:12px 0;margin-top:2px;font-size:16px;justify-self:start}@media (min-width:1000px){.cmp{grid-template-columns:9rem repeat(3,1fr);grid-template-rows:auto auto repeat(4,auto) auto}.cmp .rl{display:grid;grid-row:1/-1;grid-template-rows:subgrid;font:400 15px/1.5 var(--cond);color:var(--ink-2)}.cmp .rl span{padding:8px 0;border-top:1px solid var(--rule)}.cmp .rl span:nth-child(1),.cmp .rl span:nth-child(2){border:0}.hcard{grid-row:1/-1;grid-template-rows:subgrid}.hcard dl{display:contents}.hcard dt{display:none}.hcard dd{padding:8px 0;border-top:1px solid var(--rule)}.hcard .gal{padding-bottom:14px}}@media (max-width:999px){.cmp{padding:18px}.hcard + .hcard{margin-top:28px;padding-top:24px;border-top:1px solid var(--ink)}.hcard .hmain{aspect-ratio:16/9}.hcard dl{grid-template-columns:5.6rem 1fr;margin-top:10px}.hcard dt,.hcard dd{padding:6px 0}}@media (min-width:600px) and (max-width:999px){.hcard{grid-template-columns:5fr 6fr;gap:0 22px}.hcard .hd{grid-column:1/-1}.hcard .gal{grid-row:2/4}.hcard .more{grid-column:2}}.price .head h2{font-size:clamp(2.4rem,4.4vw,4.1rem);line-height:1.02}.plot2{margin:12px 0 0;position:relative}.prow{display:grid;grid-template-columns:16rem 1fr;align-items:center;gap:6px 24px;padding:16px 0;border-bottom:1px solid var(--rule)}.prow:first-child{border-top:2px solid var(--ink)}.pl{margin:0}.pl b{display:block;font:400 21px/1.2 var(--serif)}.pl span{display:block;font:400 15px/1.35 var(--cond);color:var(--ink-2);margin-top:3px}.trk{position:relative;height:30px}.bar{position:absolute;top:10px;height:10px;background:var(--ink);left:calc((var(--a) - 130) / 75 * 100%);width:calc((var(--b) - var(--a)) / 75 * 100%)}.bar.soft{background:var(--ink-2)}.val{position:absolute;top:2px;left:calc((var(--b) - 130) / 75 * 100% + 12px);font:500 18px/26px var(--cond);white-space:nowrap}.val.lft{left:auto;right:calc(100% - (var(--a) - 130) / 75 * 100% + 12px)}.axis{display:grid;grid-template-columns:16rem 1fr;gap:24px;margin-top:4px}.ticks{position:relative;height:34px}.ticks span{position:absolute;top:6px;transform:translateX(-50%);font:400 14.5px/1 var(--cond);color:var(--ink-2)}.ticks span::before{content:"";position:absolute;left:50%;top:-7px;height:5px;width:1px;background:var(--ink)}.ceil{position:absolute;top:-34px;bottom:34px;width:2px;background:var(--mag);left:calc(16rem + 24px + (100% - 16rem - 24px) * 70 / 75)}.ceil span{position:absolute;top:0;right:12px;font:500 15.5px/1.25 var(--cond);color:var(--mag);white-space:nowrap;text-align:right}.firstp{font-size:16px;max-width:44em;margin:22px 0 0}@media (max-width:759px){.prow{grid-template-columns:1fr;padding:14px 0 10px}.axis{grid-template-columns:1fr}.axis>:first-child{display:none}.plot2{margin-top:44px}.ceil{left:calc(100% * 70 / 75);top:-30px}.val{font-size:16.5px}.tk-m{display:none}}.incl{display:grid;gap:32px clamp(24px,4vw,64px);margin-top:clamp(48px,6vw,80px)}@media (min-width:860px){.incl{grid-template-columns:1fr 1fr}}.incl h3{font-size:1.6rem;margin-bottom:10px}.incl ul{list-style:none;margin:0;padding:0}.incl li{padding:10px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}.incl .notes p{font-size:15.5px;margin:18px 0 0}.extra{display:grid;gap:0;margin-top:clamp(48px,6vw,80px);border-top:2px solid var(--ink)}@media (min-width:900px){.extra{grid-template-columns:1fr 1fr}.extra>div + div{border-left:1px solid var(--rule);padding-left:clamp(24px,3vw,48px)}.extra>div:first-child{padding-right:clamp(24px,3vw,48px)}}.extra>div{padding-top:28px;padding-bottom:12px}.extra .fig{font:500 17px/1 var(--cond);color:var(--ink-2);margin:0 0 12px}.extra h3{margin-bottom:14px}.extra p{font-size:16px;max-width:36em}@media (max-width:899px){.extra>div + div{border-top:1px solid var(--rule);margin-top:24px}}.crew-grid{display:grid;gap:24px clamp(32px,5vw,80px)}@media (min-width:900px){.crew-grid{grid-template-columns:5fr 7fr}}.crew-grid .big{font:400 clamp(1.4rem,2.1vw,1.8rem)/1.35 var(--serif);margin:0 0 18px;max-width:30em}.roll{width:100%;border-collapse:collapse;margin-top:26px;font-size:15.5px}.roll caption{text-align:left;font:400 21px/1.2 var(--serif);padding-bottom:10px}.roll th{font:400 14.5px/1.4 var(--cond);color:var(--ink-2);text-align:left;padding:8px 12px 8px 0;border-bottom:2px solid var(--ink)}.roll td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}.roll .face{display:block;width:56px;height:56px;object-fit:cover;border:1px solid var(--ink);background:var(--land);margin-bottom:8px}.roll .nm{font:400 19px/1.25 var(--serif);width:30%}.roll .lnk{display:inline-block;padding:10px 0;margin:-10px 0}@media (max-width:599px){.roll thead{display:none}.roll tr{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid var(--rule)}.roll td{border:0;padding:0}.roll .nm{width:auto}}.form-sec{background:var(--shoal);position:relative}.form-grid{display:grid;gap:36px clamp(32px,5vw,80px)}@media (min-width:1000px){.form-grid{grid-template-columns:5fr 7fr;align-items:start}}.form-intro h2{margin-bottom:18px}.form-intro>p{font-size:clamp(17px,1.4vw,19px);max-width:30em}.next{margin:28px 0 0;padding:0;list-style:none;counter-reset:n;border-top:1px solid var(--ink)}.next li{counter-increment:n;display:grid;grid-template-columns:2rem 1fr;padding:12px 0;border-bottom:1px solid rgba(24,35,46,.25);font-size:16px}.next li::before{content:counter(n);font:500 16px/1.6 var(--cond);color:var(--ink-2)}.next-h{font:400 22px/1.2 var(--serif);margin:34px 0 0}.fwrap{position:relative}.fcourse{position:absolute;right:100%;top:-70px;width:min(34vw,420px);height:200px;overflow:visible;pointer-events:none}.fcourse path{fill:none;stroke:var(--mag);stroke-width:2.4px;stroke-dasharray:8 5;stroke-linecap:round}.fcourse circle{fill:var(--water);stroke:var(--mag);stroke-width:2.4px}@media (max-width:999px){.fcourse{display:none}}.fbox{background:var(--water);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:clamp(26px,3.4vw,44px);position:relative}.fbox .edge{position:absolute;left:12px;top:12px;width:calc(100% - 24px);height:calc(100% - 24px);display:block;pointer-events:none;overflow:visible}.prog{display:flex;align-items:center;gap:8px;margin:6px 0 24px;font:500 15px/1 var(--cond);color:var(--ink-2)}.prog i{width:44px;height:3px;background:var(--rule)}.prog i.on{background:var(--mag)}.prog span{margin-left:8px}.lbl{display:block;font:500 16px/1.4 var(--sans);margin:0 0 10px}input[type=text],textarea{width:100%;font:400 17px/1.4 var(--sans);color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:3px;padding:14px 15px;min-height:54px}input[type=text]:focus,textarea:focus{outline:2px solid var(--mag);outline-offset:1px}textarea{min-height:104px;resize:vertical}.hint{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:12px 0 0}.fieldrow{margin:0 0 24px;border:0;padding:0}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{position:relative;display:inline-flex;margin:0;cursor:pointer}.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}.chip span{display:flex;align-items:center;min-height:44px;padding:9px 14px;border:1px solid var(--rule);border-radius:3px;background:#fff;font:400 15.5px/1.2 var(--sans);transition:background-color .12s,border-color .12s,color .12s;user-select:none}.chip:hover span{border-color:var(--ink)}.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--water)}.chip input:focus-visible + span{outline:2px solid var(--mag);outline-offset:2px}.step2{border-top:1px solid var(--rule);padding-top:22px}.contribbox{border:1.5px solid var(--mag);padding:18px}.contribbox .lbl{color:var(--mag)}.okbox{padding:clamp(10px,3vw,30px) 0}.okbox .big{font:400 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin:0 0 14px}.okbox .stamp{font:400 15px/1.4 var(--cond);color:var(--ink-2);margin:18px 0 0}.err{border:1.5px solid var(--mag);padding:12px 15px;font-size:15.5px;margin:0 0 18px}.skipbtn{background:none;border:0;padding:10px 4px;min-height:44px;font:inherit;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}.hp{position:absolute;left:-9999px;top:0;width:44px;height:44px;opacity:0}.faq-grid{display:grid;gap:0 clamp(24px,4vw,64px)}@media (min-width:960px){.faq-grid{grid-template-columns:1fr 1fr}}details{border-top:1px solid var(--rule)}.faq-grid>div>details:last-child{border-bottom:1px solid var(--rule)}summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;position:relative;font:500 17.5px/1.4 var(--sans)}summary::-webkit-details-marker{display:none}summary::before,summary::after{content:"";position:absolute;right:6px;top:30px;width:14px;height:1.5px;background:var(--ink);transition:transform .2s}summary::after{transform:rotate(90deg)}details[open] summary::after{transform:rotate(0)}summary:hover{color:var(--mag)}details .ans{padding:0 0 20px;font-size:16px;max-width:38em}details .ans p{margin:0}@media (max-width:599px){.plate figcaption,.view figcaption,.suncap,.weekcap,.hint,.areamap figcaption,.spreadcap,.mini,.facts dt,.legend,.dur,.cols .t,.log .t,.ends .t,.pl span,.ticks span,.notice .nh,.hcard dt,.hcard .lvl,.prog,.stub,.sticky .txt,footer p.small,.roll th,.sl,.free,.now,.caution .ch{font-size:15px}.sl.top{font-size:15px}}@media (max-width:599px){body{font-size:16px;line-height:1.55}.sec{padding:44px 0}.head{margin-bottom:24px}.incl,.extra{margin-top:36px}.subfig,.week.subfig{margin-top:44px}.rule-line{font-size:1.4rem}footer{padding-top:44px}#hotels-h,.price .head h2{font-size:2.3rem}.yes p{padding-bottom:10px;margin-bottom:10px}.plates2{display:none}.act p,.arow p,.feat p,.why dd,.log .x,.cols li,.ends li,.extra p,.incl li,details .ans,.caution li{font-size:15.5px}footer{padding-bottom:96px}}footer{background:var(--ink);color:var(--water);padding:clamp(56px,7vw,88px) 0 120px}footer a{color:var(--water)}.fgrid{display:grid;gap:36px}@media (min-width:900px){.fgrid{grid-template-columns:6fr 6fr}}footer .mark{color:var(--water);display:inline-block;margin-bottom:18px;font-size:24px}footer p{color:rgba(250,251,249,.86)}footer .small{font-size:14.5px;line-height:1.55;color:rgba(250,251,249,.72);max-width:44em}footer .btn:focus-visible{outline-color:var(--water)}footer .lnk{color:var(--water);text-decoration-color:var(--shoal)}.flinks a{display:block;padding:10px 0;width:max-content;max-width:100%}.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--water);border-top:1px solid var(--ink);padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));display:flex;gap:14px;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .25s ease}.sticky.show{transform:none}.sticky .txt{font:400 15px/1.3 var(--cond)}.sticky .txt b{font-weight:500}.sticky .btn{min-height:48px;padding:10px 18px;font-size:16px;flex:none}@media (min-width:1100px){.sticky{display:none}}@media (prefers-reduced-motion:reduce){.sticky{transition:none}}
+<style> :root{--water:#FAFBF9;--land:#F0E1A6;--shoal:#C4E0EC;--shoal-t:#DCEDF4;--ink:#18232E;--ink-2:#52606D;--mag:#A8166A;--mag-d:#8A1056;--rule:rgba(24,35,46,.2);--rule-2:rgba(24,35,46,.1);--serif:'Old Standard TT','Times New Roman',serif;--sans:'Fira Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--cond:'Fira Sans Condensed','Fira Sans',system-ui,sans-serif;--g:clamp(16px,4vw,48px);--maxw:1240px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;background:var(--water);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+b,strong{font-weight:600}
+p{margin:0 0 1em;text-wrap:pretty;hyphens:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;hyphens:manual;letter-spacing:-.005em}
+h2{font-size:clamp(2.15rem,4.3vw,3.85rem);line-height:1.04}
+h3{font-size:clamp(1.5rem,2.2vw,1.95rem);line-height:1.12}
+.w{font-style:italic}
+.nw{white-space:nowrap}
+::selection{background:var(--shoal);color:var(--ink)}
+:focus-visible{outline:2px solid var(--mag);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--g);padding-right:var(--g)}
+.sec{padding:clamp(64px,8vw,112px) 0}
+.tnum{font-variant-numeric:tabular-nums lining-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:0;display:inline-block;padding:12px 16px;min-height:44px}
+.skip:focus{left:12px;top:12px;z-index:100;background:var(--water);border:1px solid var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 26px;background:var(--mag);color:#fff;border:0;border-radius:3px;font:500 17px/1.15 var(--sans);text-decoration:none;cursor:pointer;transition:background-color .15s ease;-webkit-tap-highlight-color:transparent}
+.btn:hover{background:var(--mag-d)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.btn[disabled]{opacity:.7;cursor:progress}
+.btn-o{background:transparent;color:var(--mag);box-shadow:inset 0 0 0 1.5px var(--mag)}
+.btn-o:hover{background:var(--mag);color:#fff}
+.lnk{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:var(--mag);transition:color .15s}
+.lnk:hover{color:var(--mag)}
+.top{position:sticky;top:0;z-index:60;background:var(--water);border-bottom:1px solid var(--rule)}
+.top-in{display:flex;align-items:center;gap:28px;height:64px}
+.mark{font:400 21px/1 var(--serif);letter-spacing:.06em;text-decoration:none;white-space:nowrap;margin-right:auto;padding:12px 0}
+.top nav{display:none;gap:26px;font-size:15px}
+.top nav a{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent;transition:border-color .15s}
+.top nav a:hover{border-bottom-color:var(--mag)}
+.top .btn{min-height:44px;padding:10px 18px;font-size:15px;transition:background-color .15s,opacity .2s}
+body.bar-on .top .btn{opacity:0;pointer-events:none}
+@media (min-width:1100px){.top nav{display:flex}
+}
+@media (max-width:899px){.top{position:relative}
+.top-in{height:58px;gap:12px}
+.mark{font-size:18px}
+.top .btn{font-size:15px;padding:10px 14px}
+}
+.chart-svg{display:block;width:100%;height:100%}
+.chart-svg text{font-family:var(--serif)}
+.sea{fill:var(--water)}
+.land{fill:var(--land);stroke:var(--ink);stroke-width:.9px;stroke-linejoin:round}
+.land-x{fill:var(--land)}
+.grat line{stroke:var(--ink);stroke-opacity:.13;stroke-width:1px;vector-effect:non-scaling-stroke}
+.grad .b{fill:var(--ink)}
+.grad .wht{fill:var(--water);stroke:var(--ink);stroke-width:.6px;vector-effect:non-scaling-stroke}
+.grad text{font-family:var(--cond);fill:var(--ink-2);font-variant-numeric:tabular-nums}
+.ln{fill:var(--ink)}
+.ln.wn{font-style:italic}
+.chart-svg text:not(.grad text){paint-order:stroke;stroke:var(--water);stroke-width:2.6px;stroke-linejoin:round}
+.grad text{paint-order:stroke;stroke:var(--water);stroke-width:3px;stroke-linejoin:round}
+.dot{fill:var(--ink)}
+.ring{fill:var(--water);stroke:var(--ink);stroke-width:1.4px;vector-effect:non-scaling-stroke}
+.peak{fill:var(--ink)}
+.hgt{font-family:var(--cond)!important;fill:var(--ink-2)}
+.pg{fill:none;stroke:var(--ink);stroke-width:1.3px;stroke-dasharray:1.5 4;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.pgl{font-family:var(--cond)!important;fill:var(--ink-2)}
+.course{fill:none;stroke:var(--mag);stroke-linecap:round;stroke-linejoin:round}
+.cl{fill:var(--mag);font-style:italic}
+.leader{stroke:var(--ink);stroke-width:.8px;vector-effect:non-scaling-stroke}
+.cm-draw{stroke-dasharray:1;stroke-dashoffset:0}
+.trail{fill:none;stroke:#C8352B;stroke-width:5px;stroke-dasharray:10 8;vector-effect:non-scaling-stroke}
+.trail-w{fill:none;stroke:#fff;stroke-width:5px;vector-effect:non-scaling-stroke}
+.hn circle{fill:var(--water);stroke:var(--ink);stroke-width:1.3px;vector-effect:non-scaling-stroke}
+.hn text{font-family:var(--cond)!important;font-weight:500;fill:var(--ink);stroke:none!important}
+.hero{position:relative;background:var(--water);border-bottom:1px solid var(--ink)}
+.hero-l{display:none}
+.view{position:absolute;margin:0}
+.view img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--ink);background:var(--shoal)}
+.view figcaption{font:400 14px/1.35 var(--cond);color:var(--ink-2);margin-top:6px;padding-right:6px}
+.view figcaption i{font:italic 400 16px/1.3 var(--serif);color:var(--ink)}
+.cartouche h1{font-size:clamp(2.75rem,min(5.2vw,8.6vh),5.2rem);line-height:.96;letter-spacing:-.018em;margin:0 0 .26em}
+.lede{font-size:clamp(17px,1.25vw,18.5px);line-height:1.52;margin:0 0 18px}
+.facts{margin:0 0 24px;display:grid;grid-template-columns:auto 1fr;gap:0 18px;font:400 17px/1.4 var(--cond)}
+.facts>div{display:contents}
+.facts dt,.facts dd{padding:8px 0;border-top:1px solid var(--rule);margin:0}
+.facts dt{color:var(--ink-2)}
+.facts dd{font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px}
+.cta-row .lnk{display:inline-block;padding:12px 0}
+.free{font:400 15.5px/1.45 var(--cond);color:var(--ink-2);margin:12px 0 0}
+.legend{font:400 15px/1.45 var(--cond);color:var(--ink)}
+.legend p{margin:0}
+.legend .k{display:inline-block;width:38px;vertical-align:middle;margin-right:10px}
+.legend .k.it,.legend .k.up{width:auto;margin-right:.55em}
+.legend .note{color:var(--ink-2);margin-top:6px}
+.it{font:italic 400 17px/1 var(--serif)}
+.up{font:400 17px/1 var(--serif)}
+.hero-s,.mini{display:none}
+@media (min-width:1100px){.hero{min-height:clamp(660px,calc(100svh - 64px),960px);overflow:hidden;display:flex;justify-content:flex-end}
+.hero-l{display:block;position:absolute;inset:0}
+.hero-r{position:relative;width:clamp(430px,33vw,500px);margin-right:var(--g);padding:clamp(20px,3vh,40px) 0 clamp(28px,4vh,48px);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.cartouche{background:var(--water);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:clamp(20px,2.6vh,32px) clamp(24px,2.2vw,34px) clamp(18px,2.4vh,28px)}
+.lede{font-size:16.5px;margin-bottom:14px}
+.facts{margin-bottom:18px;font-size:16px}
+.facts dt,.facts dd{padding:5px 0}
+.hero .legend{order:-1;padding:0 2px;display:grid;grid-template-columns:auto auto;justify-content:start;gap:3px 22px;font-size:14.5px}
+.hero .legend .note{grid-column:1/-1}
+}
+@media (max-width:1099px){.hero{display:flex;flex-direction:column}
+.hero-r,.cartouche{display:contents}
+.cartouche h1{order:1;padding:20px var(--g) 0;font-size:clamp(2.6rem,10.4vw,4.4rem);margin:0 0 12px}
+.facts{order:3;margin:0 var(--g) 18px;grid-template-columns:1fr 1fr;gap:0 16px}
+.facts>div{display:block;border-top:1px solid var(--rule);padding:7px 0 8px}
+.facts dt,.facts dd{border:0;padding:0}
+.facts dt{font-size:14.5px}
+.facts dd{font-size:16.5px;line-height:1.28}
+.hero-s{order:6;display:block;position:relative;width:100%;min-height:0;aspect-ratio:4/5;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);overflow:hidden}
+.hero-s>svg{position:absolute;inset:0}
+.mini{order:7;display:block;font:400 14.5px/1.5 var(--cond);color:var(--ink);padding:10px var(--g) 16px;margin:0}
+.mini .k{display:inline-block;width:30px;vertical-align:middle;margin-right:6px}
+.lede{order:2;margin:0 var(--g) 16px;font-size:17px;line-height:1.5}
+.lede .tail,.lede .lead-w{display:none}
+.cta-row{order:4;padding:0 var(--g)}
+.cta-row .btn{flex:1 1 100%}
+.cta-row .lnk{display:none}
+.free{order:5;padding:0 var(--g);margin:10px 0 22px}
+.hero .legend{display:none}
+.view-s{left:3.1%;top:55%;width:39%}
+}
+@media (min-width:700px) and (max-width:1099px){.hero-s{aspect-ratio:16/10}
+.lede,.facts,.cartouche h1{max-width:760px}
+}
+.head{display:grid;gap:18px 48px;margin-bottom:clamp(30px,4vw,52px)}
+.head .dek{font-size:clamp(17px,1.4vw,19px);max-width:36em;margin:0}
+@media (min-width:900px){.head.head-1{grid-template-columns:1fr}
+.head-1 h2{font-size:clamp(2.4rem,4.8vw,4.4rem)}
+}
+@media (min-width:900px){.head{grid-template-columns:6fr 6fr;align-items:end}
+}
+.notice{display:grid;gap:6px 32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0 15px;margin:0 0 clamp(28px,4vw,44px);max-width:62rem}
+.notice .nh{font:500 15px/1.5 var(--cond);margin:0}
+.notice p{margin:0;font-size:16px}
+@media (min-width:760px){.notice{grid-template-columns:13.5rem 1fr}
+}
+.who-grid{display:grid;gap:clamp(36px,5vw,72px)}
+@media (min-width:960px){.who-grid{grid-template-columns:7fr 5fr;align-items:start}
+}
+.yes h2{margin-bottom:30px}
+.yes p{max-width:38em;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--rule-2)}
+.yes p:last-child{border-bottom:0}
+.caution{border:1.5px solid var(--mag);padding:clamp(20px,3vw,32px)}
+.caution .ch{font:500 15px/1 var(--cond);color:var(--mag);margin:0 0 12px}
+.caution h3{margin-bottom:16px}
+.caution ul{list-style:none;margin:0;padding:0}
+.caution li{padding:12px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.rule-line{grid-column:1/-1;font:400 clamp(1.55rem,2.6vw,2.3rem)/1.25 var(--serif);max-width:28em;margin:0;text-wrap:balance}
+.rule-line span{display:block;font:400 17px/1.55 var(--sans);margin-top:12px;color:var(--ink-2);max-width:36em}
+.now{font:400 16px/1.45 var(--cond);margin:0 0 40px;min-height:1.45em}
+.now b{font-weight:500;color:var(--mag)}
+.fig-h{font:400 clamp(1.5rem,2.2vw,1.95rem)/1.15 var(--serif);margin:0 0 14px}
+.sunfig,.week{margin:0}
+.week.subfig{margin-top:clamp(56px,7vw,96px)}
+.plot{position:relative;height:clamp(170px,22vw,280px)}
+.plot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.plot .curve{fill:none;stroke:var(--ink);stroke-width:1.6px;vector-effect:non-scaling-stroke}
+.plot .base{stroke:var(--ink);stroke-width:1px;vector-effect:non-scaling-stroke}
+.plot .tk{stroke:var(--ink);stroke-width:1px;vector-effect:non-scaling-stroke}
+.plot .nl{stroke:var(--mag);stroke-width:1.6px;vector-effect:non-scaling-stroke}
+.plot .clip{position:absolute;left:42.105%;width:21.053%;top:0;height:100%;object-fit:cover;clip-path:polygon(0.00% 10.17%,4.17% 10.28%,8.33% 10.79%,12.50% 11.65%,16.67% 12.81%,20.83% 14.24%,25.00% 15.85%,29.17% 17.64%,33.33% 19.55%,37.50% 21.55%,41.67% 23.64%,45.83% 25.79%,50.00% 28.00%,54.17% 30.24%,58.33% 32.50%,62.50% 34.81%,66.67% 37.12%,70.83% 39.45%,75.00% 41.80%,79.17% 44.15%,83.33% 46.51%,87.50% 48.88%,91.67% 51.25%,95.83% 53.61%,100.00% 55.99%,100% 100%,0% 100%);background:var(--shoal)}
+.plot .night{position:absolute;left:80.702%;width:19.298%;top:0;height:100%;object-fit:cover;background:#0f1822}
+.sl{position:absolute;font:400 14px/1.2 var(--cond);color:var(--ink-2);white-space:nowrap;transform:translateX(-50%)}
+.sl.hr{bottom:-24px}
+.sl.l{transform:none}
+.sl.r{transform:translateX(-100%)}
+.sl.top{color:var(--ink)}
+.sl.inv{color:#fff;text-shadow:0 1px 2px rgba(15,24,34,.6)}
+.sl .sh{display:none}
+@media (max-width:599px){.sl .lg{display:none}
+.sl .sh{display:inline}
+}
+.sl.nowl{color:var(--mag);font-weight:500;background:var(--water);padding:2px 6px;border:1px solid var(--mag)}
+.cols{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:.767fr 3.233fr 4fr 4fr 3.333fr 3.667fr;border-top:1px solid var(--ink)}
+.cols li{border-left:1px solid var(--rule);padding:14px 14px 0;font-size:15px;line-height:1.5}
+.cols .lnk{white-space:nowrap;display:inline-block;padding:10px 0;margin:-10px 0}
+.cols li:first-child{border:0;padding:0}
+.cols .t{display:block;font:500 15px/1.3 var(--cond);color:var(--ink-2);margin-bottom:4px}
+.cols .h{display:block;font:400 20px/1.2 var(--serif);margin-bottom:6px;color:var(--ink)}
+.cols .sea .h{font-style:italic}
+.cols .x{margin:0}
+.cols img{width:100%;aspect-ratio:3/2;object-fit:cover;margin:0 0 10px;background:var(--shoal-t)}
+.cols li.is-now{box-shadow:inset 0 3px 0 var(--mag)}
+.cols li.is-now .t{color:var(--mag)}
+.suncap{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin:20px 0 0;max-width:52em}
+@media (max-width:899px){.cols{display:block;border-top:2px solid var(--ink);margin-top:34px}
+.cols li{border:0;border-bottom:1px solid var(--rule);padding:14px 0}
+.cols li:first-child{display:none}
+.cols li.sea{background:var(--shoal-t);padding-left:12px;padding-right:12px}
+.cols li.is-now{box-shadow:inset 3px 0 0 var(--mag);padding-left:12px}
+.cols img{display:none}
+.sl.hr.odd{display:none}
+.sl.edge{top:22%!important}
+.sl.top{font-size:14px}
+}
+.subfig{margin-top:clamp(56px,7vw,96px)}
+.seaday{display:grid;gap:24px clamp(24px,3vw,48px)}
+@media (min-width:900px){.seaday{grid-template-columns:7fr 5fr;align-items:start}
+}
+.log{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.log li{display:grid;gap:4px 24px;padding:15px 14px 16px;border-bottom:1px solid var(--rule)}
+.log .t{font:500 15px/1.4 var(--cond);color:var(--ink-2)}
+.log .h{font:400 21px/1.2 var(--serif);margin:0}
+.log .x{font-size:15.5px;line-height:1.55;margin:0}
+.log li.sea{background:var(--shoal-t)}
+.log li.sea .h{font-style:italic}
+@media (min-width:760px){.log li{grid-template-columns:7.5rem 13rem 1fr;align-items:baseline}
+}
+.plates2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+@media (max-width:599px){.plates2 .plate img{aspect-ratio:1/1}
+.subfig{margin-top:48px}
+}
+.plate{margin:0}
+.plate img{width:100%;height:auto;object-fit:cover;background:var(--shoal-t)}
+.plate figcaption{font:400 14.5px/1.4 var(--cond);color:var(--ink-2);margin-top:8px;max-width:40em}
+.plate figcaption i{font:italic 400 16px/1.3 var(--serif);color:var(--ink)}
+.r34 img{aspect-ratio:3/4}
+.week .marey{display:block;width:100%;height:auto}
+.week .marey-v{display:none}
+@media (max-width:899px){.week .marey-h{display:none}
+.week .marey-v{display:block;max-width:520px;margin:6px auto 0}
+.capH{display:none}
+}
+@media (min-width:900px){.capV{display:none}
+}
+.marey text{font-family:var(--cond)}
+.marey .mb{fill:var(--shoal-t)}
+.marey .ms{fill:var(--shoal);fill-opacity:.42}
+.marey .mg{stroke:var(--ink);stroke-opacity:.2;stroke-width:1;stroke-dasharray:1 3}
+.marey .mt{stroke:var(--ink);stroke-opacity:.4;stroke-width:1}
+.marey .md{stroke:var(--ink);stroke-opacity:.3;stroke-width:1}
+.marey .ml{font:400 17px var(--serif);fill:var(--ink)}
+.marey .ml.w{font-style:italic}
+.marey .mday{font:500 16px var(--cond);fill:var(--ink)}
+.marey .mp{fill:none;stroke:var(--ink);stroke-opacity:.17;stroke-width:.9;stroke-linejoin:round}
+.marey .mgul{fill:none;stroke:var(--mag);stroke-opacity:.3;stroke-width:1}
+.marey .me-h{fill:none;stroke:var(--water);stroke-width:6;stroke-linejoin:round;stroke-opacity:.9}
+.marey .me{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.marey .me-g{fill:none;stroke:var(--mag);stroke-width:4;stroke-linecap:round}
+.marey .lead{fill:none;stroke:var(--ink);stroke-width:1}
+.marey .ko{fill:var(--water)}
+.marey .mk circle{fill:var(--water);stroke:var(--ink);stroke-width:1.3}
+.marey .mk text{font:500 14px var(--cond);fill:var(--ink)}
+.marey .ma{font:400 16px var(--cond);fill:var(--ink);paint-order:stroke;stroke:var(--water);stroke-width:4px;stroke-linejoin:round}
+.marey .ma.strong{font-weight:500}
+.marey .ma.me-l{font:italic 400 17px var(--serif)}
+.marey .ma.w{font:italic 400 17px var(--serif);fill:var(--mag)}
+.marey-v .ml{font-size:15.5px}
+.marey-v .mday{font-size:15px}
+.marey-v .ma.me-l{font-size:16px}
+.weekcap{font:400 15px/1.45 var(--cond);color:var(--ink-2);margin:12px 0 0;max-width:56em}
+.wnotes{list-style:none;margin:clamp(22px,3vw,34px) 0 0;padding:0;display:grid;gap:14px clamp(20px,2.4vw,32px);counter-reset:none}
+@media (min-width:900px){.wnotes{grid-template-columns:repeat(3,1fr)}
+}
+.wnotes li{display:grid;grid-template-columns:24px 1fr;gap:0 12px;border-top:1px solid var(--rule);padding-top:12px;font-size:15.5px;line-height:1.5}
+.wnotes p{margin:0}
+.wnotes b{font-weight:500}
+.wnotes .n{display:grid;place-items:center;width:24px;height:24px;border:1.3px solid var(--ink);border-radius:50%;font:500 14px/1 var(--cond)}
+.tcta{margin:clamp(22px,3vw,32px) 0 0;font-size:17px;max-width:40em}
+.tcta .lnk{padding:11px 0}
+.acts.sec{padding-top:0;padding-bottom:0}
+.spread{position:relative;margin:0}
+.spread img{width:100%;height:clamp(340px,64vh,660px);object-fit:cover;background:var(--shoal)}
+.spread::after{content:"";position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(to top,rgba(15,24,34,.55),rgba(15,24,34,0));pointer-events:none}
+.spread-h{position:absolute;left:0;right:0;bottom:clamp(20px,3vw,40px);z-index:1}
+.spread-h h2{color:var(--water);text-shadow:0 1px 18px rgba(15,24,34,.45)}
+.spreadcap{margin:10px 0 0;font:400 14.5px/1.4 var(--cond);color:var(--ink-2)}
+.gz-top{display:grid;gap:28px clamp(32px,4vw,64px)}
+@media (min-width:1000px){.gz-top{grid-template-columns:5fr 7fr;align-items:start}
+.gz-top .gz-map{margin-top:30px}
+}
+.gz-intro .dek{font-size:clamp(17px,1.4vw,19px);margin:22px 0 18px;max-width:30em}
+.gz-map{margin:0}
+.gz-map .chart-svg{height:auto;aspect-ratio:8/5;border:1px solid var(--ink)}
+.gz-map figcaption{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin-top:8px}
+#chartG .gp{font-size:21px}
+#chartG text:not(.gl text){stroke-width:6px}
+.gl circle{r:17px;fill:var(--water);stroke:var(--ink);stroke-width:1.3px;vector-effect:non-scaling-stroke}
+.gl text{font:400 22px var(--serif);fill:var(--ink);text-anchor:middle;dominant-baseline:central;stroke:none!important}
+.gl.w text{font-style:italic}
+@media (max-width:599px){#chartG .gp{font-size:31px}
+.gl circle{r:24px}
+.gl text{font-size:31px}
+}
+.gz-scale{display:flex;align-items:center;gap:10px;margin:0 0 6px;font:400 15px/1.35 var(--cond);color:var(--ink-2)}
+.gz-scale .gbar{width:60px}
+.gz-e{padding:18px 0 20px;border-top:1px solid var(--rule)}
+.gz-e h3{font-size:clamp(1.45rem,2vw,1.8rem);line-height:1.15;display:flex;align-items:center;gap:10px}
+.gz-e .lt{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.3px solid var(--ink);font:inherit;font-size:18px;line-height:1;flex:none}
+.gz-d{margin:8px 0 0;display:flex;align-items:center;gap:10px;font:500 15px/1.3 var(--cond);color:var(--ink-2)}
+.gz-x{margin:8px 0 0;font-size:16px;max-width:36em}
+.gbar{position:relative;display:block;width:112px;height:14px;flex:none;background:linear-gradient(var(--rule),var(--rule)) 0 50%/100% 1px no-repeat}
+.gbar::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--ink),var(--ink)) 0 0/1px 100% no-repeat,linear-gradient(var(--ink),var(--ink)) 50% 0/1px 100% no-repeat,linear-gradient(var(--ink),var(--ink)) 100% 0/1px 100% no-repeat;opacity:.45}
+.gbar i{position:absolute;left:0;top:4px;height:6px;background:var(--ink)}
+.gbar.half i{width:50%}
+.gbar.day i{width:100%}
+.gbar.mag i{background:var(--mag)}
+.gz-list{margin-top:clamp(36px,5vw,64px)}
+.gz-list .plate figcaption{margin-top:8px}
+.gb,.gv,.ge{display:grid;gap:18px clamp(28px,4vw,56px);border-top:2px solid var(--ink);padding:0;margin-top:clamp(36px,5vw,72px)}
+.gb{border-top:0;margin-top:0}
+.gb .plate img{aspect-ratio:16/10}
+.gv .plate img{aspect-ratio:3/2}
+.ge .plate img{aspect-ratio:4/3}
+.gb .gz-t,.gv .gz-t,.ge .gz-t{padding-top:18px}
+.gz-rows{display:grid;gap:0 clamp(28px,4vw,56px);margin-top:clamp(36px,5vw,72px)}
+.gc{display:grid;grid-template-columns:72px 1fr;gap:4px 16px;grid-template-areas:"th h" "th d" "x x";align-items:start}
+.gc .th{grid-area:th;width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--shoal-t)}
+.gc h3{grid-area:h}
+.gc .gz-d{grid-area:d;margin-top:4px}
+.gc .gz-x{grid-area:x}
+.gz-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--rule);font-size:16px;max-width:36em}
+@media (min-width:760px){.gz-rows{grid-template-columns:1fr 1fr}
+.gc{grid-template-columns:120px 1fr;grid-template-areas:"th h" "th d" "th x"}
+.gc .th{aspect-ratio:4/3}
+}
+@media (min-width:900px){.gb{grid-template-columns:4fr 8fr;align-items:end}
+.gb .plate{margin-right:calc(var(--g) * -1 - max(0px,(100vw - var(--maxw)) / 2))}
+.gv{grid-template-columns:7fr 5fr;align-items:center}
+.ge{grid-template-columns:6fr 6fr;align-items:start}
+.ge .plate{width:88%;justify-self:end;margin-top:clamp(28px,4vw,56px)}
+}
+@media (max-width:899px){.gb .plate{order:-1;margin:0 calc(var(--g) * -1)}
+.gb .lcap{margin-left:var(--g)}
+.gv .plate{order:-1}
+.ge .plate{order:-1;width:86%;margin-left:auto}
+}
+.lcap{position:relative;display:block;padding-left:22px}
+.lcap::before{content:"";position:absolute;left:8px;top:-20px;width:9px;height:calc(20px + .75em);border-left:1px solid currentColor;border-bottom:1px solid currentColor}
+.lcap::after{content:"";position:absolute;left:4.5px;top:-27px;width:8px;height:8px;border-radius:50%;background:var(--water);box-shadow:0 0 0 1px var(--ink)}
+.nightband{position:relative;background:#0f1822;color:var(--water);margin-top:clamp(56px,7vw,96px)}
+.nightband>img{width:100%;height:clamp(440px,70vh,700px);object-fit:cover;opacity:.85;background:#1d2a38}
+.nightband::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(to top,rgba(15,24,34,.92),rgba(15,24,34,0));pointer-events:none}
+.nightband .wrap{position:absolute;left:0;right:0;bottom:clamp(28px,4vw,56px);z-index:1}
+.ntxt{max-width:520px}
+.ntxt h3{font-size:clamp(2rem,3.4vw,3rem);margin:0 0 10px;color:var(--water)}
+.ntxt p{color:rgba(250,251,249,.94);font-size:16.5px;margin:0 0 10px}
+.ntxt .dur{color:rgba(250,251,249,.78);margin:0}
+@media (max-width:759px){.nightband>img{height:auto;aspect-ratio:3/2}
+.nightband::after{display:none}
+.nightband .wrap{position:static;padding-top:22px;padding-bottom:36px}
+}
+.dur{font:500 15px/1.35 var(--cond);color:var(--ink-2);margin:0}
+.waymark{display:inline-block;width:18px;height:22px;flex:none;border:1px solid var(--ink);background:#fff;position:relative}
+.waymark::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:#C8352B}
+.place-grid{display:grid;gap:clamp(32px,4vw,64px)}
+@media (min-width:1000px){.place-grid{grid-template-columns:5fr 7fr;align-items:start}
+}
+.why{margin:0}
+.why dt{font:400 23px/1.25 var(--serif);margin:22px 0 6px}
+.why dd{margin:0;font-size:16.5px;max-width:36em}
+.areamap{margin:0;position:sticky;top:90px}
+.areamap .frame{border:1px solid var(--ink);background:var(--water);aspect-ratio:1100/860}
+.areamap svg{display:block;width:100%;height:100%}
+#chartP .pn{font-size:31px}
+#chartP .ps{font-size:25px}
+#chartP .pw{font-size:34px}
+#chartP .hn text{font-size:25px}
+#chartP text:not(.hn text){stroke-width:7px}
+@media (max-width:700px){#chartP .pn{font-size:44px}
+#chartP .ps{font-size:40px}
+#chartP .pw{font-size:44px;letter-spacing:2px}
+#chartP .hn text{font-size:36px}
+}
+.areamap figcaption{font:400 14.5px/1.45 var(--cond);color:var(--ink-2);margin-top:8px}
+@media (max-width:999px){.areamap{position:static}
+}
+.strip{display:grid;grid-template-columns:2fr 1fr;gap:clamp(8px,2vw,26px);margin-top:clamp(44px,6vw,80px)}
+.strip img{height:clamp(150px,28vw,400px);aspect-ratio:auto!important}
+.strip figcaption{grid-column:1/-1;margin-top:0}
+@media (max-width:599px){.thumbs{display:none}
+}
+.landband{background:var(--land);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.landband .notice{border-color:var(--ink)}
+.hn-b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1.3px solid var(--ink);background:var(--water);font:500 17px/1 var(--cond);flex:none}
+.cmp{display:grid;gap:0 clamp(16px,2vw,28px);background:var(--water);border:1px solid var(--ink);padding:clamp(18px,2.4vw,32px)}
+.cmp .rl{display:none}
+.hcard{display:grid;gap:0}
+.hcard .hd{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px}
+.hcard h3{font-size:clamp(1.35rem,1.8vw,1.65rem);margin:2px 0 4px}
+.hcard .lvl{font:500 15px/1.4 var(--cond);color:var(--ink-2);margin:0}
+.hcard .pic{position:relative}
+.hcard .hmain{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--shoal-t)}
+.stub{position:absolute;left:0;top:0;background:var(--water);color:var(--ink);font:400 14px/1 var(--cond);padding:7px 9px}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.th{appearance:none;padding:0;border:0;background:none;cursor:pointer;position:relative;line-height:0;opacity:.62;transition:opacity .15s}
+.th img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--shoal-t)}
+.th:hover,.th[aria-current="true"]{opacity:1}
+.th[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--ink)}
+.hcard dl{margin:14px 0 0;display:grid;grid-template-columns:6.6rem 1fr;font-size:15.5px;line-height:1.5}
+.hcard dt,.hcard dd{margin:0;padding:8px 0;border-top:1px solid var(--rule)}
+.hcard dt{font:400 15px/1.5 var(--cond);color:var(--ink-2)}
+.hcard .more{display:inline-block;padding:12px 0;margin-top:2px;font-size:16px;justify-self:start}
+@media (min-width:1000px){.cmp{grid-template-columns:9rem repeat(3,1fr);grid-template-rows:auto auto repeat(4,auto) auto}
+.cmp .rl{display:grid;grid-row:1/-1;grid-template-rows:subgrid;font:400 15px/1.5 var(--cond);color:var(--ink-2)}
+.cmp .rl span{padding:8px 0;border-top:1px solid var(--rule)}
+.cmp .rl span:nth-child(1),.cmp .rl span:nth-child(2){border:0}
+.hcard{grid-row:1/-1;grid-template-rows:subgrid}
+.hcard dl{display:contents}
+.hcard dt{display:none}
+.hcard dd{padding:8px 0;border-top:1px solid var(--rule)}
+.hcard .gal{padding-bottom:14px}
+}
+@media (max-width:999px){.cmp{padding:18px}
+.hcard + .hcard{margin-top:28px;padding-top:24px;border-top:1px solid var(--ink)}
+.hcard .hmain{aspect-ratio:16/9}
+.hcard dl{grid-template-columns:5.6rem 1fr;margin-top:10px}
+.hcard dt,.hcard dd{padding:6px 0}
+}
+@media (min-width:600px) and (max-width:999px){.hcard{grid-template-columns:5fr 6fr;gap:0 22px}
+.hcard .hd{grid-column:1/-1}
+.hcard .gal{grid-row:2/4}
+.hcard .more{grid-column:2}
+}
+.price .head h2{font-size:clamp(2.4rem,4.4vw,4.1rem);line-height:1.02}
+.plot2{margin:12px 0 0;position:relative}
+.prow{display:grid;grid-template-columns:16rem 1fr;align-items:center;gap:6px 24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.prow:first-child{border-top:2px solid var(--ink)}
+.pl{margin:0}
+.pl b{display:block;font:400 21px/1.2 var(--serif)}
+.pl span{display:block;font:400 15px/1.35 var(--cond);color:var(--ink-2);margin-top:3px}
+.trk{position:relative;height:30px}
+.bar{position:absolute;top:10px;height:10px;background:var(--ink);left:calc((var(--a) - 130) / 75 * 100%);width:calc((var(--b) - var(--a)) / 75 * 100%)}
+.bar.soft{background:var(--ink-2)}
+.val{position:absolute;top:2px;left:calc((var(--b) - 130) / 75 * 100% + 12px);font:500 18px/26px var(--cond);white-space:nowrap}
+.val.lft{left:auto;right:calc(100% - (var(--a) - 130) / 75 * 100% + 12px)}
+.axis{display:grid;grid-template-columns:16rem 1fr;gap:24px;margin-top:4px}
+.ticks{position:relative;height:34px}
+.ticks span{position:absolute;top:6px;transform:translateX(-50%);font:400 14.5px/1 var(--cond);color:var(--ink-2)}
+.ticks span::before{content:"";position:absolute;left:50%;top:-7px;height:5px;width:1px;background:var(--ink)}
+.ceil{position:absolute;top:-34px;bottom:34px;width:2px;background:var(--mag);left:calc(16rem + 24px + (100% - 16rem - 24px) * 70 / 75)}
+.ceil span{position:absolute;top:0;right:12px;font:500 15.5px/1.25 var(--cond);color:var(--mag);white-space:nowrap;text-align:right}
+.firstp{font-size:16px;max-width:44em;margin:22px 0 0}
+.aunit{grid-column:-2/-1;text-align:center;font:400 14.5px/1.3 var(--cond);color:var(--ink-2);margin-top:-6px}
+@media (max-width:759px){.prow{grid-template-columns:1fr;padding:14px 0 10px}
+.axis{grid-template-columns:1fr}
+.axis>:first-child{display:none}
+.plot2{margin-top:44px}
+.ceil{left:calc(100% * 70 / 75);top:-30px}
+.val{font-size:16.5px}
+.tk-m{display:none}
+}
+.incl{display:grid;gap:32px clamp(24px,4vw,64px);margin-top:clamp(48px,6vw,80px)}
+@media (min-width:860px){.incl{grid-template-columns:1fr 1fr}
+}
+.incl h3{font-size:1.6rem;margin-bottom:10px}
+.incl ul{list-style:none;margin:0;padding:0}
+.incl li{padding:10px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.incl .notes p{font-size:15.5px;margin:18px 0 0}
+.extra{display:grid;gap:0;margin-top:clamp(48px,6vw,80px);border-top:2px solid var(--ink)}
+@media (min-width:900px){.extra{grid-template-columns:1fr 1fr}
+.extra>div + div{border-left:1px solid var(--rule);padding-left:clamp(24px,3vw,48px)}
+.extra>div:first-child{padding-right:clamp(24px,3vw,48px)}
+}
+.extra>div{padding-top:28px;padding-bottom:12px}
+.extra .fig{font:500 17px/1 var(--cond);color:var(--ink-2);margin:0 0 12px}
+.extra h3{margin-bottom:14px}
+.extra p{font-size:16px;max-width:36em}
+@media (max-width:899px){.extra>div + div{border-top:1px solid var(--rule);margin-top:24px}
+}
+.crew-grid{display:grid;gap:24px clamp(32px,5vw,80px)}
+@media (min-width:900px){.crew-grid{grid-template-columns:5fr 7fr}
+}
+.crew-grid p{max-width:40em}
+.crew-grid h2{font-size:clamp(2rem,3.4vw,3rem)}
+.roll{width:100%;border-collapse:collapse;margin-top:26px;font-size:15.5px}
+.roll caption{text-align:left;font:400 21px/1.2 var(--serif);padding-bottom:10px}
+.roll th{font:400 14.5px/1.4 var(--cond);color:var(--ink-2);text-align:left;padding:8px 12px 8px 0;border-bottom:2px solid var(--ink)}
+.roll td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.roll .face{display:block;width:56px;height:56px;object-fit:cover;border:1px solid var(--ink);background:var(--land);margin-bottom:8px}
+.roll .nm{font:400 19px/1.25 var(--serif);width:30%}
+.roll .lnk{display:inline-block;padding:10px 0;margin:-10px 0}
+@media (max-width:599px){.roll thead{display:none}
+.roll tr{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.roll td{border:0;padding:0}
+.roll .nm{width:auto}
+}
+.form-sec{background:var(--shoal);position:relative}
+.form-grid{display:grid;gap:36px clamp(32px,5vw,80px)}
+@media (min-width:1000px){.form-grid{grid-template-columns:5fr 7fr;align-items:start}
+}
+.form-intro h2{margin-bottom:18px}
+.form-intro>p{font-size:clamp(17px,1.4vw,19px);max-width:30em}
+.next{margin:28px 0 0;padding:0;list-style:none;counter-reset:n;border-top:1px solid var(--ink)}
+.next li{counter-increment:n;display:grid;grid-template-columns:2rem 1fr;padding:12px 0;border-bottom:1px solid rgba(24,35,46,.25);font-size:16px}
+.next li::before{content:counter(n);font:500 16px/1.6 var(--cond);color:var(--ink-2)}
+.next-h{font:400 22px/1.2 var(--serif);margin:34px 0 0}
+.fwrap{position:relative}
+.fcourse{position:absolute;right:100%;top:-70px;width:min(34vw,420px);height:200px;overflow:visible;pointer-events:none}
+.fcourse path{fill:none;stroke:var(--mag);stroke-width:2.4px;stroke-dasharray:8 5;stroke-linecap:round}
+.fcourse circle{fill:var(--water);stroke:var(--mag);stroke-width:2.4px}
+@media (max-width:999px){.fcourse{display:none}
+}
+.fbox{background:var(--water);border:1px solid var(--ink);padding:clamp(28px,3.4vw,44px);position:relative}
+.fbox .edge{position:absolute;left:0;top:0;width:100%;height:100%;display:block;pointer-events:none;overflow:hidden}
+.fbox .edge rect{stroke:none}
+.prog{display:flex;align-items:center;gap:8px;margin:6px 0 24px;font:500 15px/1 var(--cond);color:var(--ink-2)}
+.prog i{width:44px;height:3px;background:var(--rule)}
+.prog i.on{background:var(--mag)}
+.prog span{margin-left:8px}
+.lbl{display:block;font:500 16px/1.4 var(--sans);margin:0 0 10px}
+input[type=text],textarea{width:100%;font:400 17px/1.4 var(--sans);color:var(--ink);background:#fff;border:1px solid var(--ink);border-radius:3px;padding:14px 15px;min-height:54px}
+input[type=text]:focus,textarea:focus{outline:2px solid var(--mag);outline-offset:1px}
+textarea{min-height:104px;resize:vertical}
+.hint{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:12px 0 0}
+.fieldrow{margin:0 0 24px;border:0;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex;margin:0;cursor:pointer}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:9px 14px;border:1px solid var(--rule);border-radius:3px;background:#fff;font:400 15.5px/1.2 var(--sans);transition:background-color .12s,border-color .12s,color .12s;user-select:none}
+.chip:hover span{border-color:var(--ink)}
+.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--water)}
+.chip input:focus-visible + span{outline:2px solid var(--mag);outline-offset:2px}
+.step2{border-top:1px solid var(--rule);padding-top:22px}
+.contribbox{border:1.5px solid var(--mag);padding:18px}
+.contribbox .lbl{color:var(--mag)}
+.okbox{padding:clamp(10px,3vw,30px) 0}
+.okbox .big{font:400 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin:0 0 14px}
+.okbox .stamp{font:400 15px/1.4 var(--cond);color:var(--ink-2);margin:18px 0 0}
+.err{border:1.5px solid var(--mag);padding:12px 15px;font-size:15.5px;margin:0 0 18px}
+.skipbtn{background:none;border:0;padding:10px 4px;min-height:44px;font:inherit;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.hp{position:absolute;left:-9999px;top:0;width:44px;height:44px;opacity:0}
+.faq-grid{display:grid;gap:0 clamp(24px,4vw,64px)}
+@media (min-width:960px){.faq-grid{grid-template-columns:1fr 1fr}
+}
+details{border-top:1px solid var(--rule)}
+.faq-grid>div>details:last-child{border-bottom:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;position:relative;font:500 17.5px/1.4 var(--sans)}
+summary::-webkit-details-marker{display:none}
+summary::before,summary::after{content:"";position:absolute;right:6px;top:30px;width:14px;height:1.5px;background:var(--ink);transition:transform .2s}
+summary::after{transform:rotate(90deg)}
+details[open] summary::after{transform:rotate(0)}
+summary:hover{color:var(--mag)}
+details .ans{padding:0 0 20px;font-size:16px;max-width:38em}
+details .ans p{margin:0}
+@media (max-width:599px){.plate figcaption,.view figcaption,.suncap,.weekcap,.hint,.areamap figcaption,.mini,.facts dt,.legend,.dur,.cols .t,.log .t,.pl span,.ticks span,.notice .nh,.hcard dt,.hcard .lvl,.prog,.stub,.sticky .txt,footer p.small,.roll th,.sl,.free,.now,.caution .ch{font-size:15px}
+.sl.top{font-size:15px}
+}
+@media (max-width:599px){body{font-size:16px;line-height:1.55}
+.sec{padding:44px 0}
+.head{margin-bottom:24px}
+.incl,.extra{margin-top:36px}
+.subfig,.week.subfig{margin-top:44px}
+.rule-line{font-size:1.4rem}
+footer{padding-top:44px}
+#hotels-h,.price .head h2{font-size:2.3rem}
+.yes p{padding-bottom:10px;margin-bottom:10px}
+.plates2{display:none}
+.act p,.why dd,.log .x,.cols li,.extra p,.incl li,details .ans,.caution li{font-size:15.5px}
+footer{padding-bottom:96px}
+}
+footer{background:var(--ink);color:var(--water);padding:clamp(56px,7vw,88px) 0 120px}
+footer a{color:var(--water)}
+.fgrid{display:grid;gap:36px}
+@media (min-width:900px){.fgrid{grid-template-columns:6fr 6fr}
+}
+footer .mark{color:var(--water);display:inline-block;margin-bottom:18px;font-size:24px}
+footer p{color:rgba(250,251,249,.86)}
+footer .small{font-size:14.5px;line-height:1.55;color:rgba(250,251,249,.72);max-width:44em}
+footer .btn:focus-visible{outline-color:var(--water)}
+footer .lnk{color:var(--water);text-decoration-color:var(--shoal)}
+.flinks a{display:block;padding:10px 0;width:max-content;max-width:100%}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--water);border-top:1px solid var(--ink);padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));display:flex;gap:14px;align-items:center;justify-content:space-between;transform:translateY(110%);transition:transform .25s ease}
+.sticky.show{transform:none}
+.sticky .txt{font:400 15px/1.3 var(--cond)}
+.sticky .txt b{font-weight:500}
+.sticky .btn{min-height:48px;padding:10px 18px;font-size:16px;flex:none}
+@media (min-width:1100px){.sticky{display:none}
+}
+@media (prefers-reduced-motion:reduce){.sticky{transition:none}
+}
+
 @media (max-width:600px){.top .btn{display:none}.nightband>img{aspect-ratio:4/3}}
+@media (max-width:599px){.hcard .thumbs{display:none}
+.hcard .hmain{aspect-ratio:2/1}
+.spread img{height:300px}
+.spread::after{display:none}
+.spread-h{position:static;padding-top:18px}
+.spread-h h2{color:var(--ink);text-shadow:none}
+.spreadcap .lcap{padding-left:0}
+.spreadcap .lcap::before,.spreadcap .lcap::after{display:none}
+.gz-x{font-size:15.5px;margin-top:6px}
+.wnotes li{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -59,7 +647,7 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <rect class="sea" x="-600" y="-200" width="2600" height="1400"/>
 <g class="grat" data-grat></g>
 <use href="#coast" class="land"/>
-<rect class="land-x" x="1199.5" y="0" width="1600" height="964"/>
+<rect class="land-x" x="1198.5" y="0" width="1600" height="964"/>
 
 <!-- leader from the view (HTML figure below) to the lagoon -->
 <g class="inset" data-inset>
@@ -110,7 +698,7 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <div class="hero-r">
 <div class="cartouche">
 <h1 id="h1">Семь дней ML <span class="w">и&nbsp;моря</span></h1>
-<p class="lede">Неделя на&nbsp;турецком побережье для&nbsp;тех, кто работает с&nbsp;машинным обучением и&nbsp;данными. С&nbsp;утра&nbsp;— воркшопы и&nbsp;общий проект, днём&nbsp;— море, вечером&nbsp;— ужин и&nbsp;разговоры, которые не&nbsp;помещаются в&nbsp;рабочий день.</p>
+<p class="lede"><span class="lead-w">Неделя на&nbsp;турецком побережье для&nbsp;тех, кто работает с&nbsp;машинным обучением и&nbsp;данными. </span>С&nbsp;утра&nbsp;— воркшопы и&nbsp;общий проект, днём&nbsp;— море, вечером&nbsp;— ужин и&nbsp;разговоры<span class="tail">, которые не&nbsp;помещаются в&nbsp;рабочий день</span>.</p>
 <dl class="facts">
 <div><dt>Когда</dt><dd>первая половина июня 2027, 7&nbsp;ночей</dd></div>
 <div><dt>Где</dt><dd>Фетхие и&nbsp;Олюдениз, <span class="nw">юго-запад</span> Турции</dd></div>
@@ -130,6 +718,7 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <p><svg class="k" width="38" height="10" aria-hidden="true"><path d="M2 5h34" stroke="#18232E" stroke-width="1.6" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>параплан с&nbsp;Бабадага</p>
 <p class="note">Берег: © OpenStreetMap contributors. Составлено <span class="nw">ML-специалистами</span>, а&nbsp;не&nbsp;гидрографами&nbsp;— не&nbsp;для&nbsp;навигации.</p>
 </div>
+
 </div>
 
 <!-- portrait chart (phones): the Ölüdeniz–Gemiler bay, sea first -->
@@ -173,7 +762,7 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <figcaption><i>Голубая лагуна.</i> Фото: Unsplash</figcaption>
 </figure>
 </div>
-<p class="mini"><span class="it">лагуна</span> курсивом&nbsp;— вода, <span class="up">Фетхие</span> прямым&nbsp;— суша. <svg class="k" width="30" height="10" aria-hidden="true"><path d="M1 5h28" stroke="#A8166A" stroke-width="3" stroke-dasharray="6 4"/></svg>курс гулета, <svg class="k" width="30" height="10" aria-hidden="true"><path d="M2 5h26" stroke="#18232E" stroke-width="1.6" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>параплан. Берег: © OpenStreetMap.</p>
+<p class="mini"><span class="it">лагуна</span> курсивом&nbsp;— вода, <span class="up">Фетхие</span> прямым&nbsp;— суша. <svg class="k" width="30" height="10" aria-hidden="true"><path d="M1 5h28" stroke="#A8166A" stroke-width="3" stroke-dasharray="6 4"/></svg>курс гулета, <svg class="k" width="30" height="10" aria-hidden="true"><path d="M2 5h26" stroke="#18232E" stroke-width="1.6" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>параплан. <span class="nw">Берег:&nbsp;©&nbsp;OpenStreetMap.</span></p>
 </section>
 
 <!-- ============ WHO ============ -->
@@ -261,175 +850,192 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 
 <figure class="subfig week" id="day-week" aria-labelledby="fh3">
 <h3 class="fig-h" id="fh3">Неделя целиком: приезд, показ, разъезд</h3>
-<svg class="marey marey-h" viewBox="0 0 1200 440" role="img" aria-labelledby="mt-h">
-<title id="mt-h">Неделя в&nbsp;виде графика движения: двадцать линий&nbsp;— двадцать участников, которые утром работают в&nbsp;отеле, с&nbsp;часу до&nbsp;пяти уходят на&nbsp;пляж, в&nbsp;день в&nbsp;море расходятся по&nbsp;гулету, параплану и&nbsp;каньону и&nbsp;вечером сходятся на&nbsp;ужин в&nbsp;Фетхие.</title>
-<rect class="mb" x="342.1" y="20" width="25.5" height="390"/>
-<rect class="mb" x="469.6" y="20" width="25.5" height="390"/>
-<rect class="mb" x="597.1" y="20" width="25.5" height="390"/>
-<rect class="mb" x="852.1" y="20" width="25.5" height="390"/>
-<rect class="mb" x="979.6" y="20" width="25.5" height="390"/>
-<rect class="ms" x="680.0" y="20" width="127.5" height="390"/>
-<line class="mg" x1="170" x2="1190" y1="400" y2="400"/>
-<text class="ml" x="158" y="404.5" text-anchor="end">Даламан, аэропорт</text>
-<line class="mg" x1="170" x2="1190" y1="40" y2="40"/>
-<text class="ml" x="158" y="44.5" text-anchor="end">Бабадаг</text>
-<line class="mg" x1="170" x2="1190" y1="95" y2="95"/>
-<text class="ml" x="158" y="99.5" text-anchor="end">Сакликент, тропа</text>
-<line class="mg" x1="170" x2="1190" y1="170" y2="170"/>
-<text class="ml" x="158" y="174.5" text-anchor="end">Отель: зал, терраса</text>
-<line class="mg" x1="170" x2="1190" y1="235" y2="235"/>
-<text class="ml w" x="158" y="239.5" text-anchor="end">Пляж, бассейн</text>
-<line class="mg" x1="170" x2="1190" y1="300" y2="300"/>
-<text class="ml w" x="158" y="304.5" text-anchor="end">Гулет в&nbsp;заливе</text>
-<line class="mg" x1="170" x2="1190" y1="355" y2="355"/>
-<text class="ml" x="158" y="359.5" text-anchor="end">Фетхие, город</text>
-<line class="md" x1="170.0" x2="170.0" y1="14" y2="414"/>
-<text class="mday" x="233.8" y="432" text-anchor="middle">Сб</text>
-<line class="md" x1="297.5" x2="297.5" y1="14" y2="414"/>
-<text class="mday" x="361.2" y="432" text-anchor="middle">Вс</text>
-<line class="md" x1="425.0" x2="425.0" y1="14" y2="414"/>
-<text class="mday" x="488.8" y="432" text-anchor="middle">Пн</text>
-<line class="md" x1="552.5" x2="552.5" y1="14" y2="414"/>
-<text class="mday" x="616.2" y="432" text-anchor="middle">Вт</text>
-<line class="md" x1="680.0" x2="680.0" y1="14" y2="414"/>
-<text class="mday" x="743.8" y="432" text-anchor="middle">Ср</text>
-<line class="md" x1="807.5" x2="807.5" y1="14" y2="414"/>
-<text class="mday" x="871.2" y="432" text-anchor="middle">Чт</text>
-<line class="md" x1="935.0" x2="935.0" y1="14" y2="414"/>
-<text class="mday" x="998.8" y="432" text-anchor="middle">Пт</text>
-<line class="md" x1="1062.5" x2="1062.5" y1="14" y2="414"/>
-<text class="mday" x="1126.2" y="432" text-anchor="middle">Сб</text>
-<path class="mp" d="M206 393.4L212 163.3H246L244 228.3H251L256 163.3H342L343 228.3H368L368 163.3H469L470 228.3H496L497 163.3H500L501 228.3H512L513 163.3H598L600 228.3H621L625 163.3H699L702 293.4H757L764 348.4H792L796 163.3H851L852 228.3H877L879 163.3H980L982 228.3H1005L1006 163.3H1079L1085 393.4M209 394.1L215 164.1H341L342 229.1H368L369 164.1H469L470 229.1H495L498 164.1H598L599 229.1H622L624 164.1H699L702 294.1H756L765 349.1H791L793 164.1H851L852 229.1H877L878 164.1H882L883 229.1H895L895 164.1H980L981 229.1H1005L1008 164.1H1079L1086 394.1M210 394.8L217 164.8H341L342 229.8H366L370 164.8H372L373 229.8H383L386 164.8H470L471 229.8H494L498 164.8H597L599 229.8H622L623 164.8H699L702 294.8H756L765 349.8H790L797 164.8H816L818 229.8H822L824 164.8H852L853 229.8H877L879 164.8H943L945 229.8H949L950 164.8H981L982 229.8H1004L1007 164.8H1082L1088 394.8M213 395.4L220 165.4H242L244 230.4H254L254 165.4H343L345 230.4H368L370 165.4H372L373 230.4H384L385 165.4H469L470 230.4H494L496 165.4H500L501 230.4H511L513 165.4H596L597 230.4H624L625 165.4H699L702 295.4H757L764 350.4H790L797 165.4H815L817 230.4H821L823 165.4H852L854 230.4H878L879 165.4H943L945 230.4H949L951 165.4H979L980 230.4H1005L1007 165.4H1085L1092 395.4M216 396.1L222 166.2H306L307 231.2H311L313 166.2H500L501 231.2H511L513 166.2H699L702 296.1H757L763 351.1H792L797 166.2H981L982 231.2H1005L1006 166.2H1088L1094 396.1M216 396.9L223 166.8H343L344 231.8H367L370 166.8H372L373 231.8H384L386 166.8H432L434 231.8H438L439 166.8H469L470 231.8H495L496 166.8H559L561 231.8H565L567 166.8H598L599 231.8H622L624 166.8H625L627 231.8H640L641 166.8H700L703 296.9H756L765 351.9H790L796 166.8H852L853 231.8H878L879 166.8H980L981 231.8H1006L1008 166.8H1087L1093 396.9M221 397.6L227 167.6H242L246 232.6H251L255 167.6H341L342 232.6H368L369 167.6H457L458 232.6H463L464 167.6H469L470 232.6H494L496 167.6H498L499 232.6H512L513 167.6H560L562 232.6H566L568 167.6H597L598 232.6H623L625 167.6H699L702 297.6H756L763 352.6H791L797 167.6H851L853 232.6H877L878 167.6H979L980 232.6H1005L1008 167.6H1090L1096 397.6M223 398.2L229 168.2H342L343 233.2H367L368 168.2H372L373 233.2H385L386 168.2H432L433 233.2H438L439 168.2H471L472 233.2H496L496 168.2H559L560 233.2H564L566 168.2H598L599 233.2H624L624 168.2H700L703 298.2H757L765 353.2H788L796 168.2H816L818 233.2H822L823 168.2H853L854 233.2H876L880 168.2H979L980 233.2H1005L1007 168.2H1092L1098 398.2M223 398.9L229 168.9H306L308 233.9H312L313 168.9H341L342 233.9H368L370 168.9H470L472 233.9H495L496 168.9H598L600 233.9H624L623 168.9H699L701 298.9H757L763 353.9H791L797 168.9H816L818 233.9H822L823 168.9H853L855 233.9H877L879 168.9H883L884 233.9H893L896 168.9H979L980 233.9H1006L1008 168.9H1094L1100 398.9M226 399.6L232 169.7H244L247 234.7H251L254 169.7H342L344 234.7H368L370 169.7H469L471 234.7H495L498 169.7H498L499 234.7H511L513 169.7H597L598 234.7H623L625 169.7H698L701 299.6H757L763 354.6H792L795 169.7H853L854 234.7H878L879 169.7H941L943 234.7H947L949 169.7H980L981 234.7H1005L1007 169.7H1097L1103 399.6M229 400.4L235 170.3H343L344 235.3H368L369 170.3H470L471 235.3H494L498 170.3H597L599 235.3H623L625 170.3H700L702 300.4H757L764 355.4H792L796 170.3H853L855 235.3H879L879 170.3H981L982 235.3H1004L1006 170.3H1096L1103 400.4M229 401.1L235 171.1H432L434 236.1H438L440 171.1H560L561 236.1H566L567 171.1H699L702 301.1H756L764 356.1H791L796 171.1H882L883 236.1H894L895 171.1H980L981 236.1H1006L1007 171.1H1098L1104 401.1M234 401.8L240 171.8H244L245 236.8H253L255 171.8H341L342 236.8H369L369 171.8H433L435 236.8H439L441 171.8H470L472 236.8H495L497 171.8H561L562 236.8H566L568 171.8H598L599 236.8H624L625 171.8H700L703 301.8H756L764 356.8H789L794 171.8H814L816 236.8H820L821 171.8H853L854 236.8H877L878 171.8H979L980 236.8H1004L1008 171.8H1102L1108 401.8M234 402.4L240 172.4H343L344 237.4H367L369 172.4H470L471 237.4H495L496 172.4H598L600 237.4H622L625 172.4H702L707 42.5H709L712 237.4H759L765 357.4H790L797 172.4H815L817 237.4H821L823 172.4H852L853 237.4H879L880 172.4H942L944 237.4H948L949 172.4H980L981 237.4H1006L1007 172.4H1105L1112 402.4M237 403.1L244 173.2H305L307 238.2H311L312 173.2H341L343 238.2H369L369 173.2H373L374 238.2H384L386 173.2H470L472 238.2H496L497 173.2H499L501 238.2H512L513 173.2H559L560 238.2H564L566 173.2H597L598 238.2H623L625 173.2H626L628 238.2H639L641 173.2H705L710 43.1H713L715 238.2H757L764 358.1H790L793 173.2H851L853 238.2H879L878 173.2H979L980 238.2H1005L1008 173.2H1107L1114 403.1M240 403.9L247 173.8H244L247 238.8H253L256 173.8H342L344 238.8H368L369 173.8H372L373 238.8H384L386 173.8H469L471 238.8H494L498 173.8H560L562 238.8H566L568 173.8H597L598 238.8H622L624 173.8H708L713 43.9H716L718 238.8H758L766 358.9H790L793 173.8H851L852 238.8H878L878 173.8H980L981 238.8H1006L1007 173.8H1106L1112 403.9M243 404.6L250 174.6H307L308 239.6H312L314 174.6H343L344 239.6H369L369 174.6H470L471 239.6H495L497 174.6H560L562 239.6H566L567 174.6H596L598 239.6H622L624 174.6H626L628 239.6H640L640 174.6H692L696 99.5H739L745 174.6H764L769 359.6H791L794 174.6H816L818 239.6H822L823 174.6H852L854 239.6H878L879 174.6H980L981 239.6H1005L1006 174.6H1110L1117 404.6M243 405.2L249 175.2H341L343 240.2H368L370 175.2H371L372 240.2H385L386 175.2H471L472 240.2H495L497 175.2H560L562 240.2H566L567 175.2H597L598 240.2H623L624 175.2H627L628 240.2H640L640 175.2H692L696 100.2H736L745 175.2H762L768 360.2H792L795 175.2H816L818 240.2H822L824 175.2H851L852 240.2H878L879 175.2H981L982 240.2H1006L1008 175.2H1109L1116 405.2M245 405.9L252 175.9H241L246 240.9H254L256 175.9H341L342 240.9H368L370 175.9H434L435 240.9H439L441 175.9H470L471 240.9H495L496 175.9H562L563 240.9H567L569 175.9H597L598 240.9H623L625 175.9H628L629 240.9H638L640 175.9H693L698 101.0H737L745 175.9H763L769 360.9H789L793 175.9H851L852 240.9H878L879 175.9H979L980 240.9H1004L1006 175.9H1115L1121 405.9M247 406.6L253 176.7H343L344 241.7H369L370 176.7H469L470 241.7H495L498 176.7H598L599 241.7H623L625 176.7H627L629 241.7H639L641 176.7H692L696 101.7H738L745 176.7H764L768 361.6H790L796 176.7H851L852 241.7H878L880 176.7H880L882 241.7H894L896 176.7H942L944 241.7H948L949 176.7H981L982 241.7H1006L1008 176.7H1114L1121 406.6"/>
-<path class="mgul" d="M702 293.4L757 293.4 M702 294.1L756 294.1 M702 294.8L756 294.8 M702 295.4L757 295.4 M702 296.1L757 296.1 M703 296.9L756 296.9 M702 297.6L756 297.6 M703 298.2L757 298.2 M701 298.9L757 298.9 M701 299.6L757 299.6 M702 300.4L757 300.4 M702 301.1L756 301.1 M703 301.8L756 301.8"/>
-<text class="ma" x="256.7" y="404.5" text-anchor="start">заезд: из&nbsp;аэропорта около часа</text>
-<text class="ma" x="454.1" y="261.0" text-anchor="middle">кто-то ушёл купаться</text>
-<text class="ma" x="454.1" y="277.0" text-anchor="middle">посреди воркшопа&nbsp;— нормально</text>
-<text class="ma strong" x="743.8" y="18.0" text-anchor="middle">день в&nbsp;море&nbsp;— какой, решим по&nbsp;погоде</text>
-<text class="ma" x="727.5" y="44.0" text-anchor="start">параплан: 20–30&nbsp;минут до&nbsp;пляжа</text>
-<text class="ma w" x="727.2" y="320.0" text-anchor="middle">гулет: весь день на&nbsp;воде</text>
-<text class="ma" x="778.8" y="377.0" text-anchor="middle">ужин в&nbsp;городе</text>
-<text class="ma" x="1014.7" y="156.0" text-anchor="middle">показываем, что&nbsp;вышло</text>
-<text class="ma" x="1129.4" y="404.5" text-anchor="start">разъезд</text>
+<svg class="marey marey-h" viewBox="0 0 1200 462" role="img" aria-labelledby="mt-h">
+<title id="mt-h">Неделя в&nbsp;виде графика движения. Двадцать бледных линий&nbsp;— двадцать участников, одна прочерчена целиком: утром отель, с&nbsp;часу до&nbsp;пяти пляж, в&nbsp;понедельник ушёл купаться посреди воркшопа, в&nbsp;день в&nbsp;море весь день на&nbsp;гулете, вечером ужин в&nbsp;Фетхие, в&nbsp;пятницу показ, в&nbsp;субботу разъезд.</title>
+<rect class="mb" x="352.4" y="30" width="25.2" height="388"/>
+<rect class="mb" x="478.7" y="30" width="25.2" height="388"/>
+<rect class="mb" x="604.9" y="30" width="25.2" height="388"/>
+<rect class="mb" x="857.4" y="30" width="25.2" height="388"/>
+<rect class="mb" x="983.7" y="30" width="25.2" height="388"/>
+<rect class="ms" x="687.0" y="30" width="126.2" height="388"/>
+<text class="ml" x="170" y="409" text-anchor="end">Даламан, аэропорт</text>
+<text class="ml" x="170" y="57" text-anchor="end">Бабадаг</text>
+<text class="ml" x="170" y="109" text-anchor="end">Сакликент, тропа</text>
+<text class="ml" x="170" y="181" text-anchor="end">Отель: зал, терраса</text>
+<text class="ml w" x="170" y="245" text-anchor="end">Пляж, бассейн</text>
+<text class="ml w" x="170" y="309" text-anchor="end">Гулет в&nbsp;заливе</text>
+<text class="ml" x="170" y="363" text-anchor="end">Фетхие, город</text>
+<text class="mday" x="245.1" y="454" text-anchor="middle">Сб</text>
+<text class="mday" x="371.4" y="454" text-anchor="middle">Вс</text>
+<text class="mday" x="497.6" y="454" text-anchor="middle">Пн</text>
+<text class="mday" x="623.9" y="454" text-anchor="middle">Вт</text>
+<text class="mday" x="750.1" y="454" text-anchor="middle">Ср</text>
+<text class="mday" x="876.4" y="454" text-anchor="middle">Чт</text>
+<text class="mday" x="1002.6" y="454" text-anchor="middle">Пт</text>
+<text class="mday" x="1128.9" y="454" text-anchor="middle">Сб</text>
+<defs><mask id="km-h" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="462"><rect width="1200" height="462" fill="#fff"/><rect x="30.9" y="392.3" width="142.1" height="22.9" fill="#000"/><rect x="110.4" y="40.3" width="63.0" height="22.9" fill="#000"/><rect x="42.0" y="92.3" width="131.0" height="22.9" fill="#000"/><rect x="28.5" y="164.3" width="144.5" height="22.9" fill="#000"/><rect x="57.8" y="228.3" width="115.2" height="22.9" fill="#000"/><rect x="60.8" y="292.3" width="112.2" height="22.9" fill="#000"/><rect x="64.9" y="346.3" width="108.1" height="22.9" fill="#000"/><rect x="231.4" y="436.3" width="27.3" height="23.9" fill="#000"/><rect x="358.5" y="436.3" width="25.9" height="23.9" fill="#000"/><rect x="483.8" y="436.3" width="27.5" height="23.9" fill="#000"/><rect x="611.8" y="436.3" width="24.9" height="23.9" fill="#000"/><rect x="736.3" y="436.3" width="27.6" height="23.9" fill="#000"/><rect x="863.8" y="436.3" width="25.9" height="23.9" fill="#000"/><rect x="989.7" y="436.3" width="26.5" height="23.9" fill="#000"/><rect x="1115.2" y="436.3" width="27.3" height="23.9" fill="#000"/><rect x="329.7" y="103.3" width="134.3" height="22.9" fill="#000"/><rect x="240.2" y="413.3" width="160.7" height="23.9" fill="#000"/><rect x="483.2" y="253.3" width="155.5" height="41.9" fill="#000"/><rect x="707.3" y="0.3" width="103.5" height="23.9" fill="#000"/><rect x="728.6" y="25.3" width="80.4" height="23.9" fill="#000"/><rect x="576.1" y="312.3" width="180.8" height="22.9" fill="#000"/><rect x="724.8" y="364.3" width="120.1" height="23.9" fill="#000"/><rect x="1026.1" y="133.3" width="50.6" height="23.9" fill="#000"/><rect x="1123.9" y="413.3" width="70.9" height="23.9" fill="#000"/></mask></defs>
+<g mask="url(#km-h)"><line class="mg" x1="182" x2="1192" y1="404" y2="404"/><line class="mg" x1="182" x2="1192" y1="52" y2="52"/><line class="mg" x1="182" x2="1192" y1="104" y2="104"/><line class="mg" x1="182" x2="1192" y1="176" y2="176"/><line class="mg" x1="182" x2="1192" y1="240" y2="240"/><line class="mg" x1="182" x2="1192" y1="304" y2="304"/><line class="mg" x1="182" x2="1192" y1="358" y2="358"/><line class="md" x1="182.0" x2="182.0" y1="22" y2="424"/><line class="md" x1="308.2" x2="308.2" y1="22" y2="424"/><line class="md" x1="434.5" x2="434.5" y1="22" y2="424"/><line class="md" x1="560.8" x2="560.8" y1="22" y2="424"/><line class="md" x1="687.0" x2="687.0" y1="22" y2="424"/><line class="md" x1="813.2" x2="813.2" y1="22" y2="424"/><line class="md" x1="939.5" x2="939.5" y1="22" y2="424"/><line class="md" x1="1065.8" x2="1065.8" y1="22" y2="424"/></g>
+<path class="mp" d="M217 397.4L224 169.3H257L255 233.3H262L267 169.3H352L353 233.3H378L378 169.3H478L479 233.3H505L506 169.3H509L510 233.3H521L522 169.3H606L607 233.3H629L633 169.3H705L708 297.4H763L770 351.4H798L802 169.3H856L858 233.3H882L884 169.3H984L986 233.3H1009L1010 169.3H1082L1088 397.4M221 398.1L227 170.1H351L352 234.1H378L379 170.1H478L479 234.1H504L506 170.1H606L607 234.1H629L631 170.1H706L709 298.1H762L771 352.1H797L799 170.1H856L858 234.1H882L883 170.1H887L888 234.1H900L900 170.1H984L985 234.1H1009L1012 170.1H1082L1089 398.1M221 398.8L228 170.8H351L352 234.8H377L380 170.8H382L383 234.8H393L395 170.8H479L480 234.8H503L507 170.8H605L607 234.8H629L631 170.8H706L708 298.8H762L771 352.8H796L803 170.8H822L824 234.8H828L829 170.8H857L858 234.8H882L884 170.8H947L949 234.8H953L955 170.8H985L986 234.8H1008L1010 170.8H1085L1091 398.8M225 399.4L231 171.4H254L255 235.4H265L265 171.4H354L355 235.4H378L380 171.4H382L383 235.4H394L395 171.4H478L479 235.4H503L505 171.4H509L510 235.4H520L522 171.4H604L605 235.4H631L633 171.4H706L709 299.4H764L771 353.4H795L803 171.4H821L823 235.4H827L828 171.4H858L859 235.4H883L884 171.4H948L949 235.4H953L955 171.4H983L984 235.4H1009L1011 171.4H1088L1095 399.4M228 400.1L234 172.2H316L318 236.2H322L323 172.2H508L510 236.2H519L522 172.2H706L709 300.1H763L769 354.1H798L802 172.2H985L986 236.2H1009L1010 172.2H1091L1097 400.1M227 400.9L234 172.8H353L354 236.8H377L380 172.8H382L383 236.8H394L396 172.8H442L443 236.8H447L449 172.8H478L479 236.8H503L505 172.8H567L569 236.8H573L575 172.8H606L607 236.8H629L632 172.8H633L634 236.8H647L648 172.8H707L710 300.9H762L771 354.9H796L802 172.8H857L859 236.8H883L884 172.8H984L985 236.8H1010L1012 172.8H1090L1096 400.9M234 402.2L241 174.2H352L354 238.2H377L378 174.2H382L383 238.2H395L396 174.2H441L443 238.2H447L449 174.2H480L481 238.2H504L505 174.2H567L568 238.2H572L574 174.2H606L607 238.2H631L632 174.2H707L710 302.2H763L772 356.2H794L801 174.2H822L823 238.2H827L829 174.2H858L860 238.2H881L885 174.2H983L984 238.2H1009L1011 174.2H1095L1101 402.2M234 402.9L240 174.9H317L318 238.9H322L324 174.9H351L352 238.9H378L380 174.9H479L481 238.9H504L504 174.9H606L607 238.9H631L631 174.9H705L708 302.9H764L769 356.9H797L803 174.9H822L823 238.9H827L829 174.9H859L860 238.9H883L884 174.9H888L889 238.9H898L901 174.9H983L984 238.9H1010L1012 174.9H1097L1103 402.9M237 403.6L243 175.7H255L258 239.7H263L265 175.7H353L354 239.7H378L380 175.7H478L480 239.7H504L507 175.7H507L508 239.7H520L522 175.7H605L606 239.7H630L632 175.7H705L708 303.6H763L769 357.6H798L801 175.7H858L859 239.7H883L884 175.7H946L947 239.7H952L953 175.7H984L985 239.7H1009L1011 175.7H1100L1106 403.6M240 404.4L247 176.3H353L354 240.3H378L380 176.3H479L480 240.3H503L506 176.3H605L606 240.3H630L632 176.3H706L709 304.4H763L770 358.4H798L802 176.3H859L860 240.3H884L884 176.3H985L986 240.3H1008L1010 176.3H1099L1106 404.4M240 405.1L247 177.1H442L443 241.1H448L449 177.1H568L570 241.1H574L575 177.1H705L708 305.1H762L770 359.1H797L801 177.1H887L888 241.1H899L900 177.1H984L986 241.1H1010L1011 177.1H1101L1107 405.1M245 405.8L251 177.8H255L256 241.8H264L267 177.8H351L353 241.8H379L379 177.8H443L444 241.8H448L450 177.8H479L481 241.8H504L506 177.8H569L570 241.8H574L576 177.8H606L607 241.8H631L632 177.8H706L709 305.8H762L770 359.8H795L799 177.8H820L821 241.8H825L827 177.8H858L859 241.8H882L884 177.8H983L984 241.8H1008L1012 177.8H1104L1110 405.8M245 406.4L251 178.4H353L354 242.4H377L379 178.4H479L480 242.4H504L505 178.4H606L607 242.4H630L633 178.4H708L714 54.5H716L719 242.4H765L771 360.4H796L802 178.4H821L823 242.4H827L828 178.4H857L859 242.4H884L885 178.4H947L948 242.4H952L954 178.4H984L985 242.4H1010L1011 178.4H1108L1115 406.4M249 407.1L256 179.2H316L317 243.2H322L323 179.2H352L353 243.2H379L379 179.2H383L384 243.2H393L396 179.2H480L481 243.2H505L506 179.2H508L509 243.2H521L521 179.2H567L568 243.2H573L574 179.2H605L606 243.2H631L633 179.2H634L635 243.2H647L648 179.2H712L717 55.1H719L722 243.2H763L770 361.1H796L799 179.2H857L858 243.2H884L883 179.2H983L984 243.2H1008L1012 179.2H1110L1116 407.1M252 407.9L258 179.8H255L258 243.8H265L267 179.8H353L354 243.8H378L379 179.8H382L383 243.8H394L396 179.8H478L480 243.8H503L507 179.8H569L570 243.8H574L576 179.8H604L606 243.8H630L631 179.8H715L720 55.9H722L725 243.8H764L772 361.9H795L798 179.8H856L858 243.8H883L883 179.8H984L985 243.8H1010L1011 179.8H1109L1115 407.9M254 408.6L261 180.6H317L319 244.6H323L325 180.6H353L354 244.6H379L379 180.6H479L480 244.6H504L506 180.6H568L570 244.6H574L576 180.6H604L606 244.6H629L631 180.6H634L635 244.6H647L647 180.6H699L703 108.5H746L752 180.6H770L775 362.6H797L800 180.6H822L823 244.6H827L829 180.6H858L859 244.6H883L884 180.6H984L985 244.6H1009L1010 180.6H1112L1119 408.6M254 409.2L260 181.2H352L353 245.2H378L381 181.2H381L382 245.2H395L395 181.2H480L481 245.2H504L505 181.2H568L570 245.2H574L575 181.2H604L606 245.2H631L632 181.2H634L635 245.2H648L647 181.2H699L703 109.2H742L751 181.2H768L774 363.2H798L800 181.2H822L824 245.2H828L829 181.2H856L858 245.2H883L884 181.2H985L986 245.2H1010L1012 181.2H1112L1119 409.2M257 409.9L263 181.9H252L258 245.9H265L267 181.9H351L353 245.9H378L380 181.9H443L445 245.9H449L450 181.9H479L480 245.9H504L505 181.9H570L571 245.9H575L577 181.9H605L606 245.9H630L632 181.9H635L636 245.9H645L648 181.9H700L705 110.0H743L751 181.9H769L775 363.9H795L799 181.9H856L858 245.9H883L884 181.9H983L984 245.9H1008L1010 181.9H1118L1124 409.9M259 410.6L265 182.7H353L354 246.7H379L380 182.7H478L479 246.7H504L507 182.7H606L607 246.7H631L633 182.7H635L636 246.7H647L648 182.7H699L703 110.7H745L751 182.7H770L774 364.6H795L802 182.7H856L858 246.7H883L885 182.7H885L887 246.7H899L901 182.7H946L948 246.7H952L954 182.7H985L986 246.7H1009L1011 182.7H1117L1124 410.6"/>
+<path class="mgul" d="M708 297.4L763 297.4 M709 298.1L762 298.1 M708 298.8L762 298.8 M709 299.4L764 299.4 M709 300.1L763 300.1 M710 300.9L762 300.9 M710 302.2L763 302.2 M708 302.9L764 302.9 M708 303.6L763 303.6 M709 304.4L763 304.4 M708 305.1L762 305.1 M709 305.8L762 305.8"/>
+<path class="me-h" d="M232 404.0L238 176.0H254L257 240.0H263L267 176.0H351L352 240.0H378L379 176.0H466L467 240.0H472L473 176.0H478L479 240.0H503L505 176.0H507L508 240.0H521L522 176.0H569L570 240.0H574L576 176.0H605L606 240.0H631L633 176.0H706L709 304.0H763L769 358.0H797L803 176.0H857L858 240.0H882L883 176.0H983L984 240.0H1009L1012 176.0H1092L1099 404.0"/>
+<path class="me" d="M232 404.0L238 176.0H254L257 240.0H263L267 176.0H351L352 240.0H378L379 176.0H466L467 240.0H472L473 176.0H478L479 240.0H503L505 176.0H507L508 240.0H521L522 176.0H569L570 240.0H574L576 176.0H605L606 240.0H631L633 176.0H706L709 304.0H763L769 358.0H797L803 176.0H857L858 240.0H882L883 176.0H983L984 240.0H1009L1012 176.0H1092L1099 404.0"/>
+<path class="me-g" d="M709 304.0L763 304.0"/>
+<path class="lead" d="M336.7 126.0V173.0"/>
+<text class="ma me-l" x="332.7" y="120.0" text-anchor="start">один из&nbsp;двадцати</text>
+<g class="mk"><circle cx="226.2" cy="426.0" r="11"/><text x="226.2" y="431.0" text-anchor="middle">1</text></g>
+<text class="ma" x="243.2" y="431.0" text-anchor="start">заезд и&nbsp;знакомство</text>
+<g class="mk"><circle cx="469.2" cy="266.0" r="11"/><text x="469.2" y="271.0" text-anchor="middle">2</text></g>
+<text class="ma" x="486.2" y="271.0">ушёл купаться<tspan x="486.2" dy="18">посреди воркшопа</tspan></text>
+<g class="mk"><circle cx="693.3" cy="13.0" r="11"/><text x="693.3" y="18.0" text-anchor="middle">3</text></g>
+<text class="ma strong" x="710.3" y="18.0" text-anchor="start">день в&nbsp;море</text>
+<text class="ma" x="731.6" y="43.0" text-anchor="start">параплан</text>
+<text class="ma w" x="753.9" y="329.0" text-anchor="end">гулет: весь день на&nbsp;воде</text>
+<text class="ma" x="784.8" y="382.0" text-anchor="middle">ужин в&nbsp;городе</text>
+<g class="mk"><circle cx="1012.1" cy="146.0" r="11"/><text x="1012.1" y="151.0" text-anchor="middle">4</text></g>
+<text class="ma" x="1029.1" y="151.0" text-anchor="start">показ</text>
+<g class="mk"><circle cx="1109.9" cy="426.0" r="11"/><text x="1109.9" y="431.0" text-anchor="middle">5</text></g>
+<text class="ma" x="1126.9" y="431.0" text-anchor="start">разъезд</text>
 </svg>
-<svg class="marey marey-v" viewBox="0 0 358 736" role="img" aria-labelledby="mt-v">
-<title id="mt-v">Неделя в&nbsp;виде графика движения: двадцать линий&nbsp;— двадцать участников, которые утром работают в&nbsp;отеле, с&nbsp;часу до&nbsp;пяти уходят на&nbsp;пляж, в&nbsp;день в&nbsp;море расходятся по&nbsp;гулету, параплану и&nbsp;каньону и&nbsp;вечером сходятся на&nbsp;ужин в&nbsp;Фетхие.</title>
-<rect class="mb" x="36" y="222.6" width="188" height="15.2"/>
-<rect class="mb" x="36" y="298.6" width="188" height="15.2"/>
-<rect class="mb" x="36" y="374.6" width="188" height="15.2"/>
-<rect class="mb" x="36" y="526.6" width="188" height="15.2"/>
-<rect class="mb" x="36" y="602.6" width="188" height="15.2"/>
-<rect class="ms" x="36" y="424.0" width="188" height="76.0"/>
-<line class="mg" x1="48" x2="48" y1="120" y2="728"/>
-<text class="ml" transform="translate(52.5,112) rotate(-90)">аэропорт</text>
-<line class="mg" x1="74" x2="74" y1="120" y2="728"/>
-<text class="ml" transform="translate(78.5,112) rotate(-90)">Бабадаг</text>
-<line class="mg" x1="100" x2="100" y1="120" y2="728"/>
-<text class="ml" transform="translate(104.5,112) rotate(-90)">каньон, тропа</text>
-<line class="mg" x1="128" x2="128" y1="120" y2="728"/>
-<text class="ml" transform="translate(132.5,112) rotate(-90)">отель</text>
-<line class="mg" x1="156" x2="156" y1="120" y2="728"/>
-<text class="ml w" transform="translate(160.5,112) rotate(-90)">пляж</text>
-<line class="mg" x1="184" x2="184" y1="120" y2="728"/>
-<text class="ml w" transform="translate(188.5,112) rotate(-90)">гулет</text>
-<line class="mg" x1="210" x2="210" y1="120" y2="728"/>
-<text class="ml" transform="translate(214.5,112) rotate(-90)">Фетхие</text>
-<line class="md" x1="2" x2="358" y1="120.0" y2="120.0"/>
-<text class="mday" x="2" y="163.0">Сб</text>
-<line class="md" x1="2" x2="358" y1="196.0" y2="196.0"/>
-<text class="mday" x="2" y="239.0">Вс</text>
-<line class="md" x1="2" x2="358" y1="272.0" y2="272.0"/>
-<text class="mday" x="2" y="315.0">Пн</text>
-<line class="md" x1="2" x2="358" y1="348.0" y2="348.0"/>
-<text class="mday" x="2" y="391.0">Вт</text>
-<line class="md" x1="2" x2="358" y1="424.0" y2="424.0"/>
-<text class="mday" x="2" y="467.0">Ср</text>
-<line class="md" x1="2" x2="358" y1="500.0" y2="500.0"/>
-<text class="mday" x="2" y="543.0">Чт</text>
-<line class="md" x1="2" x2="358" y1="576.0" y2="576.0"/>
-<text class="mday" x="2" y="619.0">Пт</text>
-<line class="md" x1="2" x2="358" y1="652.0" y2="652.0"/>
-<text class="mday" x="2" y="695.0">Сб</text>
-<path class="mp" d="M44.0 141L124.0 145V165L152.0 164V168L124.0 171V222L152.0 223V238L124.0 238V298L152.0 299V314L124.0 315V317L152.0 317V324L124.0 325V375L152.0 376V389L124.0 391V435L180.0 437V470L206.0 474V491L124.0 493V526L152.0 527V542L124.0 542V603L152.0 604V618L124.0 618V662L44.0 666M44.4 143L124.4 147V222L152.4 223V238L124.4 239V298L152.4 299V314L124.4 315V375L152.4 376V389L124.4 391V435L180.4 437V469L206.4 475V490L124.4 491V526L152.4 527V542L124.4 542V544L152.4 545V552L124.4 552V603L152.4 603V618L124.4 619V662L44.4 666M44.9 144L124.8 148V222L152.8 223V237L124.8 239V240L152.8 241V247L124.8 248V299L152.8 299V313L124.8 315V375L152.8 376V389L124.8 390V435L180.8 437V469L206.8 475V490L124.8 494V505L152.8 506V509L124.8 510V526L152.8 527V541L124.8 543V581L152.8 582V584L124.8 585V603L152.8 604V617L124.8 619V663L44.9 667M45.3 146L125.3 150V163L153.3 164V170L125.3 170V223L153.3 224V238L125.3 239V240L153.3 241V248L125.3 248V298L153.3 299V313L125.3 315V317L153.3 317V323L125.3 324V374L153.3 375V390L125.3 391V435L181.3 437V470L207.3 474V489L125.3 494V505L153.3 506V508L125.3 509V527L153.3 527V542L125.3 543V581L153.3 582V584L125.3 585V602L153.3 603V618L125.3 619V665L45.3 670M45.7 147L125.7 151V201L153.7 202V204L125.7 205V317L153.7 317V323L125.7 325V435L181.7 437V470L207.7 474V491L125.7 493V603L153.7 604V618L125.7 619V667L45.7 671M46.1 147L126.1 151V223L154.1 224V237L126.1 239V240L154.1 241V248L126.1 249V276L154.1 277V280L126.1 281V298L154.1 299V313L126.1 314V352L154.1 353V355L126.1 356V375L154.1 376V389L126.1 391V391L154.1 392V400L126.1 401V436L182.1 438V469L208.1 475V490L126.1 493V526L154.1 527V542L126.1 542V603L154.1 604V618L126.1 619V666L46.1 670M46.5 150L126.5 154V163L154.5 165V169L126.5 171V222L154.5 223V238L126.5 239V291L154.5 292V294L126.5 295V298L154.5 299V313L126.5 314V316L154.5 316V324L126.5 325V353L154.5 354V356L126.5 357V375L154.5 375V390L126.5 391V435L182.5 437V470L208.5 474V490L126.5 494V526L154.5 527V542L126.5 542V602L154.5 603V618L126.5 619V668L46.5 672M47.0 152L127.0 155V223L154.9 223V237L127.0 238V240L154.9 241V248L127.0 249V276L154.9 277V279L127.0 280V299L154.9 300V314L127.0 315V352L154.9 353V355L127.0 356V375L154.9 376V390L127.0 391V436L182.9 438V470L208.9 475V489L127.0 493V505L154.9 506V508L127.0 509V527L154.9 528V541L127.0 543V602L154.9 603V618L127.0 619V670L47.0 673M47.4 151L127.4 155V201L155.4 202V204L127.4 205V222L155.4 223V238L127.4 239V299L155.4 300V314L127.4 314V375L155.4 376V390L127.4 390V435L183.4 437V470L209.4 474V490L127.4 494V505L155.4 506V509L127.4 510V527L155.4 528V542L127.4 543V545L155.4 545V551L127.4 553V602L155.4 603V619L127.4 619V671L47.4 675M47.8 153L127.8 157V164L155.8 166V168L127.8 170V223L155.8 224V238L127.8 239V298L155.8 299V314L127.8 315V316L155.8 316V323L127.8 325V375L155.8 375V390L127.8 391V435L183.8 437V470L209.8 473V491L127.8 492V527L155.8 528V542L127.8 543V580L155.8 581V583L127.8 584V603L155.8 603V618L127.8 619V672L47.8 676M48.2 155L128.2 159V223L156.2 224V238L128.2 239V299L156.2 299V313L128.2 315V375L156.2 376V390L128.2 391V436L184.2 437V470L210.2 474V491L128.2 493V527L156.2 528V542L128.2 542V603L156.2 604V617L128.2 618V672L48.2 676M48.6 155L128.6 159V276L156.6 277V280L128.6 281V352L156.6 353V356L128.6 357V435L184.6 437V469L210.6 474V490L128.6 493V544L156.6 545V552L128.6 552V603L156.6 604V618L128.6 619V673L48.6 677M49.0 158L129.1 161V164L157.1 164V170L129.1 171V222L157.1 223V239L129.1 239V277L157.1 278V280L129.1 281V299L157.1 300V314L129.1 315V353L157.1 354V356L129.1 357V375L157.1 376V390L129.1 391V436L185.1 437V469L211.1 474V489L129.1 492V504L157.1 505V507L129.1 508V527L157.1 528V541L129.1 542V602L157.1 603V617L129.1 619V675L49.0 679M49.5 158L129.5 162V223L157.5 224V238L129.5 238V299L157.5 299V314L129.5 315V375L157.5 376V390L129.5 391V437L75.5 440V441L157.5 443V471L211.5 475V489L129.5 493V505L157.5 506V508L129.5 509V527L157.5 527V543L129.5 543V580L157.5 581V584L129.5 585V603L157.5 604V618L129.5 619V677L49.5 681M49.9 160L129.9 164V201L157.9 202V204L129.9 205V222L157.9 223V238L129.9 239V241L157.9 242V247L129.9 249V299L157.9 300V314L129.9 315V316L157.9 317V324L129.9 324V352L157.9 353V355L129.9 356V375L157.9 375V390L129.9 391V392L157.9 393V400L129.9 401V439L75.9 442V443L157.9 445V470L211.9 474V490L129.9 491V526L157.9 527V543L129.9 542V602L157.9 603V618L129.9 619V679L49.9 682M50.3 162L130.3 166V164L158.3 166V170L130.3 171V223L158.3 224V238L130.3 239V241L158.3 241V248L130.3 249V298L158.3 299V313L130.3 315V353L158.3 354V356L130.3 357V374L158.3 375V389L130.3 390V441L76.3 444V445L158.3 447V470L212.3 475V489L130.3 491V526L158.3 527V542L130.3 542V603L158.3 603V618L130.3 619V678L50.3 682M50.7 164L130.7 168V202L158.7 202V205L130.7 206V223L158.7 224V238L130.7 239V299L158.7 300V314L130.7 315V353L158.7 354V356L130.7 357V374L158.7 375V389L130.7 391V392L158.7 393V400L130.7 400V431L102.7 434V459L130.7 463V474L212.7 477V490L130.7 492V505L158.7 506V508L130.7 509V527L158.7 527V542L130.7 543V603L158.7 604V618L130.7 619V680L50.7 684M51.1 164L131.2 167V222L159.2 223V238L131.2 239V240L159.2 240V248L131.2 249V299L159.2 300V314L131.2 315V352L159.2 353V356L131.2 357V374L159.2 375V390L131.2 391V392L159.2 393V400L131.2 400V431L103.2 434V457L131.2 463V473L213.2 476V491L131.2 492V505L159.2 506V509L131.2 510V526L159.2 527V542L131.2 543V603L159.2 604V618L131.2 619V680L51.1 684M51.6 165L131.6 169V162L159.6 165V170L131.6 171V222L159.6 223V238L131.6 239V277L159.6 278V281L131.6 282V299L159.6 299V314L131.6 314V353L159.6 354V357L131.6 358V375L159.6 375V390L131.6 391V393L159.6 394V399L131.6 400V432L103.6 435V458L131.6 463V474L213.6 477V489L131.6 491V526L159.6 527V542L131.6 542V602L159.6 603V617L131.6 618V683L51.6 687M52.0 166L132.0 170V223L160.0 224V238L132.0 239V298L160.0 299V314L132.0 315V375L160.0 376V390L132.0 391V393L160.0 393V400L132.0 401V431L104.0 434V459L132.0 463V474L214.0 476V489L132.0 493V526L160.0 527V542L132.0 543V543L160.0 544V552L132.0 553V580L160.0 581V584L132.0 585V603L160.0 604V618L132.0 619V683L52.0 687"/>
-<path class="mgul" d="M180 436.8L180 469.8 M180 437.1L180 469.1 M181 436.9L181 469.4 M181 437.1L181 470.1 M182 437.1L182 469.8 M182 437.6L182 469.0 M183 437.2L183 469.6 M183 437.6L183 469.7 M183 436.8L183 470.1 M184 436.6L184 469.6 M184 437.3L184 470.1 M185 436.8L185 469.4 M185 437.4L185 469.1"/>
-<text class="ma" x="226" y="133.3"><tspan x="226" dy="0">заезд: из&nbsp;аэропорта</tspan><tspan x="226" dy="17">около часа</tspan></text>
-<text class="ma" x="226" y="277.7"><tspan x="226" dy="0">кто-то ушёл</tspan><tspan x="226" dy="17">купаться посреди</tspan><tspan x="226" dy="17">воркшопа —</tspan><tspan x="226" dy="17">нормально</tspan></text>
-<text class="ma strong" x="226" y="426.3"><tspan x="226" dy="0">день в&nbsp;море: какой —</tspan><tspan x="226" dy="17">решим по&nbsp;погоде</tspan></text>
-<text class="ma" x="226" y="467.7"><tspan x="226" dy="0">ужин в&nbsp;городе</tspan></text>
-<text class="ma" x="226" y="610.2"><tspan x="226" dy="0">показываем,</tspan><tspan x="226" dy="17">что&nbsp;вышло</tspan></text>
-<text class="ma" x="226" y="671.0"><tspan x="226" dy="0">разъезд</tspan></text>
-<text class="ma soft" x="226" y="235.6">13–17&nbsp;в&nbsp;воде</text>
-<text class="ma soft" x="226" y="387.6">13–17&nbsp;в&nbsp;воде</text>
-<text class="ma soft" x="226" y="539.6">13–17&nbsp;в&nbsp;воде</text>
+<svg class="marey marey-v" viewBox="0 0 358 566" role="img" aria-labelledby="mt-v">
+<title id="mt-v">Неделя в&nbsp;виде графика движения. Двадцать бледных линий&nbsp;— двадцать участников, одна прочерчена целиком: утром отель, с&nbsp;часу до&nbsp;пяти пляж, в&nbsp;понедельник ушёл купаться посреди воркшопа, в&nbsp;день в&nbsp;море весь день на&nbsp;гулете, вечером ужин в&nbsp;Фетхие, в&nbsp;пятницу показ, в&nbsp;субботу разъезд.</title>
+<rect class="mb" x="30" y="156.0" width="328" height="12.2"/>
+<rect class="mb" x="30" y="216.8" width="328" height="12.2"/>
+<rect class="mb" x="30" y="277.5" width="328" height="12.2"/>
+<rect class="mb" x="30" y="399.0" width="328" height="12.2"/>
+<rect class="mb" x="30" y="459.8" width="328" height="12.2"/>
+<rect class="ms" x="30" y="317.0" width="328" height="60.8"/>
+<text class="ml" x="52" y="20" text-anchor="middle">аэропорт</text>
+<text class="ml" x="98" y="42" text-anchor="middle">Бабадаг</text>
+<text class="ml" x="144" y="20" text-anchor="middle">каньон</text>
+<text class="ml" x="190" y="42" text-anchor="middle">отель</text>
+<text class="ml w" x="236" y="20" text-anchor="middle">пляж</text>
+<text class="ml w" x="282" y="42" text-anchor="middle">гулет</text>
+<text class="ml" x="328" y="20" text-anchor="middle">Фетхие</text>
+<text class="mday" x="0" y="109.4">Сб</text>
+<text class="mday" x="0" y="170.1">Вс</text>
+<text class="mday" x="0" y="230.9">Пн</text>
+<text class="mday" x="0" y="291.6">Вт</text>
+<text class="mday" x="0" y="352.4">Ср</text>
+<text class="mday" x="0" y="413.1">Чт</text>
+<text class="mday" x="0" y="473.9">Пт</text>
+<text class="mday" x="0" y="534.6">Сб</text>
+<defs><mask id="km-v" maskUnits="userSpaceOnUse" x="0" y="0" width="358" height="566"><rect width="358" height="566" fill="#fff"/><rect x="19.3" y="4.0" width="65.6" height="22.0" fill="#000"/><rect x="69.2" y="26.0" width="57.7" height="21.0" fill="#000"/><rect x="118.2" y="4.0" width="51.6" height="21.0" fill="#000"/><rect x="169.0" y="26.0" width="42.0" height="21.0" fill="#000"/><rect x="214.9" y="4.0" width="42.7" height="21.0" fill="#000"/><rect x="260.2" y="26.0" width="43.5" height="22.0" fill="#000"/><rect x="300.6" y="4.0" width="54.9" height="21.0" fill="#000"/><rect x="-3.0" y="92.4" width="26.0" height="23.0" fill="#000"/><rect x="-3.0" y="153.1" width="24.5" height="23.0" fill="#000"/><rect x="-3.0" y="213.9" width="26.2" height="23.0" fill="#000"/><rect x="-3.0" y="274.6" width="23.9" height="23.0" fill="#000"/><rect x="-3.0" y="335.4" width="26.3" height="23.0" fill="#000"/><rect x="-3.0" y="396.1" width="24.8" height="23.0" fill="#000"/><rect x="-3.0" y="456.9" width="25.4" height="23.0" fill="#000"/><rect x="-3.0" y="517.6" width="26.0" height="23.0" fill="#000"/><rect x="58.2" y="123.5" width="126.8" height="22.0" fill="#000"/></mask></defs>
+<g mask="url(#km-v)"><line class="mg" x1="52" x2="52" y1="74" y2="560"/><line class="mt" x1="52" x2="52" y1="26" y2="70"/><line class="mg" x1="98" x2="98" y1="74" y2="560"/><line class="mt" x1="98" x2="98" y1="48" y2="70"/><line class="mg" x1="144" x2="144" y1="74" y2="560"/><line class="mt" x1="144" x2="144" y1="26" y2="70"/><line class="mg" x1="190" x2="190" y1="74" y2="560"/><line class="mt" x1="190" x2="190" y1="48" y2="70"/><line class="mg" x1="236" x2="236" y1="74" y2="560"/><line class="mt" x1="236" x2="236" y1="26" y2="70"/><line class="mg" x1="282" x2="282" y1="74" y2="560"/><line class="mt" x1="282" x2="282" y1="48" y2="70"/><line class="mg" x1="328" x2="328" y1="74" y2="560"/><line class="mt" x1="328" x2="328" y1="26" y2="70"/><line class="md" x1="0" x2="358" y1="74.0" y2="74.0"/><line class="md" x1="0" x2="358" y1="134.8" y2="134.8"/><line class="md" x1="0" x2="358" y1="195.5" y2="195.5"/><line class="md" x1="0" x2="358" y1="256.2" y2="256.2"/><line class="md" x1="0" x2="358" y1="317.0" y2="317.0"/><line class="md" x1="0" x2="358" y1="377.8" y2="377.8"/><line class="md" x1="0" x2="358" y1="438.5" y2="438.5"/><line class="md" x1="0" x2="358" y1="499.2" y2="499.2"/></g>
+<path class="mp" d="M48.0 91L186.0 94V110L232.0 109V113L186.0 115V156L232.0 156V169L186.0 169V216L232.0 217V229L186.0 230V231L232.0 232V237L186.0 238V278L232.0 279V289L186.0 291V326L278.0 327V354L324.0 357V370L186.0 372V399L232.0 399V411L186.0 412V460L232.0 461V472L186.0 472V507L48.0 510M48.4 93L186.4 96V155L232.4 156V169L186.4 169V217L232.4 217V229L186.4 230V278L232.4 278V289L186.4 290V326L278.4 327V353L324.4 357V370L186.4 371V398L232.4 399V411L186.4 411V413L232.4 414V419L186.4 420V460L232.4 460V472L186.4 473V507L48.4 510M48.9 93L186.8 96V155L232.8 156V168L186.8 169V170L232.8 171V176L186.8 177V217L232.8 217V228L186.8 230V278L232.8 278V289L186.8 290V326L278.9 327V353L324.9 358V369L186.8 373V382L232.8 383V385L186.8 386V399L232.8 399V411L186.8 412V442L232.8 443V445L186.8 446V460L232.8 461V471L186.8 473V508L48.9 511M49.3 95L187.3 98V108L233.3 109V114L187.3 114V157L233.3 157V168L187.3 169V170L233.3 171V176L187.3 176V217L233.3 217V228L187.3 230V231L233.3 232V236L187.3 237V277L233.3 278V290L187.3 291V326L279.3 327V354L325.3 357V369L187.3 373V382L233.3 382V384L187.3 385V399L233.3 400V411L187.3 412V443L233.3 443V445L187.3 446V459L233.3 460V472L187.3 473V510L49.3 513M49.7 96L187.7 99V139L233.7 139V141L187.7 142V231L233.7 232V236L187.7 238V326L279.7 327V354L325.7 357V370L187.7 373V460L233.7 461V472L187.7 472V511L49.7 514M50.1 96L188.1 99V156L234.1 157V168L188.1 169V170L234.1 171V176L188.1 177V199L234.1 200V202L188.1 202V217L234.1 217V229L188.1 229V259L234.1 260V262L188.1 263V278L234.1 279V289L188.1 290V291L234.1 292V298L188.1 298V327L280.1 328V353L326.1 357V369L188.1 372V399L234.1 400V411L188.1 412V460L234.1 461V472L188.1 473V511L50.1 514M51.0 99L188.9 102V156L234.9 157V168L188.9 168V170L234.9 171V176L188.9 177V199L234.9 200V201L188.9 202V217L234.9 218V229L188.9 230V259L234.9 260V262L188.9 263V278L234.9 279V290L188.9 290V326L280.9 328V354L326.9 358V369L188.9 372V382L234.9 383V385L188.9 385V400L234.9 400V411L188.9 412V459L234.9 460V472L188.9 473V513L51.0 516M51.4 99L189.4 102V139L235.4 140V142L189.4 142V155L235.4 156V168L189.4 169V217L235.4 218V229L189.4 229V278L235.4 279V290L189.4 290V326L281.4 327V354L327.4 357V370L189.4 373V382L235.4 383V385L189.4 385V400L235.4 400V411L189.4 412V413L235.4 414V419L189.4 420V459L235.4 460V472L189.4 473V514L51.4 517M51.8 101L189.8 104V109L235.8 111V113L189.8 114V156L235.8 157V168L189.8 169V217L235.8 217V229L189.8 230V230L235.8 231V237L189.8 238V277L235.8 278V290L189.8 291V326L281.8 327V353L327.8 357V371L189.8 372V399L235.8 400V412L189.8 412V442L235.8 442V444L189.8 445V460L235.8 460V472L189.8 473V516L51.8 519M52.2 102L190.2 105V156L236.2 157V168L190.2 169V217L236.2 217V229L190.2 230V278L236.2 278V290L190.2 291V326L282.2 328V354L328.2 357V370L190.2 372V400L236.2 400V412L190.2 412V460L236.2 461V472L190.2 472V515L52.2 519M52.6 102L190.6 105V199L236.6 200V202L190.6 203V260L236.6 261V262L190.6 263V326L282.6 327V353L328.6 357V370L190.6 372V413L236.6 414V419L190.6 419V460L236.6 461V472L190.6 473V516L52.6 519M53.0 104L191.1 107V109L237.1 110V114L191.1 115V156L237.1 156V169L191.1 169V199L237.1 200V202L191.1 203V217L237.1 218V229L191.1 230V260L237.1 261V263L191.1 264V278L237.1 278V290L191.1 291V326L283.1 328V353L329.1 357V369L191.1 371V381L237.1 382V384L191.1 384V399L237.1 400V411L191.1 412V459L237.1 460V471L191.1 473V518L53.0 521M53.5 104L191.5 107V156L237.5 157V168L191.5 169V217L237.5 217V229L191.5 230V278L237.5 279V290L191.5 291V327L99.5 330V331L237.5 332V355L329.5 358V369L191.5 373V382L237.5 382V384L191.5 385V399L237.5 400V412L191.5 412V442L237.5 443V445L191.5 445V460L237.5 461V472L191.5 473V520L53.5 523M53.9 106L191.9 109V138L237.9 139V141L191.9 142V156L237.9 156V169L191.9 169V171L237.9 171V176L191.9 177V217L237.9 218V229L191.9 230V231L237.9 232V237L191.9 237V259L237.9 260V262L191.9 263V277L237.9 278V290L191.9 291V291L237.9 292V298L191.9 298V329L99.9 331V332L237.9 334V354L329.9 357V369L191.9 371V399L237.9 399V412L191.9 412V459L237.9 460V472L191.9 473V520L53.9 524M54.3 107L192.3 111V109L238.3 111V114L192.3 115V156L238.3 157V168L192.3 169V170L238.3 171V176L192.3 177V217L238.3 217V228L192.3 230V260L238.3 261V263L192.3 264V277L238.3 278V289L192.3 290V330L100.3 333V334L238.3 335V354L330.3 358V369L192.3 371V398L238.3 399V411L192.3 411V460L238.3 460V472L192.3 473V520L54.3 523M54.7 109L192.7 112V139L238.7 140V142L192.7 143V156L238.7 157V169L192.7 169V217L238.7 218V229L192.7 230V260L238.7 261V263L192.7 263V277L238.7 278V289L192.7 290V291L238.7 292V298L192.7 298V323L146.7 325V345L192.7 348V357L330.7 359V370L192.7 372V382L238.7 383V385L192.7 385V399L238.7 400V411L192.7 412V460L238.7 461V472L192.7 473V522L54.7 525M55.1 109L193.2 112V156L239.2 156V168L193.2 170V170L239.2 170V176L193.2 177V217L239.2 218V229L193.2 230V260L239.2 261V263L193.2 263V277L239.2 278V290L193.2 290V292L239.2 292V298L193.2 298V323L147.2 325V344L193.2 348V356L331.1 359V370L193.2 372V382L239.2 383V385L193.2 385V399L239.2 399V411L193.2 412V460L239.2 461V472L193.2 473V521L55.1 525M55.6 110L193.6 113V108L239.6 110V114L193.6 115V156L239.6 156V168L193.6 169V200L239.6 200V202L193.6 203V217L239.6 217V229L193.6 229V261L239.6 261V263L193.6 264V278L239.6 278V290L193.6 291V292L239.6 293V297L193.6 298V323L147.6 326V344L193.6 348V357L331.6 359V369L193.6 371V399L239.6 399V412L193.6 412V459L239.6 460V471L193.6 472V524L55.6 527M56.0 111L194.0 114V156L240.0 157V169L194.0 169V216L240.0 217V229L194.0 230V278L240.0 278V290L194.0 291V292L240.0 293V298L194.0 298V323L148.0 325V345L194.0 348V357L332.0 359V369L194.0 372V398L240.0 399V412L194.0 412V412L240.0 413V419L194.0 420V442L240.0 443V445L194.0 445V460L240.0 461V472L194.0 473V524L56.0 527"/>
+<path class="mgul" d="M278 327.3L278 353.6 M278 327.5L278 353.0 M279 327.3L279 353.3 M279 327.5L279 353.9 M280 327.4L280 353.6 M280 327.9L280 353.0 M281 327.9L281 353.5 M281 327.2L281 353.8 M282 327.1L282 353.5 M282 327.7L282 353.8 M283 327.2L283 353.3 M283 327.7L283 353.0"/>
+<path class="me-h" d="M52.0 98L190.0 101V109L236.0 110V113L190.0 115V155L236.0 156V168L190.0 169V211L236.0 211V213L190.0 214V216L236.0 217V228L190.0 229V230L236.0 231V237L190.0 238V260L236.0 261V263L190.0 263V277L236.0 278V290L190.0 291V326L282.0 328V353L328.0 357V370L190.0 373V399L236.0 399V411L190.0 412V459L236.0 460V472L190.0 473V512L52.0 515"/>
+<path class="me" d="M52.0 98L190.0 101V109L236.0 110V113L190.0 115V155L236.0 156V168L190.0 169V211L236.0 211V213L190.0 214V216L236.0 217V228L190.0 229V230L236.0 231V237L190.0 238V260L236.0 261V263L190.0 263V277L236.0 278V290L190.0 291V326L282.0 328V353L328.0 357V370L190.0 373V399L236.0 399V411L190.0 412V459L236.0 460V472L190.0 473V512L52.0 515"/>
+<path class="me-g" d="M282 327.6L282 353.4"/>
+<text class="ma me-l" x="182.0" y="139.5" text-anchor="end">один из&nbsp;двадцати</text>
+<g class="mk"><circle cx="330.0" cy="98.3" r="11"/><text x="330.0" y="103.3" text-anchor="middle">1</text></g>
+<g class="mk"><circle cx="260.0" cy="212.2" r="11"/><text x="260.0" y="217.2" text-anchor="middle">2</text></g>
+<g class="mk"><circle cx="330.0" cy="323.1" r="11"/><text x="330.0" y="328.1" text-anchor="middle">3</text></g>
+<g class="mk"><circle cx="330.0" cy="465.8" r="11"/><text x="330.0" y="470.8" text-anchor="middle">4</text></g>
+<g class="mk"><circle cx="330.0" cy="517.5" r="11"/><text x="330.0" y="522.5" text-anchor="middle">5</text></g>
 </svg>
-<figcaption class="weekcap"><span class="capH">Неделя в&nbsp;виде графика движения: по&nbsp;горизонтали дни, по&nbsp;вертикали места; каждая из&nbsp;двадцати линий&nbsp;— один участник.</span><span class="capV">Неделя в&nbsp;виде графика движения: дни идут сверху вниз, места&nbsp;— по&nbsp;горизонтали; каждая из&nbsp;двадцати линий&nbsp;— один участник.</span> Магентой&nbsp;— гулет. Схема, а&nbsp;не&nbsp;расписание: какой день уйдёт на&nbsp;море, решим по&nbsp;погоде.</figcaption>
-<ol class="ends">
-<li><span class="t">Суббота</span><span class="h">Заезд и&nbsp;знакомство</span>Вечером каждый рассказывает о&nbsp;себе три вещи: над&nbsp;чем работает, что&nbsp;хочет унести с&nbsp;собой, чем может помочь другим. Дальше уже сами.</li>
-<li><span class="t">Пятница</span><span class="h">Показываем, что&nbsp;вышло</span>Каждая команда показывает результат недели: рабочий код и&nbsp;честный разбор того, что&nbsp;не&nbsp;получилось.</li>
-<li><span class="t">Суббота</span><span class="h">Разъезд</span>Чат участников остаётся&nbsp;— двадцать человек, которые за&nbsp;неделю успели друг друга узнать. В&nbsp;нём и&nbsp;после кэмпа продолжают спрашивать и&nbsp;отвечать.</li>
+<figcaption class="weekcap"><span class="capH">По&nbsp;горизонтали дни, по&nbsp;вертикали места.</span><span class="capV">Дни идут сверху вниз, места&nbsp;— слева направо.</span> Бледные линии&nbsp;— двадцать участников, одна прочерчена целиком; магентой&nbsp;— гулет, голубым&nbsp;— с&nbsp;часу до&nbsp;пяти. Схема, а&nbsp;не&nbsp;расписание.</figcaption>
+<ol class="wnotes">
+<li><span class="n" aria-hidden="true">1</span><p><b>Суббота: заезд и&nbsp;знакомство.</b> Из&nbsp;аэропорта около часа. Вечером каждый рассказывает о&nbsp;себе три вещи: над&nbsp;чем работает, что&nbsp;хочет унести с&nbsp;собой, чем может помочь другим.</p></li>
+<li><span class="n" aria-hidden="true">2</span><p><b>Понедельник.</b> Тот самый «один из&nbsp;двадцати» ушёл с&nbsp;воркшопа искупаться и&nbsp;через час вернулся.</p></li>
+<li><span class="n" aria-hidden="true">3</span><p><b>День в&nbsp;море</b>&nbsp;— на&nbsp;графике это среда, для примера. Большинство на&nbsp;гулете, кто-то летит с&nbsp;Бабадага или едет в&nbsp;каньон; вечером все сходятся на&nbsp;ужин в&nbsp;Фетхие.</p></li>
+<li><span class="n" aria-hidden="true">4</span><p><b>Пятница: показываем, что&nbsp;вышло.</b> Каждая команда показывает результат недели: рабочий код и&nbsp;честный разбор того, что&nbsp;не&nbsp;получилось.</p></li>
+<li><span class="n" aria-hidden="true">5</span><p><b>Суббота: разъезд.</b> Чат остаётся: двадцать человек, которые успели друг друга узнать, и&nbsp;после кэмпа продолжают в&nbsp;нём спрашивать и&nbsp;отвечать.</p></li>
 </ol>
+<p class="tcta">Если такая неделя вам подходит&nbsp;— <a class="lnk" href="#lead" data-cta="week">оставьте контакт</a>, напишем, когда закрепим даты и&nbsp;отель.</p>
 </figure>
 </div>
 </section>
 
 <!-- ============ ACTIVITIES ============ -->
-<section class="acts" id="acts" aria-labelledby="acts-h">
-<figure class="spread">
+<section class="acts sec" id="acts" aria-labelledby="acts-h">
+<div class="spread">
 <img loading="lazy" src="https://images.pexels.com/photos/17233512/pexels-photo-17233512.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Деревянный гулет в бухте Олюдениза">
-</figure>
+<div class="wrap spread-h"><h2 id="acts-h">Что&nbsp;вокруг</h2></div>
+</div>
 <div class="wrap">
-<div class="alabel">
-<h2 id="acts-h">Что&nbsp;вокруг</h2>
-<p>Почти всё&nbsp;— в&nbsp;пределах часа от&nbsp;отеля; Кекова&nbsp;— выезд на&nbsp;целый день. Что&nbsp;именно возьмём в&nbsp;неделю, решим на&nbsp;месте вместе с&nbsp;группой, по&nbsp;погоде и&nbsp;по&nbsp;настроению.</p>
-</div>
-<p class="spreadcap">Вверху: гулет в&nbsp;бухте у&nbsp;Олюдениза. Фото: Pexels&nbsp;— это не&nbsp;наша лодка, а&nbsp;такая же.</p>
-
-<article class="feat feat-g">
-<div>
-<h3 class="w">Гулет</h3>
-<p class="dur">Целый день. Примерный курс&nbsp;— <a class="lnk" href="#top">на&nbsp;карте в&nbsp;начале страницы</a></p>
-</div>
-<p style="margin:0">Турецкая деревянная яхта: широкая, медленная, с&nbsp;огромной палубой, на&nbsp;которой всем хватает места лечь. Выходим утром и&nbsp;весь день идём вдоль побережья, останавливаясь купаться в&nbsp;бухтах, куда с&nbsp;берега просто нет дороги. Обед готовят на&nbsp;борту, прыгать в&nbsp;воду можно прямо с&nbsp;палубы.</p>
-</article>
-
-<article class="feat feat-p">
-<div>
-<h3>Параплан с&nbsp;Бабадага</h3>
-<p>Гора прямо над&nbsp;Олюденизом. Вас поднимают на&nbsp;машине почти на&nbsp;два километра, дальше вы разбегаетесь в&nbsp;паре с&nbsp;инструктором и&nbsp;минут двадцать-тридцать летите над&nbsp;лагуной, приземляясь на&nbsp;пляж. Готовиться не&nbsp;нужно, опыта тоже.</p>
-<p class="dur">Полдня. Вершина Бабадага&nbsp;— 1969&nbsp;м</p>
-</div>
-<figure class="plate"><img loading="lazy" src="https://images.pexels.com/photos/22121835/pexels-photo-22121835.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Полёт на параплане над Олюденизом"><figcaption>Над&nbsp;лагуной Олюдениза. Фото: Pexels</figcaption></figure>
-</article>
-
-<div class="duo">
-<article class="mid">
-<figure class="plate"><img loading="lazy" src="https://images.pexels.com/photos/7840842/pexels-photo-7840842.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Каякеры на бирюзовой воде"></figure>
-<h3 class="w">Каякинг над&nbsp;Кековой</h3>
-<p>Кекова&nbsp;— остров, у&nbsp;берега которого под&nbsp;водой лежит античный город: землетрясение опустило его под&nbsp;воду, и&nbsp;сквозь прозрачную воду видно ступени, стены и&nbsp;фундаменты домов. Идёте на&nbsp;каяке прямо над&nbsp;ними. Единственный минус&nbsp;— до&nbsp;Кековы далеко.</p>
-<p class="dur">Целый день: далеко на&nbsp;восток, выезд на&nbsp;весь день</p>
-</article>
-<article class="mid">
-<figure class="plate"><img loading="lazy" src="https://images.unsplash.com/photo-1713888205934-9bbf989e141c?w=900&q=80&auto=format&fit=crop" alt="Каньон Сакликент: человек идёт по реке между отвесными стенами"></figure>
-<h3>Каньон Сакликент и&nbsp;спорт попроще</h3>
-<p>Сакликент&nbsp;— ущелье с&nbsp;отвесными стенами в&nbsp;несколько сотен метров, а&nbsp;по&nbsp;дну течёт ледяная горная река, и&nbsp;идти приходится прямо по&nbsp;ней, по&nbsp;колено в&nbsp;воде. В&nbsp;июньскую жару это лучший способ остыть. Волейбол, заплывы наперегонки и&nbsp;утренние пробежки&nbsp;— каждый день и&nbsp;без&nbsp;всякой организации.</p>
-<p class="dur">Каньон&nbsp;— день, полчаса езды; остальное когда захочется</p>
+<div class="gz-top">
+<div class="gz-intro">
+<p class="spreadcap"><span class="lcap">Гулет в&nbsp;бухте у&nbsp;Олюдениза&nbsp;— не&nbsp;наша лодка, а&nbsp;такая же. Фото: Pexels</span></p>
+<p class="dek">Почти всё&nbsp;— в&nbsp;пределах часа от&nbsp;отеля. Что&nbsp;именно возьмём в&nbsp;неделю, решим на&nbsp;месте вместе с&nbsp;группой.</p>
+<p class="gz-scale"><span class="gbar day" aria-hidden="true"><i></i></span>Полоска&nbsp;— световой день: сколько из&nbsp;него займёт.</p>
+<article class="gz-e ga">
+<h3 class="w"><span class="lt">А&#8288;</span> Гулет</h3>
+<p class="gz-d"><span class="gbar day mag"><i></i></span><span>весь день, курс&nbsp;— на&nbsp;схеме</span></p>
+<p class="gz-x">Деревянная турецкая яхта с&nbsp;огромной палубой. Весь день вдоль берега: бухты, куда с&nbsp;суши нет дороги, обед на&nbsp;борту, в&nbsp;воду&nbsp;— прямо с&nbsp;палубы.</p>
 </article>
 </div>
-
-<ul class="arows">
-<li class="arow">
-<img loading="lazy" src="https://images.pexels.com/photos/27468176/pexels-photo-27468176.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Человек ныряет с маской в прозрачной воде">
-<h3 class="w">Дайвинг и&nbsp;снорклинг</h3>
-<p>Вода здесь прозрачная, дно каменистое, рыбы много. Есть погружения с&nbsp;инструктором для&nbsp;тех, кто ни&nbsp;разу не&nbsp;нырял,&nbsp;— сертификат для&nbsp;этого не&nbsp;нужен. Маску и&nbsp;трубку можно просто взять с&nbsp;собой на&nbsp;гулет.</p>
-<p class="dur">Полдня</p>
-</li>
-<li class="arow">
-<img loading="lazy" src="https://images.pexels.com/photos/36579181/pexels-photo-36579181.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Тропа над морем в окрестностях Фетхие">
-<h3><span class="waymark" role="img" aria-label="бело-красная метка Ликийской тропы"></span>Ликийская тропа</h3>
-<p>Пеший маршрут длиной больше пятисот километров вдоль всего побережья&nbsp;— мы берём от&nbsp;него кусок на&nbsp;несколько часов. Тропа идёт по&nbsp;скалам высоко над&nbsp;водой, внизу открываются бухты, куда попадают только с&nbsp;моря. Выходим рано утром, пока не&nbsp;жарко.</p>
-<p class="dur">Полдня</p>
-</li>
-</ul>
+<figure class="gz-map">
+<svg id="chartG" class="chart-svg" viewBox="400 400 800 500" role="img" aria-labelledby="chartGt">
+<title id="chartGt">Схема окрестностей Олюдениза с&nbsp;буквами: А&nbsp;— курс гулета в&nbsp;заливе, Б&nbsp;— Бабадаг, В&nbsp;— стрелка на&nbsp;восток к&nbsp;Кекове, Г&nbsp;— бухты для&nbsp;дайвинга, Д&nbsp;— Ликийская тропа к&nbsp;югу от&nbsp;Олюдениза, Е&nbsp;— каньон Сакликент</title>
+<rect class="sea" x="0" y="0" width="1200" height="964"/>
+<use href="#coast" class="land"/>
+<rect class="land-x" x="1198.5" y="0" width="400" height="964"/>
+<path class="course" stroke-width="3" stroke-dasharray="8 5" d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 456,629 C449,617 437,612 430,610 C423,607 427,600 437,602 C459,606 481,615 505,618 C519,619 529,617 537,615"/>
+<path class="trail-w" d="M548,616 C556,650 566,690 562,730 C558,770 570,800 575,840"/>
+<path class="trail" d="M548,616 C556,650 566,690 562,730 C558,770 570,800 575,840"/>
+<circle class="ring" cx="532" cy="429" r="7"/><text class="ln gp" x="548" y="438">Фетхие</text>
+<circle class="ring" cx="539" cy="604" r="7"/><text class="ln gp" x="556" y="596">Олюдениз</text>
+<path class="peak" d="M650,628 l9,15 h-18z"/><text class="ln gp" x="650" y="672" text-anchor="middle">Бабадаг</text>
+<circle class="dot" cx="1093" cy="800" r="5"/><text class="ln gp" x="1093" y="776" text-anchor="middle">Сакликент</text>
+<path d="M1062,872 H1188 m-14,-9 l14,9 l-14,9" fill="none" stroke="#18232E" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+<text class="ln gp wn" x="1188" y="858" text-anchor="end">к&nbsp;Кекове</text>
+<g class="gl w"><circle cx="472" cy="722"/><text x="472" y="722">А&#8288;</text></g>
+<g class="gl"><circle cx="696" cy="626"/><text x="696" y="626">Б&#8288;</text></g>
+<g class="gl w"><circle cx="1034" cy="872"/><text x="1034" y="872">В&#8288;</text></g>
+<g class="gl w"><circle cx="500" cy="800"/><text x="500" y="800">Г&#8288;</text></g>
+<g class="gl"><circle cx="612" cy="780"/><text x="612" y="780">Д&#8288;</text></g>
+<g class="gl"><circle cx="1046" cy="800"/><text x="1046" y="800">Е&#8288;</text></g>
+</svg>
+<figcaption>Магентой&nbsp;— курс гулета, примерный. Берег: ©&nbsp;OpenStreetMap contributors.</figcaption>
+</figure>
 </div>
+
+<div class="gz-list">
+<article class="gz-e gb">
+<div class="gz-t">
+<h3><span class="lt">Б&#8288;</span> Параплан с&nbsp;Бабадага</h3>
+<p class="gz-d"><span class="gbar half"><i></i></span><span>полдня</span></p>
+<p class="gz-x">Гора прямо над&nbsp;Олюденизом, 1969&nbsp;м. Машина поднимает почти на&nbsp;два километра, дальше разбег в&nbsp;паре с&nbsp;инструктором и&nbsp;20–30&nbsp;минут над&nbsp;лагуной до&nbsp;пляжа. Опыт не&nbsp;нужен.</p>
+</div>
+<figure class="plate"><img loading="lazy" src="https://images.pexels.com/photos/22121835/pexels-photo-22121835.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Полёт на параплане над Олюденизом"><figcaption class="lcap">Над&nbsp;лагуной Олюдениза. Фото: Pexels</figcaption></figure>
+</article>
+
+<article class="gz-e gv">
+<figure class="plate"><img loading="lazy" src="https://images.pexels.com/photos/7840842/pexels-photo-7840842.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Каякеры на бирюзовой воде"><figcaption class="lcap">Каяки на&nbsp;бирюзовой воде. Фото: Pexels</figcaption></figure>
+<div class="gz-t">
+<h3 class="w"><span class="lt">В&#8288;</span> Каякинг над&nbsp;Кековой</h3>
+<p class="gz-d"><span class="gbar day"><i></i></span><span>весь день, далеко на&nbsp;восток</span></p>
+<p class="gz-x">Под&nbsp;водой у&nbsp;острова лежит античный город: ступени, стены, фундаменты домов&nbsp;— и&nbsp;вы на&nbsp;каяке прямо над&nbsp;ними.</p>
+</div>
+</article>
+
+<div class="gz-rows">
+<article class="gz-e gc">
+<img class="th" loading="lazy" src="https://images.pexels.com/photos/27468176/pexels-photo-27468176.jpeg?auto=compress&cs=tinysrgb&w=360" alt="Человек ныряет с маской в прозрачной воде">
+<h3 class="w"><span class="lt">Г&#8288;</span> Дайвинг и&nbsp;снорклинг</h3>
+<p class="gz-d"><span class="gbar half"><i></i></span><span>полдня</span></p>
+<p class="gz-x">Вода прозрачная, рыбы много. С&nbsp;инструктором можно нырять и&nbsp;впервые, без&nbsp;сертификата; маску и&nbsp;трубку&nbsp;— на&nbsp;гулет.</p>
+</article>
+<article class="gz-e gc">
+<img class="th" loading="lazy" src="https://images.pexels.com/photos/36579181/pexels-photo-36579181.jpeg?auto=compress&cs=tinysrgb&w=360" alt="Тропа над морем в окрестностях Фетхие">
+<h3><span class="lt">Д&#8288;</span> <span class="waymark" role="img" aria-label="бело-красная метка Ликийской тропы"></span>Ликийская тропа</h3>
+<p class="gz-d"><span class="gbar half"><i></i></span><span>полдня, выходим рано</span></p>
+<p class="gz-x">Кусок маршрута длиной больше пятисот километров: по&nbsp;скалам над&nbsp;бухтами, куда попадают только с&nbsp;моря.</p>
+</article>
+</div>
+
+<article class="gz-e ge">
+<div class="gz-t">
+<h3><span class="lt">Е&#8288;</span> Каньон Сакликент</h3>
+<p class="gz-d"><span class="gbar day"><i></i></span><span>день, полчаса езды</span></p>
+<p class="gz-x">Стены в&nbsp;сотни метров, а&nbsp;идти приходится по&nbsp;ледяной реке, по&nbsp;колено в&nbsp;воде. В&nbsp;июньскую жару&nbsp;— лучший способ остыть.</p>
+<p class="gz-foot">Без&nbsp;карты: волейбол, заплывы наперегонки и&nbsp;утренние пробежки&nbsp;— каждый день и&nbsp;без&nbsp;всякой организации.</p>
+</div>
+<figure class="plate"><img loading="lazy" src="https://images.unsplash.com/photo-1713888205934-9bbf989e141c?w=1000&q=80&auto=format&fit=crop" alt="Каньон Сакликент: человек идёт по реке между отвесными стенами"><figcaption class="lcap">Сакликент. Фото: Unsplash</figcaption></figure>
+</article>
+</div>
+</div>
+
 <article class="nightband" id="evenings" aria-labelledby="eve-h">
 <img loading="lazy" src="https://images.pexels.com/photos/13420881/pexels-photo-13420881.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Компания сидит на берегу ночью под звёздами">
 <div class="wrap"><div class="ntxt">
@@ -494,10 +1100,12 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 </figure>
 </div>
 
-<div class="strip">
-<figure class="plate"><img loading="lazy" src="https://images.unsplash.com/photo-1641630649458-13135455aaf7?w=1000&q=80&auto=format&fit=crop" alt="Пляж Олюдениза с высоты"><figcaption><i>Пляж Олюдениза</i> с&nbsp;высоты. Фото: Unsplash</figcaption></figure>
-<figure class="plate"><img loading="lazy" src="https://images.pexels.com/photos/33630775/pexels-photo-33630775.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Два стакана турецкого чая на столике у моря"><figcaption>Чай в&nbsp;стаканчиках у&nbsp;воды. Фото: Pexels</figcaption></figure>
-</div>
+<figure class="plate strip">
+<img loading="lazy" src="https://images.unsplash.com/photo-1641630649458-13135455aaf7?w=1000&q=80&auto=format&fit=crop" alt="Пляж Олюдениза с высоты">
+<img loading="lazy" src="https://images.pexels.com/photos/33630775/pexels-photo-33630775.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Два стакана турецкого чая на столике у моря">
+<figcaption><i>Пляж Олюдениза</i> с&nbsp;высоты и&nbsp;чай в&nbsp;стаканчиках у&nbsp;воды. Фото: Unsplash, Pexels</figcaption>
+</figure>
+<p class="tcta">Хотите первыми узнать, где именно будем жить,&nbsp;— <a class="lnk" href="#lead" data-cta="place">оставьте телеграм</a>.</p>
 </div>
 </section>
 
@@ -612,10 +1220,11 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 </div>
 <div class="axis" aria-hidden="true"><span></span>
 <div class="ticks tnum"><span style="left:0%">130</span><span class="tk-m" style="left:13.33%">140</span><span style="left:26.67%">150</span><span class="tk-m" style="left:40%">160</span><span style="left:53.33%">170</span><span class="tk-m" style="left:66.67%">180</span><span class="tk-m" style="left:80%">190</span><span style="left:93.33%">200</span></div>
+<span class="aunit">тыс.&nbsp;₽ за&nbsp;неделю</span>
 </div>
 <div class="ceil" aria-hidden="true"><span>200&nbsp;— потолок, выше не&nbsp;будет</span></div>
 </div>
-<p class="firstp">Тысяч рублей за&nbsp;неделю. Кто оставит контакт сейчас, получит цену первого потока&nbsp;— она будет ниже, чем у&nbsp;следующих.</p>
+<p class="firstp">Кто оставит контакт сейчас, получит цену первого потока&nbsp;— она будет ниже, чем у&nbsp;следующих.</p>
 
 <div class="incl">
 <div>
@@ -667,15 +1276,14 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <div class="wrap crew-grid">
 <h2 id="crew-h">«Мы»&nbsp;— это кто?</h2>
 <div>
-<p class="big">Кэмп делают DS и&nbsp;<span class="nw">ML-специалисты</span>: продовые модели, исследования, команды в&nbsp;России и&nbsp;за&nbsp;её пределами.</p>
-<p>Организацией занимаемся сами, без&nbsp;ивент-агентства и&nbsp;образовательной платформы: подходящего формата не&nbsp;нашли и&nbsp;решили собрать свой.</p>
+<p>Кэмп делают DS и&nbsp;<span class="nw">ML-специалисты</span>. Организацией занимаемся сами, без&nbsp;ивент-агентства и&nbsp;образовательной платформы: подходящего формата не&nbsp;нашли и&nbsp;решили собрать свой.</p>
 <p style="margin:0">Программу ведём сами и&nbsp;зовём знакомых, которым есть что&nbsp;рассказать. Первый поток маленький намеренно: двадцать человек&nbsp;— тот размер, за&nbsp;который можно отвечать лично.</p>
 <!-- Судовая роль: новые строки добавляйте по образцу из шаблона crewRow ниже: фото 112×112, имя, чем занимается, ссылка -->
 <table class="roll">
 <caption>Судовая роль</caption>
 <thead><tr><th scope="col">Кто</th><th scope="col">Чем занимается в&nbsp;ML</th><th scope="col">Связь</th></tr></thead>
 <tbody id="crewRoll">
-<tr><td class="nm">Организаторы</td><td>Продовые модели, исследования, команды в&nbsp;России и&nbsp;за&nbsp;её пределами</td><td><a class="lnk" href="https://t.me/" id="tgLink3" target="_blank" rel="noopener">телеграм</a></td></tr>
+<tr><td class="nm">Организаторы</td><td>Продовые модели, исследования, команды в&nbsp;России и&nbsp;за&nbsp;её пределами</td><td><a class="lnk" href="https://t.me/" id="tgLink3" target="_blank" rel="noopener">написать в&nbsp;телеграм</a></td></tr>
 </tbody>
 </table>
 <template id="crewRow"><tr><td class="nm"><img class="face" src="" alt="" width="56" height="56" loading="lazy"><span></span></td><td></td><td><a class="lnk" href="" target="_blank" rel="noopener"></a></td></tr></template>
@@ -700,7 +1308,8 @@ d="M537,615 C522,630 521,652 534,665 C541,674 533,687 514,684 C490,679 469,652 4
 <div class="fwrap">
 <svg class="fcourse" viewBox="0 0 420 200" preserveAspectRatio="none" aria-hidden="true"><path d="M-40,8 C120,10 190,60 250,110 C300,150 360,168 414,170"/><circle cx="414" cy="170" r="6"/></svg>
 <div class="fbox">
-<svg class="edge" aria-hidden="true"><defs><pattern id="tk" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="20" height="40" fill="#18232E"/></pattern><pattern id="tkv" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#18232E"/></pattern></defs><rect x=".5" y=".5" width="100%" height="5" fill="url(#tk)" stroke="#18232E" stroke-width="1"/><rect x=".5" y=".5" width="5" height="100%" fill="url(#tkv)" stroke="#18232E" stroke-width="1"/></svg>
+<svg class="edge" aria-hidden="true"><defs><pattern id="tk" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="20" height="40" fill="#18232E"/></pattern><pattern id="tkv" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#18232E"/></pattern></defs><rect x=".5" y=".5" width="100%" height="5" fill="url(#tk)"/><rect x=".5" y=".5" width="5" height="100%" fill="url(#tkv)"/><rect x=".5" y="100%" transform="translate(0,-5.5)" width="100%" height="5" fill="url(#tk)"/><rect x="100%" y=".5" transform="translate(-5.5,0)" width="5" height="100%" fill="url(#tkv)"/></svg>
+
 <form id="leadForm" novalidate>
 <div class="prog" aria-hidden="true"><i class="on" id="p1"></i><i id="p2"></i><span id="pl">Шаг 1&nbsp;из&nbsp;2</span></div>
 <div id="errBox" class="err" role="alert" style="display:none"></div>
